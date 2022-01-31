@@ -5,7 +5,12 @@ import { Home } from './components/Home';
 import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import { Test } from './components/Test';
+
 import { Character } from './components/Character';
+
+import TestHook from './components/TestHook';
+
+
 import './custom.css'
 
 export default class App extends Component {
@@ -18,7 +23,11 @@ export default class App extends Component {
         <Route path='/counter' component={Counter} />
         <Route path='/fetch-data' component={FetchData} />
         <Route path='/test' component={Test} />
+
         <Route path='/character' component={Character} />
+
+        <Route path='/testHook' component={TestHook} />
+
       </Layout>
     );
   }

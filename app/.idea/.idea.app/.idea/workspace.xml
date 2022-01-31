@@ -6,16 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Controllers/PizzaController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Pizza.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/PizzaService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/ClientApp/src/components/TestHook.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/FetchData.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/FetchData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/NavMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/NavMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Test.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +44,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="16.13.2" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.21" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="HotReloadSettingsPage" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="ts.external.directory.path" value="C:\Users\User-14\Desktop\characterTracker\app\app\ClientApp\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -122,8 +118,16 @@
       <updated>1643617783145</updated>
       <workItem from="1643617787407" duration="8000" />
       <workItem from="1643620460538" duration="185000" />
-      <workItem from="1643623077908" duration="10867000" />
+      <workItem from="1643623077908" duration="13436000" />
     </task>
+    <task id="LOCAL-00001" summary="[Test] add new route pizza">
+      <created>1643637083134</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1643637083134</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +174,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="[Test] add new route pizza" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Test] add new route pizza" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
