@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 export class Test extends Component {
   static displayName = Test.name;
@@ -14,34 +14,34 @@ export class Test extends Component {
 
   static rendPizza(pizzas) {
     return (
-      <table className='table table-striped' aria-labelledby="tabelLabel">
+      <table className="table table-striped" aria-labelledby="tabelLabel">
         <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>GlutenFree</th>
-        </tr>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>GlutenFree</th>
+          </tr>
         </thead>
         <tbody>
-        { pizzas.map(pizza =>
-          <tr key={ pizza.id }>
-            <td>{ pizza.id }</td>
-            <td>{ pizza.name }</td>
-            <td>{ pizza.isGlutenFree.toString() }</td>
-          </tr>
-        ) }
+          {pizzas.map((pizza) => (
+            <tr key={pizza.id}>
+              <td>{pizza.id}</td>
+              <td>{pizza.name}</td>
+              <td>{pizza.isGlutenFree.toString()}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
-    )
+    );
   }
 
   render() {
-    const pizza = Test.rendPizza(this.state.pizzas)
+    const pizza = Test.rendPizza(this.state.pizzas);
 
     return (
       <div>
         <h1>Test</h1>
-        { pizza }
+        {pizza}
       </div>
     );
   }
