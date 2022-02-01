@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2022-01-27" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="3.1.3100" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2022-01-27" view-index="0" gantt-divider-location="454" resource-divider-location="300" version="3.1.3103" locale="fr_FR">
     <description/>
     <view zooming-state="default:2" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="167" order="0"/>
-        <field id="tpd4" name="Date de début" width="65" order="1"/>
-        <field id="tpd5" name="Date de fin" width="64" order="2"/>
+        <field id="tpd3" name="Nom" width="311" order="0"/>
+        <field id="tpd4" name="Date de début" width="69" order="1"/>
+        <field id="tpd5" name="Date de fin" width="70" order="2"/>
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="210" order="0"/>
@@ -33,7 +33,7 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="créer la BDD" color="#8cb6ce" meeting="false" start="2022-02-02" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+        <task id="0" name="Créer la BDD" color="#8cb6ce" meeting="false" start="2022-02-02" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
             <depend id="1" type="2" difference="0" hardness="Strong"/>
         </task>
         <task id="1" name="Définir les différentes routes/données API" color="#8cb6ce" meeting="false" start="2022-02-03" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
@@ -54,29 +54,21 @@
             <depend id="15" type="2" difference="0" hardness="Strong"/>
         </task>
         <task id="7" name="Gérer les relations publiques, privées ou secrètes" color="#8cb6ce" meeting="false" start="2022-02-10" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
-            <depend id="8" type="2" difference="0" hardness="Strong"/>
-        </task>
-        <task id="8" name="Gérer les relations personnelles" color="#8cb6ce" meeting="false" start="2022-02-11" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
             <depend id="9" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="9" name="Recherche scema, user,personnage" color="#8cb6ce" meeting="false" start="2022-02-14" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+        <task id="9" name="Recherche schema, user, personnage" color="#8cb6ce" meeting="false" start="2022-02-11" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
             <depend id="14" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="10" name="définir étapes du projet" meeting="false" start="2022-01-27" duration="1" complete="0" expand="true">
-            <depend id="12" type="2" difference="0" hardness="Strong"/>
-        </task>
-        <task id="11" name="valider ou modifier la maquette" color="#8cb6ce" meeting="false" start="2022-02-01" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+        <task id="11" name="Valider ou modifier la maquette" color="#8cb6ce" meeting="false" start="2022-02-01" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
             <depend id="0" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="12" name="modifier diagramme gant pert, mcd" color="#8cb6ce" meeting="false" start="2022-01-28" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+        <task id="12" name="Modifier diagramme gant, pert, MCD" color="#8cb6ce" meeting="false" start="2022-01-28" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
             <depend id="13" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="13" name="problématique des dates, calendrier" color="#8cb6ce" meeting="false" start="2022-01-31" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
-            <depend id="11" type="2" difference="0" hardness="Strong"/>
-        </task>
-        <task id="14" name="représentation graphique" color="#8cb6ce" meeting="false" start="2022-02-15" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true"/>
-        <task id="15" name="gérer évolution de la relation dans le temps" color="#8cb6ce" meeting="false" start="2022-02-10" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true"/>
-        <task id="16" name="user group" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true"/>
+        <task id="13" name="Problématique des dates, calendrier" color="#8cb6ce" meeting="false" start="2022-01-31" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true"/>
+        <task id="14" name="Représentation graphique" color="#8cb6ce" meeting="false" start="2022-02-14" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true"/>
+        <task id="15" name="Gérer l'évolution de la relation dans le temps" color="#8cb6ce" meeting="false" start="2022-02-10" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true"/>
+        <task id="16" name="Gérer les groupes d'utilisateurs" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>
