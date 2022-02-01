@@ -2,30 +2,30 @@
 # Liste des taches #
 ####################
 
-Créer la BDD
+Valider la maquette                                             1
 
-Définir les différentes routes données API
+Valider diagramme gantt, pert, MCD                              2
 
-Gestion Utilisateurs
+Créer la BDD                                                    3
 
-Gérer les schémas
+Définir les différentes routes données API                      4
 
-Gérer des personnages
+Gestion utilisateurs                                            5
 
-Gérer les relations entre les personnages
+Gérer les schémas                                               6
 
-Gérer les relations publiques, privées ou secrètes
+Gérer les personnages                                           7
 
-Recherche scheman, user, personnage
+Gérer les relations entre les personnages                       8
 
-Valider ou modifier la maquette
+Gérer les relations publiques, privées ou secrètes              9
 
-Modifier diagramme gantt, pert, MCD
+Problématique des dates, calendrier                             10
 
-Problématique des dates, calendrier
+Recherche scheman, user, personnages                            11
 
-Représentation graphique
+Représentation graphique                                        12
 
-Gérer l'évolution de la relation dans le tmp
+Gérer l'évolution de la relation dans le temps                  13
 
-Gérer les groupes d'utilisateurs
+Gérer les groupes d'utilisateurs                                14
