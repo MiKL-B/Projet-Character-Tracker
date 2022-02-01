@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2022-01-27" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="3.1.3103" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2022-01-27" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="3.1.3100" locale="fr_FR">
     <description/>
     <view zooming-state="default:2" id="gantt-chart">
         <field id="tpd3" name="Nom" width="167" order="0"/>
@@ -33,6 +33,50 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
+        <task id="0" name="créer la BDD" color="#8cb6ce" meeting="false" start="2022-02-02" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+            <depend id="1" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="1" name="Définir les différentes routes/données API" color="#8cb6ce" meeting="false" start="2022-02-03" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+            <depend id="2" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="2" name="Gestion Utilisateurs" color="#8cb6ce" meeting="false" start="2022-02-04" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+            <depend id="3" type="2" difference="0" hardness="Strong"/>
+            <depend id="16" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="3" name="Gérer les schémas" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+            <depend id="5" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="5" name="Gérer des personnages" color="#8cb6ce" meeting="false" start="2022-02-08" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+            <depend id="6" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="6" name="Gérer relation entre personnages" color="#8cb6ce" meeting="false" start="2022-02-09" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+            <depend id="7" type="2" difference="0" hardness="Strong"/>
+            <depend id="15" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="7" name="Gérer les relations publiques, privées ou secrètes" color="#8cb6ce" meeting="false" start="2022-02-10" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+            <depend id="8" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="8" name="Gérer les relations personnelles" color="#8cb6ce" meeting="false" start="2022-02-11" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+            <depend id="9" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="9" name="Recherche scema, user,personnage" color="#8cb6ce" meeting="false" start="2022-02-14" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+            <depend id="14" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="10" name="définir étapes du projet" meeting="false" start="2022-01-27" duration="1" complete="0" expand="true">
+            <depend id="12" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="11" name="valider ou modifier la maquette" color="#8cb6ce" meeting="false" start="2022-02-01" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+            <depend id="0" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="12" name="modifier diagramme gant pert, mcd" color="#8cb6ce" meeting="false" start="2022-01-28" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+            <depend id="13" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="13" name="problématique des dates, calendrier" color="#8cb6ce" meeting="false" start="2022-01-31" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true">
+            <depend id="11" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="14" name="représentation graphique" color="#8cb6ce" meeting="false" start="2022-02-15" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true"/>
+        <task id="15" name="gérer évolution de la relation dans le temps" color="#8cb6ce" meeting="false" start="2022-02-10" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true"/>
+        <task id="16" name="user group" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>
