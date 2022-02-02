@@ -6,15 +6,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Controllers/AccountController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Account.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/CharacterTrackerContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/GroupUser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Test.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Character.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Test.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/TestHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/TestHook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +61,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -141,7 +150,9 @@
       <workItem from="1643617787407" duration="8000" />
       <workItem from="1643620460538" duration="185000" />
       <workItem from="1643623077908" duration="15622000" />
-      <workItem from="1643641941175" duration="447000" />
+      <workItem from="1643641941175" duration="2071000" />
+      <workItem from="1643701712125" duration="8723000" />
+      <workItem from="1643785982155" duration="17086000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -157,7 +168,21 @@
       <option name="project" value="LOCAL" />
       <updated>1643639723974</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add prettier">
+      <created>1643642448580</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1643642448580</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update MCD BDD">
+      <created>1643727336980</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1643727336980</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +236,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="[Test] add new route pizza" />
     <MESSAGE value="add Test Component HOOK style" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Test Component HOOK style" />
+    <MESSAGE value="add prettier" />
+    <MESSAGE value="update MCD BDD" />
+    <option name="LAST_COMMIT_MESSAGE" value="update MCD BDD" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,8 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using app.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<CharacterTrackerContext>(opt =>
+  opt.UseNpgsql("Server=localhost;Port=5432;Database=characterTracker;User Id=postgres;Password=postgres"));
 
 var app = builder.Build();
 
