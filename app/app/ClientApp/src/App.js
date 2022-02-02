@@ -8,7 +8,8 @@ import { Test } from './components/Test';
 import { Character } from './components/Character';
 import TestHook from './components/TestHook';
 
-import { Connection } from './components/Connection';
+import { SignUp } from './components/SignUp';
+import { SignIn } from './components/SignIn';
 import { MySchema } from './components/MySchema';
 import { MyGroup } from './components/MyGroup';
 import { SettingsUser } from './components/SettingsUser';
@@ -34,7 +35,8 @@ export default class App extends Component {
         <Route path='/character' component={Character} />
         <Route path='/testHook' component={TestHook} />
 
-            <Route path='/connection' component={Connection} />
+            <Route path='/sign-up' component={SignUp} />
+            <Route path='/sign-in' component={SignIn} />
             <Route path='/my-schema' component={MySchema} />
             <Route path='/my-group' component={MyGroup} />
             <Route path='/settings' component={SettingsUser} />

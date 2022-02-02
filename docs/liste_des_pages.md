@@ -4,6 +4,8 @@
 
 Page Index
 
+Page Inscription
+
 Page Connection
 
 Page utilisateur "mes schemas"
