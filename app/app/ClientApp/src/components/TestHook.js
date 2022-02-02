@@ -1,34 +1,35 @@
 import { useEffect, useState } from "react";
 
 const TestHook = () => {
-  const [pizzas, setPizzas] = useState([]);
+  const [accounts, setAccounts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("pizza");
+      const response = await fetch("account");
       const data = await response.json();
-      setPizzas(data);
+      console.log(data);
+      setAccounts(data);
     };
 
     fetchData();
   }, []);
 
-  const RendPizza = () => {
+  const Rend = () => {
     return (
       <table className="table table-striped" aria-labelledby="tabelLabel">
         <thead>
           <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>GlutenFree</th>
+            <th>Email</th>
           </tr>
         </thead>
         <tbody>
-          {pizzas.map((pizza) => (
-            <tr key={pizza.id}>
-              <td>{pizza.id}</td>
-              <td>{pizza.name}</td>
-              <td>{pizza.isGlutenFree.toString()}</td>
+          {accounts.map((account) => (
+            <tr key={account.id}>
+              <td>{account.id}</td>
+              <td>{account.username}</td>
+              <td>{account.mail}</td>
             </tr>
           ))}
         </tbody>
@@ -38,8 +39,8 @@ const TestHook = () => {
 
   return (
     <div>
-      <h1>Test</h1>
-      <RendPizza />
+      <h1>Test From DB</h1>
+      <Rend />
     </div>
   );
 };
