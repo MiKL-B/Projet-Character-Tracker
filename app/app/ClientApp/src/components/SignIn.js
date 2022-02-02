@@ -7,6 +7,8 @@ export class SignIn extends Component {
         return (
             <div>
                 <h1>Connection</h1>
+                <div class="container-fluid ps-md-0">
+                </div>
             </div>
         );
     }

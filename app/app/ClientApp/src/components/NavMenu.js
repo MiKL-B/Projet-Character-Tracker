@@ -21,16 +21,26 @@ export class NavMenu extends Component {
     });
   }
 
-
     render() {
         return (
             <header>
                 <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
                     <Container>
-                        <NavbarBrand tag={Link} to="/">app</NavbarBrand>
+                        <NavbarBrand tag={Link} to="/">Character Tracker</NavbarBrand>
                         <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
                             <ul className="navbar-nav flex-grow">
+                                {/* Search bar */}
+                                <input placeholder="Search Character Tracker" />
+
+                                {/* Link */}
+                                <NavItem>
+                                    <NavLink tag={Link} className="text-dark" to="/sign-in">Sign In</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={Link} className="text-dark" to="/sign-up">Sign Up</NavLink>
+                                </NavItem>
+                                {/* 
                                 <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
                                 </NavItem>
@@ -49,6 +59,7 @@ export class NavMenu extends Component {
                                 <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="/testHook">Test Hook</NavLink>
                                 </NavItem>
+                                */ }
                             </ul>
                         </Collapse>
                     </Container>
@@ -56,7 +67,4 @@ export class NavMenu extends Component {
             </header>
         );
     }
-
-
-
 }
