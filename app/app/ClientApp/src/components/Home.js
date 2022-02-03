@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import "./Home.css";
-export class Home extends Component {
-  static displayName = Home.name;
 
+export class Home extends Component {
+    static displayName = Home.name;
+
+<<<<<<< Updated upstream
   render() {
     return (
       <div>
@@ -19,7 +21,54 @@ export class Home extends Component {
       </div>
     );
   }
+=======
+    render() {
+        return (
+            <div>
+                <div class="home-container-with-bg-img">
+                    <div class="container">
+                        <div class="row">
+                            <div class="home-block col">
+                                <h1>Character Tracker</h1>
+                                <p>Un système vous permettant de créer des relations entre vos personnages de séries préférées</p>
+                            </div>
+                            <div class="home-block col">
+                                {/*
+                                <h1>Character Tracker</h1>
+                                <p>Un système vous permettant de créer des relations entre vos personnages de séries préférées</p>
+                                */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+>>>>>>> Stashed changes
 }
+
+{/*
+                <div class="home-container-with-bg-img">
+                    <div class="container">
+                        <div class="row">
+                            <div class="home-block-left d-block col-md-4 col-lg-6 col">
+                                <h1>Character Tracker</h1>
+                                <p>Un système vous permettant de créer des relations entre vos personnages de séries préférées</p>
+                            </div>
+
+                            <div class="home-block-rigth d-block col-md-4 col-lg-6 col">
+                                <h1>Character Tracker</h1>
+                                <p>lol</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                */}
+
+{/*
+                    <div class="home-info">
+                    </div>
+                    */}
 
 {/* <h1>Hello, world!</h1>
         <p>Welcome to your new single-page application, built with:</p>
