@@ -1,4 +1,4 @@
-CREATE DATABASE characterTracker;
+
 DROP TABLE IF EXISTS GROUP_ACCOUNT;
 DROP TABLE IF EXISTS GROUP_PERMISSION_SCHEMA;
 DROP TABLE IF EXISTS RELATION;
@@ -73,9 +73,9 @@ CREATE TABLE Race(
 );
 
 CREATE TABLE Privacy(
-   Id_Privacy SERIAL,
+   id_Privacy SERIAL,
    type_privacy VARCHAR(50)  NOT NULL,
-   PRIMARY KEY(Id_Privacy)
+   PRIMARY KEY(id_Privacy)
 );
 
 CREATE TABLE Personage(
@@ -106,14 +106,14 @@ CREATE TABLE RELATION(
    target INTEGER,
    id_privacy INTEGER,
    id_event INTEGER,
-   id_relation VARCHAR(50)  NOT NULL,
+   id_relation SERIAL NOT NULL,
    relationship VARCHAR(50) ,
    affinity INTEGER,
    PRIMARY KEY(actor, target, Id_Privacy, id_event),
    UNIQUE(id_relation),
    FOREIGN KEY(actor) REFERENCES Personage(id_personage),
    FOREIGN KEY(target) REFERENCES Personage(id_personage),
-   FOREIGN KEY(Id_Privacy) REFERENCES Privacy(Id_Privacy),
+   FOREIGN KEY(id_Privacy) REFERENCES Privacy(id_Privacy),
    FOREIGN KEY(id_event) REFERENCES Event(id_event)
 );
 
@@ -157,11 +157,11 @@ VALUES  (false,'GOT','schema de games of thrones la serie tv',false),
 
 
 INSERT INTO Personage(lastname_pers,firstname_pers,birthdate_pers,deathdate_pers,gender_pers,id_race,id_schema)
-VALUES  ('snow','jon','1980','2020','homme',13,5),
-		('indiana','jones','1980','2024','homme',14,5),
-		('Reine des neiges','Elsa','1980','2400','femme',15,6),
-		('Michel','Maurice','1980','2020','homme',16,5),
-		('SkyWalker','Luke','1980','2020','jedi',18,5);
+VALUES  ('snow','jon','1980','2020','homme',1,1),
+		('indiana','jones','1980','2024','homme',2,2),
+		('Reine des neiges','Elsa','1980','2400','femme',1,2),
+		('Michel','Maurice','1980','2020','homme',3,1),
+		('SkyWalker','Luke','1980','2020','jedi',4,1);
 
 INSERT INTO Family(name_family,desc_family)
 VALUES  ('Skywalker','la famille a luke'),
@@ -191,8 +191,8 @@ VALUES ('1980',1,'premiere relation','teletravail','relation surtout tele');
 INSERT INTO Privacy(type_privacy)
 VALUES ('secrete');
 
-INSERT INTO Relation(actor,target,id_privacy,id_event,relationship,affinity)
-VALUES (1,2,1,1,'cousins','haine');
+INSERT INTO Relation(actor,target,id_privacy,id_event,id_relation,relationship,affinity)
+VALUES (1,2,1,1,1,'cousins',5);
 
 
 
