@@ -10,5 +10,5 @@ public class Account
   [Column("password")] public string? Password { get; set; }
   [Column("mail")] public string? Mail { get; set; }
   [Column("is_admin")] public bool? IsAdmin { get; set; }
-  [Column("img_user")] public string? ImgUser { get; set; }
+  [Column("img_user")] public string? Img { get; set; }
 }

@@ -6,23 +6,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Controllers/AccountController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Account.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/CharacterTrackerContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/GroupUser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Event.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Family.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/FamilyPersonage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/GroupAccount.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/GroupPermissionSchema.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Permission.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Personage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Privacy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Race.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Relation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Schema.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Character.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/TestHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/TestHook.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Account.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/GroupUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/GroupUser.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +76,7 @@
     <property name="ts.external.directory.path" value="C:\Users\User-14\Desktop\characterTracker\app\app\ClientApp\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.app">
+  <component name="RunManager" selected="npm.start">
     <configuration name="app" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/app/app.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net6.0" />
@@ -152,7 +149,8 @@
       <workItem from="1643623077908" duration="15622000" />
       <workItem from="1643641941175" duration="2071000" />
       <workItem from="1643701712125" duration="8723000" />
-      <workItem from="1643785982155" duration="17086000" />
+      <workItem from="1643785982155" duration="18603000" />
+      <workItem from="1643872878358" duration="5057000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -182,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643727336980</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add db connection + test fetch data from db">
+      <created>1643814023977</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1643814023977</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +243,8 @@
     <MESSAGE value="add Test Component HOOK style" />
     <MESSAGE value="add prettier" />
     <MESSAGE value="update MCD BDD" />
-    <option name="LAST_COMMIT_MESSAGE" value="update MCD BDD" />
+    <MESSAGE value="add db connection + test fetch data from db" />
+    <option name="LAST_COMMIT_MESSAGE" value="add db connection + test fetch data from db" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
