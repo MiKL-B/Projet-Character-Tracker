@@ -35,15 +35,23 @@ export class NavMenu extends Component {
                             <ul className="navbar-nav flex-grow">
                                 {/* Search bar */}
                                 <input placeholder="Search Character Tracker" />
-
                                 {/* Link */}
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/sign-in">Sign In</NavLink>
+                                    <NavLink tag={Link} className="navlinkhover text-dark" to="/sign-in">Sign In</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/sign-up">Sign Up</NavLink>
-                                </NavItem>
-                                {/* 
+                                    <NavLink tag={Link} className="navlinkhover text-dark" to="/sign-up">Sign Up</NavLink>
+                                </NavItem>    
+                            </ul>
+                        </Collapse>
+                    </Container>
+                </Navbar>
+            </header>
+        );
+    }
+}
+
+{/* 
                                 <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
                                 </NavItem>
@@ -63,11 +71,3 @@ export class NavMenu extends Component {
                                     <NavLink tag={Link} className="text-dark" to="/testHook">Test Hook</NavLink>
                                 </NavItem>
                                 */ }
-                            </ul>
-                        </Collapse>
-                    </Container>
-                </Navbar>
-            </header>
-        );
-    }
-}

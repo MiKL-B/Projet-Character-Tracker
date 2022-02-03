@@ -26,6 +26,10 @@ input {
     font-size: 14px;
 }
 
+.navlinkhover:hover {
+    color: #2699FB !important;
+}
+
 img {
     position: relative;
     /*transition: top ease 0.5s;*/
