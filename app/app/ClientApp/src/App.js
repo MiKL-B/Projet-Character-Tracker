@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import { Route } from "react-router";
 import { Layout } from "./components/Layout";
 import { Home } from "./components/Home";
-import { FetchData } from "./components/FetchData";
-import { Counter } from "./components/Counter";
-import TestHook from "./components/TestHook";
-
 import { SignUp } from "./components/SignUp";
 import { SignIn } from "./components/SignIn";
 import { MySchema } from "./components/MySchema";
@@ -17,7 +13,6 @@ import { ModificationEvent } from "./components/ModificationEvent";
 import { ShowSchema } from "./components/ShowSchema";
 import { ShowSearch } from "./components/ShowSearch";
 import { Admin } from "./components/Admin";
-
 import "./custom.css";
 
 export default class App extends Component {
@@ -27,9 +22,6 @@ export default class App extends Component {
     return (
       <Layout>
         <Route exact path="/" component={Home} />
-        <Route path="/counter" component={Counter} />
-        <Route path="/fetch-data" component={FetchData} />
-        <Route path="/testHook" component={TestHook} />
         <Route path="/sign-up" component={SignUp} />
         <Route path="/sign-in" component={SignIn} />
         <Route path="/my-schema" component={MySchema} />
@@ -45,3 +37,15 @@ export default class App extends Component {
     );
   }
 }
+
+{/*
+import { FetchData } from "./components/FetchData";
+import { Counter } from "./components/Counter";
+import TestHook from "./components/TestHook";
+*/}
+
+        {/* 
+        <Route path="/counter" component={Counter} />
+        <Route path="/fetch-data" component={FetchData} />
+        <Route path="/testHook" component={TestHook} />
+        */}
