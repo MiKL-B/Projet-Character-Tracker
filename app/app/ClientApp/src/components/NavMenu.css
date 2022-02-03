@@ -25,3 +25,13 @@ input {
     margin-top: 5px;
     font-size: 14px;
 }
+
+img {
+    position: relative;
+    /*transition: top ease 0.5s;*/
+}
+
+img:hover {
+    /* filter: grayscale(200%); */
+    top: -5px;
+}
