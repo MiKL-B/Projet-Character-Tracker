@@ -9,6 +9,7 @@ export class FormCreateSchema extends Component {
         <div class="d-flex justify-content-center p-5">
           <h1>Formulaire de création d'un schema</h1>
         </div>
+
         <div class="container ps-md-0 ">
           <div class="row g-0 ">
             <div class="col-md-8 col-lg-6 mx-auto">
@@ -17,6 +18,7 @@ export class FormCreateSchema extends Component {
                   <div class="row">
                     <div class="col-md-9 col-lg-8 mx-auto ">
                       <div class="erreur"></div>
+
                       <form id="form-login" action="" method="post">
                         <div class="form-floating mb-3">
                           <input
