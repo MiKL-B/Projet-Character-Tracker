@@ -4,22 +4,6 @@ body {
   overflow: hidden;
 }
 
-/*
-.home-info {
-    position: absolute;
-    color: white;
-    padding: 2rem;
-    margin-top: 50%;
-}
-
-@media screen and (min-width: 768px) {
-  .home-info {
-    margin-top: 20%;
-    padding: 5rem;
-  }
-}
-    */
-
 .home-container-with-bg-img {
     left: 0;
     height: 100vh;

@@ -4,24 +4,6 @@ import "./Home.css";
 export class Home extends Component {
     static displayName = Home.name;
 
-<<<<<<< Updated upstream
-  render() {
-    return (
-      <div>
-        <div class="home-container">
-          <div class="home-img bg-image"></div>
-          <div class="home-info">
-            <h1>Character Tracker</h1>
-            <p>
-              A system allowing you to create relationships between your
-              favorite series characters
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-=======
     render() {
         return (
             <div>
@@ -44,7 +26,6 @@ export class Home extends Component {
             </div>
         );
     }
->>>>>>> Stashed changes
 }
 
 {/*
