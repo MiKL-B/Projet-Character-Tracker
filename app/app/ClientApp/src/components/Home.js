@@ -11,8 +11,8 @@ export class Home extends Component {
           <div class="home-info">
             <h1>Character Tracker</h1>
             <p>
-              Un système vous permettant de créer des relations entre vos
-              personnages de séries préférées
+              A system allowing you to create relationships between your
+              favorite series characters
             </p>
           </div>
         </div>
