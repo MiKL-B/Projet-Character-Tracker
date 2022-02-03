@@ -5,21 +5,25 @@
     <projectFile profileName="IIS Express">app/app.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Event.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Family.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/FamilyPersonage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/GroupAccount.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/GroupPermissionSchema.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Permission.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Personage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Privacy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Race.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Relation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Schema.cs" afterDir="false" />
+    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="Add MODELS DB">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/AccountController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Account.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CharacterTrackerContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CharacterTrackerContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Event.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Event.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Family.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Family.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/FamilyPersonage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FamilyPersonage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/GroupAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/GroupAccount.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/GroupPermissionSchema.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/GroupPermissionSchema.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/GroupUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/GroupUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Permission.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Permission.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Personage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Personage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Privacy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Privacy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Race.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Race.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Relation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Relation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Schema.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Schema.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +43,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/app/ClientApp/package-lock.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User-14/Desktop/characterTracker/app/app/Models/Account.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/ClientApp/package.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/WeatherForecast.cs" root0="FORCE_HIGHLIGHTING" />
@@ -72,7 +77,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\User-14\Desktop\characterTracker\app\app\ClientApp\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="C:\Users\User-14\Desktop\characterTracker\app\app\ClientApp\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -150,7 +155,7 @@
       <workItem from="1643641941175" duration="2071000" />
       <workItem from="1643701712125" duration="8723000" />
       <workItem from="1643785982155" duration="18603000" />
-      <workItem from="1643872878358" duration="5057000" />
+      <workItem from="1643872878358" duration="15496000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -187,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643814023977</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add MODELS DB">
+      <created>1643882948012</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1643882948012</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +256,8 @@
     <MESSAGE value="add prettier" />
     <MESSAGE value="update MCD BDD" />
     <MESSAGE value="add db connection + test fetch data from db" />
-    <option name="LAST_COMMIT_MESSAGE" value="add db connection + test fetch data from db" />
+    <MESSAGE value="Add MODELS DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add MODELS DB" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

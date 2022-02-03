@@ -5,6 +5,6 @@ namespace app.Models;
 [Table("permission")]
 public class Permission
 {
-  [Column("id_permission")] public int Id { get; set; }
-  [Column("level_permission")] public int Level { get; set; }
+  [Column("id_permission")] public long Id { get; set; }
+  [Column("level_permission")] public long Level { get; set; }
 }

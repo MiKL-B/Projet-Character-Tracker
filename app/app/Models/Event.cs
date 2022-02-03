@@ -5,7 +5,7 @@ namespace app.Models;
 [Table("event")]
 public class Event
 {
-  [Column("id_event")] public int Id { get; set; }
+  [Column("id_event")] public long Id { get; set; }
   [Column("date_event")] public string? Date { get; set; }
   [Column("order_event")] public int? Order { get; set; }
   [Column("name_event")] public string? Name { get; set; }
