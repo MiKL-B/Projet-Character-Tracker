@@ -2,52 +2,37 @@ import React, { Component } from "react";
 import "./Home.css";
 
 export class Home extends Component {
-    static displayName = Home.name;
+  static displayName = Home.name;
 
-<<<<<<< Updated upstream
   render() {
     return (
       <div>
-        <div class="home-container">
-          <div class="home-img bg-image"></div>
-          <div class="home-info">
-            <h1>Character Tracker</h1>
-            <p>
-              A system allowing you to create relationships between your
-              favorite series characters
-            </p>
+        <div class="home-container-with-bg-img">
+          <div class="container">
+            <div class="row">
+              <div class="home-block col">
+                <h1>Character Tracker</h1>
+                <p>
+                  Un système vous permettant de créer des relations entre vos
+                  personnages de séries préférées
+                </p>
+              </div>
+              <div class="home-block col">
+                {/*
+                                <h1>Character Tracker</h1>
+                                <p>Un système vous permettant de créer des relations entre vos personnages de séries préférées</p>
+                                */}
+              </div>
+            </div>
           </div>
         </div>
       </div>
     );
   }
-=======
-    render() {
-        return (
-            <div>
-                <div class="home-container-with-bg-img">
-                    <div class="container">
-                        <div class="row">
-                            <div class="home-block col">
-                                <h1>Character Tracker</h1>
-                                <p>Un système vous permettant de créer des relations entre vos personnages de séries préférées</p>
-                            </div>
-                            <div class="home-block col">
-                                {/*
-                                <h1>Character Tracker</h1>
-                                <p>Un système vous permettant de créer des relations entre vos personnages de séries préférées</p>
-                                */}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
->>>>>>> Stashed changes
 }
 
-{/*
+{
+  /*
                 <div class="home-container-with-bg-img">
                     <div class="container">
                         <div class="row">
@@ -63,14 +48,18 @@ export class Home extends Component {
                         </div>
                     </div>
                 </div>
-                */}
+                */
+}
 
-{/*
+{
+  /*
                     <div class="home-info">
                     </div>
-                    */}
+                    */
+}
 
-{/* <h1>Hello, world!</h1>
+{
+  /* <h1>Hello, world!</h1>
         <p>Welcome to your new single-page application, built with:</p>
         <ul>
           <li>
@@ -115,4 +104,5 @@ export class Home extends Component {
           you open a command prompt in that directory, you can run{" "}
           <code>npm</code> commands such as <code>npm test</code> or{" "}
           <code>npm install</code>.
-        </p> */}
+        </p> */
+}
