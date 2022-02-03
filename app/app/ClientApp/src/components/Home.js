@@ -16,7 +16,12 @@ export class Home extends Component {
             </p>
           </div>
         </div>
-        {/* <h1>Hello, world!</h1>
+      </div>
+    );
+  }
+}
+
+{/* <h1>Hello, world!</h1>
         <p>Welcome to your new single-page application, built with:</p>
         <ul>
           <li>
@@ -62,7 +67,3 @@ export class Home extends Component {
           <code>npm</code> commands such as <code>npm test</code> or{" "}
           <code>npm install</code>.
         </p> */}
-      </div>
-    );
-  }
-}
