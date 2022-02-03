@@ -5,6 +5,6 @@ namespace app.Models;
 [Table("group_account")]
 public class GroupAccount
 {
-  [Column("id_account")] public int IdAccount { get; set; }
-  [Column("id_group_user")] public int IdGroupUser { get; set; }
+  [Column("id_account")] public long IdAccount { get; set; }
+  [Column("id_group_user")] public long IdGroupUser { get; set; }
 }

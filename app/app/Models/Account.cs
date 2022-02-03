@@ -5,7 +5,7 @@ namespace app.Models;
 [Table("account")]
 public class Account
 {
-  [Column("id_account")] public int Id { get; set; }
+  [Column("id_account")] public long Id { get; set; }
   [Column("username")] public string? Username { get; set; }
   [Column("password")] public string? Password { get; set; }
   [Column("mail")] public string? Mail { get; set; }

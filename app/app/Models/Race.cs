@@ -5,6 +5,6 @@ namespace app.Models;
 [Table("race")]
 public class Race
 {
-  [Column("id_race")] public int Id { get; set; }
+  [Column("id_race")] public long Id { get; set; }
   [Column("name_race")] public string? Name { get; set; }
 }
