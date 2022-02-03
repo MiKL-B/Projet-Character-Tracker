@@ -3,6 +3,9 @@ import "./Home.css";
 
 export class Home extends Component {
   static displayName = Home.name;
+  componentDidMount() {
+    document.title = "Character Tracker"
+  }
 
   render() {
     return (
@@ -19,9 +22,9 @@ export class Home extends Component {
               </div>
               <div class="home-block col">
                 {/*
-                                <h1>Character Tracker</h1>
-                                <p>Un système vous permettant de créer des relations entre vos personnages de séries préférées</p>
-                                */}
+                  <h1>Character Tracker</h1>
+                  <p>Un système vous permettant de créer des relations entre vos personnages de séries préférées</p>
+                 */}
               </div>
             </div>
           </div>
