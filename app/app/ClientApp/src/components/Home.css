@@ -30,4 +30,6 @@ p {
 model-viewer {
     width: 800px;
     height: 600px;
+    --progress-bar-color: none;
+    --poster-color: hidden;
 }

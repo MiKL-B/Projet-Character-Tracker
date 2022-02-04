@@ -27,6 +27,7 @@ export class Home extends Component {
                                     shadow-intensity="1"
                                     camera-controls
                                     auto-rotate ar>
+                                    <div class="progress-bar" slot="progress-bar"></div>
                                 </model-viewer>
                             </div>
                         </div>
