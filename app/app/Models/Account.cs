@@ -9,6 +9,8 @@ public class Account
   [Column("username")] public string? Username { get; set; }
   [Column("password")] public string? Password { get; set; }
   [Column("mail")] public string? Mail { get; set; }
-  [Column("is_admin")] public bool? IsAdmin { get; set; }
+  [Column("is_admin")] public bool IsAdmin { get; set; } = false;
   [Column("img_user")] public string? Img { get; set; }
+  
+  public ICollection<GroupUser>? GroupUsers { get; set; }
 }

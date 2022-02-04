@@ -21,17 +21,20 @@
 
     <ItemGroup>
         <!-- Don't publish the SPA source files, but do show them in the project files list -->
-        <Compile Remove="ClientApp\src\hooks%24\**" />
-        <Compile Remove="Services\**" />
+        <Compile Remove="ClientApp\NewFolder\**" />
         <Content Remove="$(SpaRoot)**" />
-        <Content Remove="ClientApp\src\hooks%24\**" />
-        <Content Remove="Services\**" />
-        <EmbeddedResource Remove="ClientApp\src\hooks%24\**" />
-        <EmbeddedResource Remove="Services\**" />
+        <Content Remove="ClientApp\NewFolder\**" />
+        <EmbeddedResource Remove="ClientApp\NewFolder\**" />
         <None Remove="$(SpaRoot)**" />
-        <None Remove="ClientApp\src\hooks%24\**" />
-        <None Remove="Services\**" />
+        <None Remove="ClientApp\NewFolder\**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+        <Compile Remove="Models\GroupPermissionSchema.cs" />
+        <Compile Remove="Models\GroupAccount.cs" />
+        <Compile Remove="Models\FamilyPersonage.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Services" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

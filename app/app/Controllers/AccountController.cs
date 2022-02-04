@@ -21,18 +21,17 @@ public class AccountController : ControllerBase
     await _context.Accounts.ToListAsync();
 
   // GET A SPECIFIC ACCOUNT
-  [HttpGet("{id}")]
+  [HttpGet("{id:long}")]
   public async Task<ActionResult<Account>> GetAccount(long id)
   {
     var account = await _context.Accounts.FindAsync(id);
-    Console.WriteLine(account);
     if (account == null) return NotFound();
 
     return account;
   }
   
   // UPDATE ACCOUNT
-  [HttpPatch("{id:long}")]
+  [HttpPut("{id:long}")]
   public async Task<IActionResult> UpdateAccount(long id, Account account)
   {
     if (id != account.Id) return BadRequest();
@@ -46,7 +45,6 @@ public class AccountController : ControllerBase
     catch (DbUpdateConcurrencyException)
     {
       if (!AccountExists(id)) return NotFound();
-
       throw;
     }
 
@@ -57,7 +55,6 @@ public class AccountController : ControllerBase
   [HttpPost]
   public async Task<ActionResult<Account>> Register(Account account)
   {
-    Console.WriteLine(account);
     _context.Accounts.Add(account);
     await _context.SaveChangesAsync();
 
@@ -66,14 +63,14 @@ public class AccountController : ControllerBase
 
   // DELETE ACCOUNT
   [HttpDelete]
-  public async Task<IActionResult> DeleteAccount(long id)
+  public async Task<IActionResult> Delete(Account acc)
   {
-    var account = await _context.Accounts.FindAsync(id);
+    var account = await _context.Accounts.FindAsync(acc.Id);
     if (account == null) return NotFound();
     
     _context.Accounts.Remove(account);
     await _context.SaveChangesAsync();
-
+    
     return NoContent();
   }
   
