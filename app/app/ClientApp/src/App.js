@@ -16,7 +16,11 @@ import { Admin } from "./components/Admin";
 import "./custom.css";
 
 export default class App extends Component {
-  static displayName = App.name;
+    static displayName = App.name;
+
+    componentDidMount() {
+
+    }
 
   render() {
     return (
