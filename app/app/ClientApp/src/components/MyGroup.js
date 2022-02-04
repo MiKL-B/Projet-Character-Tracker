@@ -1,4 +1,4 @@
-﻿import React, { Component } from "react";
+import React, { Component } from "react";
 
 export class MyGroup extends Component {
     static displayName = MyGroup.name;

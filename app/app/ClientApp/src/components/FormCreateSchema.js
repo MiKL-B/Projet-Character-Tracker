@@ -1,4 +1,4 @@
-﻿import React, { Component } from "react";
+import React, { Component } from "react";
 
 export class FormCreateSchema extends Component {
   static displayName = FormCreateSchema.name;

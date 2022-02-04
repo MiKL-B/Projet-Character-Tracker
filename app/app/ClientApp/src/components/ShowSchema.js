@@ -1,4 +1,4 @@
-﻿import React, { Component } from "react";
+import React, { Component } from "react";
 
 export class ShowSchema extends Component {
   static displayName = ShowSchema.name;
