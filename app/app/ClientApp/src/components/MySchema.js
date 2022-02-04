@@ -7,7 +7,7 @@ export class MySchema extends Component {
     return (
       <div>
         <div class="container-fluid">
-          <h1 class="d-flex justify-content-center p-5">My schema </h1>
+          <h3 class="d-flex justify-content-center p-5">My schema</h3>
 
           <div class="row ">
             <div class="col-md-3 border p-3">schema option</div>
