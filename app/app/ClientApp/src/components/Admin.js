@@ -13,19 +13,19 @@ export class Admin extends Component {
               <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                   <li class="nav-item">
-                    <a class="nav-link active">Dashboard</a>
+                    <a class="nav-link active" href="/#">Dashboard</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link ">Dashboard</a>
+                    <a class="nav-link" href="/#">Dashboard</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link ">Dashboard</a>
+                    <a class="nav-link" href="/#">Dashboard</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link ">Dashboard</a>
+                    <a class="nav-link" href="/#">Dashboard</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link ">Dashboard</a>
+                    <a class="nav-link" href="/#">Dashboard</a>
                   </li>
                 </ul>
               </div>
