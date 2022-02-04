@@ -23,10 +23,7 @@ export class ShowSchema extends Component {
 
               {/* event */}
               <div class="">
-                <img
-                  class="rounded d-block mx-auto pt-5"
-                  src="https://via.placeholder.com/300"
-                />
+                <img class="rounded d-block mx-auto pt-5" src="https://via.placeholder.com/300" alt=""/>
               </div>
             </div>
           </div>

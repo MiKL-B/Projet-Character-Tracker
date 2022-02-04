@@ -41,15 +41,3 @@ export default class App extends Component {
     );
   }
 }
-
-{/*
-import { FetchData } from "./components/FetchData";
-import { Counter } from "./components/Counter";
-import TestHook from "./components/TestHook";
-*/}
-
-        {/* 
-        <Route path="/counter" component={Counter} />
-        <Route path="/fetch-data" component={FetchData} />
-        <Route path="/testHook" component={TestHook} />
-        */}
