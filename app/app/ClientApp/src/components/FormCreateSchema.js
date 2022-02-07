@@ -7,7 +7,7 @@ export class FormCreateSchema extends Component {
     return (
       <div>
         <div class="d-flex justify-content-center p-5">
-          <h1>Formulaire de création d'un schema</h1>
+          <h1>Schema creation form</h1>
         </div>
 
         <div class="container ps-md-0 ">
