@@ -13,7 +13,7 @@ export class Home extends Component {
                         <div className="row">
                             <div className="home-block col">
                                 <h1>Character Tracker</h1>
-                                <p>Un système vous permettant de créer des relations entre vos personnages de séries préférées</p>
+                                <p className="para">Un système vous permettant de créer des relations entre vos personnages de séries préférées</p>
                             </div>
                             <div className="home-block col">
                                 <model-viewer src="https://cdn.glitch.com/36cb8393-65c6-408d-a538-055ada20431b/Astronaut.glb?1542147958948"
