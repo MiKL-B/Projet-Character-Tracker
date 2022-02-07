@@ -19,6 +19,8 @@ export class MySchema extends Component {
             </div>
           </div>
         </div>
+
+        <div id="cy"></div>
       </div>
     );
   }
