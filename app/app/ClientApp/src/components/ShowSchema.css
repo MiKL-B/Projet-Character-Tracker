@@ -1,15 +1,9 @@
 #cy {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 999;
+  height: 400px;
+  width: 100%;
 }
 #buttons {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 99999;
-  margin: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }

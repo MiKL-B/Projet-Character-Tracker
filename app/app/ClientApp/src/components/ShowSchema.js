@@ -26,11 +26,26 @@ export class ShowSchema extends Component {
               </div>
 
               {/* event */}
-              <div class="border" id="cy"></div>
-              <div id="buttons">
-                <button id="start">Start on selected</button>
-                <button id="draw-on">Draw mode on</button>
-                <button id="draw-off">Draw mode off</button>
+              <div id="cy"></div>
+              <div id="buttons" class="">
+                <button
+                  id="start"
+                  class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2 "
+                >
+                  Start on selected
+                </button>
+                <button
+                  id="draw-on"
+                  class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                >
+                  Draw mode on
+                </button>
+                <button
+                  id="draw-off"
+                  class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                >
+                  Draw mode off
+                </button>
               </div>
             </div>
           </div>
@@ -146,7 +161,12 @@ document.addEventListener("DOMContentLoaded", function () {
       ],
     },
   }));
+
+  //drag schema false
+  cy.userPanningEnabled(false);
+  //zoom schema false
   cy.userZoomingEnabled(false);
+
   var eh = cy.edgehandles({
     snap: false,
   });
