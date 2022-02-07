@@ -7,7 +7,6 @@ export class SignIn extends Component {
     constructor(props) {
         super(props);
         this.state = { value: '' };
-
         this.handleChange = this.handleChange.bind(this);
         this.handleChange_pw = this.handleChange_pw.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,7 +14,6 @@ export class SignIn extends Component {
 
     handleChange(event) {
         this.setState({ value: event.target.value });
-        this.setState({ value_pw: event.target.value });
     }
 
     handleChange_pw(event) {
@@ -23,7 +21,7 @@ export class SignIn extends Component {
     }
 
     handleSubmit(event) {
-       // alert('Le nom a été soumis : ' + this.state.value + ' ' + this.state.value_pw);
+        alert('Le nom a été soumis : ' + this.state.value + ' ' + this.state.value_pw);
         event.preventDefault();
     }
 
