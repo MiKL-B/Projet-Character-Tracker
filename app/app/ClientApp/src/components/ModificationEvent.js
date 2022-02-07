@@ -6,79 +6,79 @@ export class ModificationEvent extends Component {
   render() {
     return (
       <div>
-        <div class="container-fluid">
-          <div class="row ">
-            <div class="col-md-3 border p-3">Changing Schema Options</div>
-            <div class="col border p-3">
-              <h1 class="d-flex justify-content-center p-5">
+        <div className="container-fluid">
+          <div className="row ">
+            <div className="col-md-3 border p-3">Changing Schema Options</div>
+            <div className="col border p-3">
+              <h1 className="d-flex justify-content-center p-5">
                 Editing an event
               </h1>
               <form action="" method="post">
-                <div class="form-floating mb-3">
+                <div className="form-floating mb-3">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="nameEvent"
                     placeholder="name@example.com"
                   />
                   <label for="nameEvent">Name event</label>
                 </div>
-                <div class="form-floating mb-3">
+                <div className="form-floating mb-3">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="dateEvent"
                     placeholder="name@example.com"
                   />
                   <label for="dateEvent">Date event</label>
                 </div>
-                <div class="row">
-                  <div class="col form-floating mb-3">
+                <div className="row">
+                  <div className="col form-floating mb-3">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="personage1"
                       placeholder="name@example.com"
                     />
-                    <label for="personage1" class="mx-3">
+                    <label for="personage1" className="mx-3">
                       Personage 1
                     </label>
                   </div>
 
-                  <div class="col form-floating mb-3">
+                  <div className="col form-floating mb-3">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="personage1"
                       placeholder="name@example.com"
                     />
-                    <label for="personage2" class="mx-3">
+                    <label for="personage2" className="mx-3">
                       Personage 2
                     </label>
                   </div>
                 </div>
-                <div class="col form-floating mb-3">
+                <div className="col form-floating mb-3">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="dateEvent"
                     placeholder="name@example.com"
                   />
                   <label for="dateEvent">Date event</label>
                 </div>
-                <div class="form-floating mb-3">
+                <div className="form-floating mb-3">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="typeRelation"
                     placeholder="name@example.com"
                   />
                   <label for="typeRelation">Type of relationship</label>
                 </div>
-                <div class=" form-floating mb-3">
+                <div className=" form-floating mb-3">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="forceRelation"
                     placeholder="name@example.com"
                   />
@@ -86,21 +86,21 @@ export class ModificationEvent extends Component {
                     Strength of the relationship
                   </label>
                 </div>
-                <div class="mb-3 border p-3">
+                <div className="mb-3 border p-3">
                   <details>
                     <summary>Is public or not</summary>
                     <ul>
-                      <li class="mb-1">Public</li>
-                      <li class="mb-1">Private</li>
-                      <li class="mb-1">Secret</li>
+                      <li className="mb-1">Public</li>
+                      <li className="mb-1">Private</li>
+                      <li className="mb-1">Secret</li>
                     </ul>
                   </details>
                 </div>
 
-                <div class=" form-floating mb-3">
+                <div className=" form-floating mb-3">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="relationReciproque"
                     placeholder="name@example.com"
                   />
@@ -108,9 +108,9 @@ export class ModificationEvent extends Component {
                     Reciprocal relationship
                   </label>
                 </div>
-                <div class="d-grid">
+                <div className="d-grid">
                   <button
-                    class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                    className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
                     type="submit"
                   >
                     Submit
