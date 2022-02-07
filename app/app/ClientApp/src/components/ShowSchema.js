@@ -14,7 +14,33 @@ export class ShowSchema extends Component {
           <h3 class="d-flex justify-content-center p-5">Show schema</h3>
 
           <div class="row">
-            <div class="col-md-3 border p-3">Show schema option</div>
+            <div class="col-md-3 border p-3">
+              Show schema option
+              <div class="border p-2 container col">
+                <input
+                  class="p-2"
+                  type="text"
+                  id="from_node"
+                  placeholder="from node"
+                />
+                <input
+                  class="p-2"
+                  type="text"
+                  id="node_id"
+                  placeholder="to node"
+                />
+
+                <button
+                  id="addedge"
+                  class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2  mt-2"
+                >
+                  Add edge
+                </button>
+
+                <p>Left click on the screen to add a node</p>
+                <p>Right click on a node or a edge to delete it</p>
+              </div>
+            </div>
             <div class="col border p-3">
               {/* name event */}
               <div class="d-flex justify-content-around">
@@ -54,6 +80,7 @@ export class ShowSchema extends Component {
     );
   }
 }
+
 document.addEventListener("DOMContentLoaded", function () {
   var cy = (window.cy = cytoscape({
     container: document.getElementById("cy"),
@@ -74,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
         selector: "node[name]",
         style: {
           content: "data(name)",
+          backgroundColor: "#0b5ed7",
         },
       },
 
@@ -111,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
         selector: ".eh-source",
         style: {
           "border-width": 2,
-          "border-color": "red",
+          "border-color": "lightblue",
         },
       },
 
@@ -119,17 +147,17 @@ document.addEventListener("DOMContentLoaded", function () {
         selector: ".eh-target",
         style: {
           "border-width": 2,
-          "border-color": "red",
+          "border-color": "orange",
         },
       },
 
       {
         selector: ".eh-preview, .eh-ghost-edge",
         style: {
-          "background-color": "red",
-          "line-color": "red",
-          "target-arrow-color": "red",
-          "source-arrow-color": "red",
+          "background-color": "orange",
+          "line-color": "lightblue",
+          "target-arrow-color": "lightblue",
+          "source-arrow-color": "orange",
         },
       },
 
@@ -143,22 +171,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     elements: {
       nodes: [
-        { data: { id: "j", name: "Jerry" } },
-        { data: { id: "e", name: "Elaine" } },
-        { data: { id: "k", name: "Kramer" } },
-        { data: { id: "g", name: "George" } },
+        { data: { id: "jean", name: "jean" } },
+        { data: { id: "michel", name: "michel" } },
+        { data: { id: "edwouard", name: "edwouard" } },
       ],
-      edges: [
-        { data: { source: "j", target: "e" } },
-        { data: { source: "j", target: "k" } },
-        { data: { source: "j", target: "g" } },
-        { data: { source: "e", target: "j" } },
-        { data: { source: "e", target: "k" } },
-        { data: { source: "k", target: "j" } },
-        { data: { source: "k", target: "e" } },
-        { data: { source: "k", target: "g" } },
-        { data: { source: "g", target: "j" } },
-      ],
+      edges: [{ data: { source: "jean", target: "michel" } }],
     },
   }));
 
@@ -181,5 +198,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelector("#start").addEventListener("click", function () {
     eh.start(cy.$("node:selected"));
+  });
+
+  //add node
+  document.querySelector("#addedge").addEventListener("click", function () {
+    let elem_id = document.getElementById("node_id").value;
+    var from_node = document.getElementById("from_node").value;
+    if (elem_id.length === 0 || from_node.length === 0) {
+      alert("please fill both input fields");
+      return;
+    }
+    cy.add([
+      {
+        data: {
+          id: elem_id,
+        },
+      },
+      {
+        data: {
+          id: from_node + "" + elem_id,
+          source: from_node + "",
+          target: elem_id + "",
+        },
+      },
+    ]);
+  });
+
+  //remove node on right click
+  cy.on("cxttap", "node", function (evt) {
+    var node = evt.target;
+    console.log("tapped", node.id());
+    cy.remove(node);
+  });
+  //remove edge on right click
+  cy.on("cxttap", "edges", function (evt) {
+    var edge = evt.target;
+    console.log("tapped", edge.id());
+    cy.remove(edge);
+  });
+
+  //add node on tap
+  cy.on("tap", function (evt) {
+    var newNode = evt.target;
+
+    cy.add([
+      {
+        group: "nodes",
+        id: "jean",
+        name: "jean",
+        renderedPosition: {
+          x: evt.renderedPosition.x,
+          y: evt.renderedPosition.y,
+        },
+      },
+    ]);
   });
 });

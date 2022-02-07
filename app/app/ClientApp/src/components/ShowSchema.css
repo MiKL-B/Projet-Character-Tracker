@@ -1,9 +1,19 @@
 #cy {
   height: 400px;
-  width: 100%;
+}
+input {
+  width: 200px;
 }
 #buttons {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
+}
+@media screen and (min-width: 768px) {
+  #cy {
+    width: 100%;
+  }
+}
+p {
+  font-size: 1rem;
 }
