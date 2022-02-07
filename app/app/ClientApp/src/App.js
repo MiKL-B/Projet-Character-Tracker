@@ -19,7 +19,7 @@ export default class App extends Component {
     static displayName = App.name;
 
     componentDidMount() {
-
+        document.title = "Character Tracker"
     }
 
   render() {

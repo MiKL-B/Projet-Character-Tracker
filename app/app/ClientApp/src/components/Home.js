@@ -5,10 +5,6 @@ import "./Home.css";
 export class Home extends Component {
     static displayName = Home.name;
 
-    componentDidMount() {
-        document.title = "Character Tracker"
-    }
-
     render() {
         return (
             <div>
