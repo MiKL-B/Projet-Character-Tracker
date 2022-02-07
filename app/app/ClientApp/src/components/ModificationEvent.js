@@ -21,7 +21,7 @@ export class ModificationEvent extends Component {
                     id="nameEvent"
                     placeholder="name@example.com"
                   />
-                  <label for="nameEvent">Name event</label>
+                  <label htmlFor="nameEvent">Name event</label>
                 </div>
                 <div className="form-floating mb-3">
                   <input
@@ -30,7 +30,7 @@ export class ModificationEvent extends Component {
                     id="dateEvent"
                     placeholder="name@example.com"
                   />
-                  <label for="dateEvent">Date event</label>
+                  <label htmlFor="dateEvent">Date event</label>
                 </div>
                 <div className="row">
                   <div className="col form-floating mb-3">
@@ -40,7 +40,7 @@ export class ModificationEvent extends Component {
                       id="personage1"
                       placeholder="name@example.com"
                     />
-                    <label for="personage1" className="mx-3">
+                    <label htmlFor="personage1" className="mx-3">
                       Personage 1
                     </label>
                   </div>
@@ -52,7 +52,7 @@ export class ModificationEvent extends Component {
                       id="personage1"
                       placeholder="name@example.com"
                     />
-                    <label for="personage2" className="mx-3">
+                    <label htmlFor="personage2" className="mx-3">
                       Personage 2
                     </label>
                   </div>
@@ -64,7 +64,7 @@ export class ModificationEvent extends Component {
                     id="dateEvent"
                     placeholder="name@example.com"
                   />
-                  <label for="dateEvent">Date event</label>
+                  <label htmlFor="dateEvent">Date event</label>
                 </div>
                 <div className="form-floating mb-3">
                   <input
@@ -73,7 +73,7 @@ export class ModificationEvent extends Component {
                     id="typeRelation"
                     placeholder="name@example.com"
                   />
-                  <label for="typeRelation">Type of relationship</label>
+                  <label htmlFor="typeRelation">Type of relationship</label>
                 </div>
                 <div className=" form-floating mb-3">
                   <input
@@ -82,7 +82,7 @@ export class ModificationEvent extends Component {
                     id="forceRelation"
                     placeholder="name@example.com"
                   />
-                  <label for="forceRelation">
+                  <label htmlFor="forceRelation">
                     Strength of the relationship
                   </label>
                 </div>
@@ -104,7 +104,7 @@ export class ModificationEvent extends Component {
                     id="relationReciproque"
                     placeholder="name@example.com"
                   />
-                  <label for="relationReciproque">
+                  <label htmlFor="relationReciproque">
                     Reciprocal relationship
                   </label>
                 </div>
