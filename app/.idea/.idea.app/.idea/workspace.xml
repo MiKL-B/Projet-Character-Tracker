@@ -6,20 +6,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TEST API.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Controllers/AuthController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TEST API.http" beforeDir="false" afterPath="$PROJECT_DIR$/TEST API.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/AccountController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Account.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/CharacterTrackerContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CharacterTrackerContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Family.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Family.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/FamilyPersonage.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/GroupAccount.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/GroupPermissionSchema.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/GroupUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/GroupUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Permission.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Permission.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Personage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Personage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Schema.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Schema.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,19 +79,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.app">
-    <configuration name="TEST API | DELETE Account" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/TEST API.http" index="3" requestIdentifier="DELETE Account" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="TEST API | GET ALL Account" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/TEST API.http" requestIdentifier="GET ALL Account" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="TEST API | GET Account By ID" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/TEST API.http" index="2" requestIdentifier="GET Account By ID" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="TEST API | REGISTER Account" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/TEST API.http" index="4" requestIdentifier="REGISTER Account" runType="Run single request">
+    <configuration name="TEST API | LOGIN USER" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/TEST API.http" index="6" requestIdentifier="LOGIN USER" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="TEST API | UPDATE Account" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/TEST API.http" index="5" requestIdentifier="UPDATE Account" runType="Run single request">
+    <configuration name="TEST API | REGISTER USER" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/TEST API.http" index="5" requestIdentifier="REGISTER USER" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="app" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
@@ -155,19 +147,17 @@
     <list>
       <item itemvalue=".NET Launch Settings Profile.app" />
       <item itemvalue=".NET Launch Settings Profile.app: IIS Express" />
-      <item itemvalue="HTTP Request.TEST API | DELETE Account" />
       <item itemvalue="HTTP Request.TEST API | GET Account By ID" />
       <item itemvalue="HTTP Request.TEST API | GET ALL Account" />
-      <item itemvalue="HTTP Request.TEST API | REGISTER Account" />
-      <item itemvalue="HTTP Request.TEST API | UPDATE Account" />
+      <item itemvalue="HTTP Request.TEST API | LOGIN USER" />
+      <item itemvalue="HTTP Request.TEST API | REGISTER USER" />
       <item itemvalue="npm.start" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.TEST API | UPDATE Account" />
-        <item itemvalue="HTTP Request.TEST API | REGISTER Account" />
+        <item itemvalue="HTTP Request.TEST API | LOGIN USER" />
+        <item itemvalue="HTTP Request.TEST API | REGISTER USER" />
         <item itemvalue="HTTP Request.TEST API | GET ALL Account" />
-        <item itemvalue="HTTP Request.TEST API | DELETE Account" />
         <item itemvalue="HTTP Request.TEST API | GET Account By ID" />
       </list>
     </recent_temporary>
@@ -187,7 +177,9 @@
       <workItem from="1643701712125" duration="8723000" />
       <workItem from="1643785982155" duration="18603000" />
       <workItem from="1643872878358" duration="15876000" />
-      <workItem from="1643958809398" duration="9671000" />
+      <workItem from="1643958809398" duration="11183000" />
+      <workItem from="1644221882091" duration="20191000" />
+      <workItem from="1644304263231" duration="15402000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -238,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643903257108</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="WIP CRUD Account">
+      <created>1643970875238</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1643970875238</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +296,8 @@
     <MESSAGE value="add db connection + test fetch data from db" />
     <MESSAGE value="Add MODELS DB" />
     <MESSAGE value="WIP models database" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP models database" />
+    <MESSAGE value="WIP CRUD Account" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP CRUD Account" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

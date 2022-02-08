@@ -12,11 +12,12 @@ public class Personage
   [Column("deathdate_pers")] public string? Deathdate { get; set; }
   [Column("gender_pers")] public string? Gender { get; set; }
   [Column("img_pers")] public string? Img { get; set; }
-  [Column("id_race")] public long RaceId { get; set; }
-  [Column("id_schema")] public long SchemaId { get; set; }
   
+  [Column("id_schema")] public long SchemaId { get; set; }
   public Schema Schema { get; set; }
+  
+  [Column("id_race")] public long RaceId { get; set; }
   public Race Race { get; set; }
   
-  public ICollection<Family> Families { get; set; }
+  public List<Family> Families { get; set; } = new List<Family>();
 }
