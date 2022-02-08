@@ -22,7 +22,7 @@ public class PersonageController : ControllerBase
 
     // GET A SPECIFIC PERSONAGE
     [HttpGet("{id:long}")]
-    public async Task<ActionResult<Personage>> GetAccount(long id)
+    public async Task<ActionResult<Personage>> GetPersonage(long id)
     {
         var personage = await _context.Personages.FindAsync(id);
         if (personage == null) return NotFound();
