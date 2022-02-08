@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@google/model-viewer": "^1.10.1",
-    "cytoscape-edgehandles": "^4.0.1"
-  }
-}

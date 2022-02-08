@@ -9,6 +9,6 @@ public class Family
   [Column("name_family")] public string? Name { get; set; }
   [Column("desc_family")] public string? Desc { get; set; }
   [Column("img_family")] public string? Img { get; set; }
-  
-  public ICollection<Personage> Personages { get; set; }
+
+  public List<Personage> Personages { get; set; } = new List<Personage>();
 }

@@ -2,7 +2,7 @@
 GET https://localhost:7098/Account
 
 ### GET Account By ID
-GET https://localhost:7098/Account/4
+GET https://localhost:7098/Account/1
 
 ### DELETE Account
 DELETE https://localhost:7098/Account
@@ -10,16 +10,6 @@ Content-Type: application/json
 
 {
   "Id": 6
-}
-
-### REGISTER Account
-POST https://localhost:7098/Account
-Content-Type: application/json
-
-{
-  "username": "patrick",
-  "password": "123456",
-  "mail": "patrick@mail.com"
 }
 
 ### UPDATE Account
@@ -32,4 +22,32 @@ Content-Type: application/json
   "password": "123456",
   "mail": "patrick4@mail.com",
   "isAdmin": false
+}
+
+### REGISTER USER
+POST https://localhost:7098/Auth/Register
+Content-Type: application/json
+
+{
+  "username": "patrick",
+  "password": "123456",
+  "mail": "patrick@mail.com"
+}
+
+### LOGIN USER
+POST https://localhost:7098/Auth/Login
+Content-Type: application/json
+
+{
+  "username": "michel",
+  "password": "pass",
+  "mail": "patrick@mail.com"
+}
+
+### ADD Family
+POST https://localhost:7098/Family
+Content-Type: application/json
+
+{
+  
 }

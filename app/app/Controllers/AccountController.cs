@@ -51,16 +51,6 @@ public class AccountController : ControllerBase
     return NoContent();
   }
 
-  // REGISTER ACCOUNT
-  [HttpPost]
-  public async Task<ActionResult<Account>> Register(Account account)
-  {
-    _context.Accounts.Add(account);
-    await _context.SaveChangesAsync();
-
-    return CreatedAtAction(nameof(GetAccount), new {id = account.Id}, account);
-  }
-
   // DELETE ACCOUNT
   [HttpDelete]
   public async Task<IActionResult> Delete(Account acc)

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace app.Models;
 
@@ -9,14 +10,14 @@ public class CharacterTrackerContext : DbContext
   {
   }
   
-  public DbSet<Account> Accounts { get; set; }  = null!;
-  public DbSet<Event> Events { get; set; } = null!;
-  public DbSet<Family> Families { get; set; } = null!;
-  public DbSet<GroupUser> GroupUsers { get; set; } = null!;
-  public DbSet<Permission> Permissions { get; set; } = null!;
-  public DbSet<Personage> Personages { get; set; } = null!;
-  public DbSet<Privacy> Privacies { get; set; } = null!;
-  public DbSet<Race> Races { get; set; } = null!;
-  public DbSet<Relation> Relations { get; set; } = null!;
-  public DbSet<Schema> Schemas { get; set; } = null!;
+  public DbSet<Account> Accounts { get; set; }
+  public DbSet<Event> Events { get; set; }
+  public DbSet<Family> Families { get; set; }
+  public DbSet<GroupUser> GroupUsers { get; set; }
+  public DbSet<Permission> Permissions { get; set; }
+  public DbSet<Personage> Personages { get; set; }
+  public DbSet<Privacy> Privacies { get; set; }
+  public DbSet<Race> Races { get; set; }
+  public DbSet<Relation> Relations { get; set; }
+  public DbSet<Schema> Schemas { get; set; }
 }

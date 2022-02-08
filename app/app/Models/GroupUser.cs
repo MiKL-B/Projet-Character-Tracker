@@ -9,8 +9,8 @@ public class GroupUser
  [Column("img_group")] public string? Img { get; set; }
  [Column("desc_group")] public string? Desc { get; set; }
  [Column("private")] public bool? Private { get; set; }
- 
- public ICollection<Account> Accounts { get; set; }
+
+ public List<Account> Accounts { get; set; } = new List<Account>();
  public ICollection<Schema> Schemas { get; set; }
 
 }
