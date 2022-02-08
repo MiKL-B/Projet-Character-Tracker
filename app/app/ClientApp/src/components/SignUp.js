@@ -5,42 +5,44 @@ export class SignUp extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { value: "" };
-    this.handleChange_name = this.handleChange_name.bind(this);
-    this.handleChange_email = this.handleChange_email.bind(this);
-    this.handleChange_pw = this.handleChange_pw.bind(this);
-    this.handleChange_confirme_pw = this.handleChange_confirme_pw.bind(this);
+    this.state = {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleChange_name(event) {
-    this.setState({ value_name: event.target.value });
-  }
-
-  handleChange_email(event) {
-    this.setState({ value_email: event.target.value });
-  }
-
-  handleChange_pw(event) {
-    this.setState({ value_pw: event.target.value });
-  }
-
-  handleChange_confirme_pw(event) {
-    this.setState({ value_confirme_pw: event.target.value });
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value,
+    });
   }
 
   handleSubmit(event) {
-    alert(
-      "Le nom a été soumis : " +
-        this.state.value_name +
-        " " +
-        this.state.value_email +
-        " " +
-        this.state.value_pw +
-        " " +
-        this.state.value_confirme_pw
-    );
     event.preventDefault();
+    console.log(this.state);
+  }
+
+  static Input(type, value, name, onChange, label) {
+    return (
+      <div className="form-floating mb-3">
+        <input
+          type={type}
+          value={value}
+          onChange={onChange}
+          className="form-control"
+          placeholder=""
+          name={name}
+        />
+        <label htmlFor={name}>{label}</label>
+      </div>
+    );
   }
 
   render() {
@@ -56,54 +58,34 @@ export class SignUp extends Component {
                     <h3 className="login-heading mb-4">Inscription</h3>
                     <div className="erreur" />
                     <form id="form-login" onSubmit={this.handleSubmit}>
-                      <div className="form-floating mb-3">
-                        <input
-                          type="email"
-                          value_name={this.state.value}
-                          onChange={this.handleChange_name}
-                          className="form-control"
-                          id="name"
-                          placeholder="name@example.com"
-                        />
-                        <label htmlFor="floatingInput">Name</label>
-                      </div>
-                      <div className="form-floating mb-3">
-                        <input
-                          type="email"
-                          value_email={this.state.value}
-                          onChange={this.handleChange_email}
-                          className="form-control"
-                          id="email"
-                          placeholder="name@example.com"
-                        />
-                        <label htmlFor="floatingInput">Email address</label>
-                      </div>
-                      <div className="form-floating mb-3">
-                        <input
-                          type="password"
-                          value_pw={this.state.value}
-                          onChange={this.handleChange_pw}
-                          className="form-control"
-                          id="password"
-                          placeholder="Password"
-                          minLength="8"
-                        />
-                        <label htmlFor="floatingPassword">Password</label>
-                      </div>
-                      <div className="form-floating mb-3">
-                        <input
-                          type="password"
-                          value_confirme_pw={this.state.value}
-                          onChange={this.handleChange_confirme_pw}
-                          className="form-control"
-                          id="confirme-password"
-                          placeholder="Password"
-                          minLength="8"
-                        />
-                        <label htmlFor="floatingPassword">
-                          Confirme Password
-                        </label>
-                      </div>
+                      {SignUp.Input(
+                        "text",
+                        this.state.name,
+                        "name",
+                        this.handleInputChange,
+                        "Name"
+                      )}
+                      {SignUp.Input(
+                        "email",
+                        this.state.email,
+                        "email",
+                        this.handleInputChange,
+                        "Email"
+                      )}
+                      {SignUp.Input(
+                        "password",
+                        this.state.password,
+                        "password",
+                        this.handleInputChange,
+                        "Password"
+                      )}
+                      {SignUp.Input(
+                        "password",
+                        this.state.confirmPassword,
+                        "confirmPassword",
+                        this.handleInputChange,
+                        "Confirm Password"
+                      )}
                       <div className="d-grid">
                         <button
                           className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"

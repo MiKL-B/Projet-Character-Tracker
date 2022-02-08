@@ -17,7 +17,6 @@ export class NavMenu extends Component {
 
   constructor(props) {
     super(props);
-
     this.toggleNavbar = this.toggleNavbar.bind(this);
     this.state = {
       collapsed: true,
@@ -28,6 +27,16 @@ export class NavMenu extends Component {
     this.setState({
       collapsed: !this.state.collapsed,
     });
+  }
+
+  static Item(to, children) {
+    return (
+      <NavItem>
+        <NavLink tag={Link} className="navlinkhover text-dark" to={to}>
+          {children}
+        </NavLink>
+      </NavItem>
+    );
   }
 
   render() {
@@ -45,27 +54,9 @@ export class NavMenu extends Component {
               navbar
             >
               <ul className="navbar-nav flex-grow">
-                {/* Search bar */}
-                <input placeholder="Search Character Tracker" />
-                {/* Link */}
-                <NavItem>
-                  <NavLink
-                    tag={Link}
-                    className="navlinkhover text-dark"
-                    to="/sign-in"
-                  >
-                    Sign In
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    tag={Link}
-                    className="navlinkhover text-dark"
-                    to="/sign-up"
-                  >
-                    Sign Up
-                  </NavLink>
-                </NavItem>
+                <input placeholder="Search..." />
+                {NavMenu.Item("/sign-in", "Sign In")}
+                {NavMenu.Item("/sign-up", "Sign Up")}
               </ul>
             </Collapse>
           </Container>
