@@ -9,21 +9,29 @@ export class ShowSchema extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { schemas: [], loading: true };
+    this.state = { personages: [], loading: true };
   }
 
-  async getAllSchema() {
-    const response = await fetch("schema");
+  async getAllPersonage() {
+    const response = await fetch("personage");
     const raw = await response.json();
-    const data = raw.map((schema) => {
-      return { data: schema };
+    const data = raw.map((personage) => {
+      return {
+        data: {
+          id: personage.id,
+          name: personage.firstname,
+          source: personage.firstname,
+          target: personage.firstname,
+          // name: [`${personage.lastname} ${personage.firstname}`],
+        },
+      };
     });
     // console.log(data);
-    this.setState({ schemas: data, loading: false });
+    this.setState({ personages: data, loading: false });
   }
 
   async componentDidMount() {
-    await this.getAllSchema();
+    await this.getAllPersonage();
 
     var cy = cytoscape({
       container: document.getElementById("cy"),
@@ -114,8 +122,8 @@ export class ShowSchema extends Component {
       ],
 
       elements: {
-        nodes: this.state.schemas,
-        edges: this.state.schemas,
+        nodes: this.state.personages,
+        edges: this.state.personages,
       },
     });
 
@@ -128,40 +136,24 @@ export class ShowSchema extends Component {
       snap: false,
     });
 
+    document.querySelector("#addnode").addEventListener("click", function () {
+      cy.add([
+        {
+          group: "nodes",
+
+          position: {
+            x: 200,
+            y: 200,
+          },
+        },
+      ]);
+    });
     document.querySelector("#draw-on").addEventListener("click", function () {
       eh.enableDrawMode();
     });
 
     document.querySelector("#draw-off").addEventListener("click", function () {
       eh.disableDrawMode();
-    });
-
-    document.querySelector("#start").addEventListener("click", function () {
-      eh.start(cy.$("node:selected"));
-    });
-
-    //add node
-    document.querySelector("#addedge").addEventListener("click", function () {
-      let elem_id = document.getElementById("node_id").value;
-      var from_node = document.getElementById("from_node").value;
-      if (elem_id.length === 0 || from_node.length === 0) {
-        alert("please fill both input fields");
-        return;
-      }
-      cy.add([
-        {
-          data: {
-            id: elem_id,
-          },
-        },
-        {
-          data: {
-            id: from_node + "" + elem_id,
-            source: from_node + "",
-            target: elem_id + "",
-          },
-        },
-      ]);
     });
 
     //remove node on right click
@@ -177,44 +169,40 @@ export class ShowSchema extends Component {
       cy.remove(edge);
     });
 
-    //add node on tap
-    cy.on("tap", function (evt) {
-      cy.add([
-        {
-          group: "nodes",
-          id: "jean",
-          name: "jean",
-          renderedPosition: {
-            x: evt.renderedPosition.x,
-            y: evt.renderedPosition.y,
-          },
-        },
-      ]);
+    //todo get source and target of the edge
+    var collection = cy.collection();
+    cy.on("tap", "edges", function (e) {
+      var clickedNode = e.target;
+      collection = collection.union(clickedNode);
+      console.log("source : ", e.target._private.data.source);
+      console.log("target : ", e.target._private.data.target);
     });
   }
-  static renderSchemas(schemas) {
+
+  static renderPersonages(personages) {
     return (
-      <div>
-        {schemas.map((schema) => (
-          <ul key={schema.data.id}>
-            <li>{schema.data.name}</li>
+      <div className="renderPerso">
+        {personages.map((personage) => (
+          <ul key={personage.data.id}>
+            <li>{personage.data.lastname}</li>
+            <li>{personage.data.firstname}</li>
           </ul>
         ))}
       </div>
     );
   }
   render() {
-    let dataschemas = this.state.loading ? (
+    let dataspersonages = this.state.loading ? (
       <p>
         <em>loading ...</em>
       </p>
     ) : (
-      ShowSchema.renderSchemas(this.state.schemas)
+      ShowSchema.renderPersonages(this.state.personages)
     );
 
     return (
       <div className="test">
-        {dataschemas}
+        {dataspersonages}
         <div className="container-fluid ">
           <h3 className="d-flex justify-content-center p-5">Show schema</h3>
 
@@ -222,25 +210,6 @@ export class ShowSchema extends Component {
             <div className="col-md-2 border p-3">
               Show schema option
               <div className="border p-2 container col">
-                <input
-                  className="p-2"
-                  type="text"
-                  id="from_node"
-                  placeholder="from node"
-                />
-                <input
-                  className="p-2"
-                  type="text"
-                  id="node_id"
-                  placeholder="to node"
-                />
-                <button
-                  id="addedge"
-                  className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2  mt-2"
-                >
-                  Add edge
-                </button>
-                <p>Left click on the screen to add a node</p>
                 <p>Right click on a node or a edge to delete it</p>
               </div>
             </div>
@@ -256,24 +225,24 @@ export class ShowSchema extends Component {
 
               {/* event */}
               <div id="cy"></div>
-              <div id="buttons" className="">
+              <div id="buttons">
                 <button
-                  id="start"
-                  className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2 "
+                  id="addnode"
+                  className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
                 >
-                  Start on selected
+                  add node
                 </button>
                 <button
                   id="draw-on"
                   className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
                 >
-                  Draw mode on
+                  Link On
                 </button>
                 <button
                   id="draw-off"
-                  className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                  className="btn btn-lg btn-danger btn-login text-uppercase fw-bold mb-2"
                 >
-                  Draw mode off
+                  Link Off
                 </button>
               </div>
             </div>

@@ -17,3 +17,6 @@ input {
 p {
   font-size: 1rem;
 }
+.renderPerso {
+  display: none;
+}
