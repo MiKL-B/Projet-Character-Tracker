@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CharacterTrackerContext>(opt =>
-  opt.UseNpgsql("Server=localhost;Port=5432;Database=characterTracker;User Id=postgres;Password=postgres"));
+  opt.UseNpgsql("Server=localhost;Port=5432;Database=characterTracker;User Id=postgres;Password=azerty54"));
 
 var app = builder.Build();
 
