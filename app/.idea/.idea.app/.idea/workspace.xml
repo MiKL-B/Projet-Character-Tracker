@@ -5,16 +5,25 @@
     <projectFile profileName="IIS Express">app/app.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Controllers/AuthController.cs" afterDir="false" />
+    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="add AuthController">
+      <change afterPath="$PROJECT_DIR$/app/ClientApp/src/store/userStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEST API.http" beforeDir="false" afterPath="$PROJECT_DIR$/TEST API.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Account.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/CharacterTrackerContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CharacterTrackerContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Family.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Family.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/GroupUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/GroupUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Personage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Personage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ModificationEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/ModificationEvent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ModificationSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/ModificationSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/MyGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/MyGroup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/MySchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/MySchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/NavMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/NavMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SettingsUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/SettingsUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ShowSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/ShowSearch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/SignIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +34,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTTP Request" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -45,6 +55,7 @@
     <setting file="file://$PROJECT_DIR$/app/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/WeatherForecast.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/Controllers/WeatherForecastController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User-14/Desktop/characterTracker/app/app/Models/Account.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="JsBowerSettings">
     <bower-package value="" />
@@ -78,7 +89,7 @@
     <property name="ts.external.directory.path" value="C:\Users\User-14\Desktop\characterTracker\app\app\ClientApp\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.app">
+  <component name="RunManager" selected="npm.start">
     <configuration name="TEST API | GET ALL Account" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/TEST API.http" requestIdentifier="GET ALL Account" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -179,7 +190,7 @@
       <workItem from="1643872878358" duration="15876000" />
       <workItem from="1643958809398" duration="11183000" />
       <workItem from="1644221882091" duration="20191000" />
-      <workItem from="1644304263231" duration="15402000" />
+      <workItem from="1644304263231" duration="17229000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -237,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643970875238</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add AuthController">
+      <created>1644329499111</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1644329499111</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +315,8 @@
     <MESSAGE value="Add MODELS DB" />
     <MESSAGE value="WIP models database" />
     <MESSAGE value="WIP CRUD Account" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP CRUD Account" />
+    <MESSAGE value="add AuthController" />
+    <option name="LAST_COMMIT_MESSAGE" value="add AuthController" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
