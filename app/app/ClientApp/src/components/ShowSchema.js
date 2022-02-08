@@ -6,7 +6,25 @@ cytoscape.use(edgehandles);
 
 export class ShowSchema extends Component {
   static displayName = ShowSchema.name;
-  componentDidMount() {
+
+  constructor(props) {
+    super(props);
+    this.state = { schemas: [], loading: true };
+  }
+
+  async getAllSchema() {
+    const response = await fetch("schema");
+    const raw = await response.json();
+    const data = raw.map((schema) => {
+      return { data: schema };
+    });
+    // console.log(data);
+    this.setState({ schemas: data, loading: false });
+  }
+
+  async componentDidMount() {
+    await this.getAllSchema();
+
     var cy = cytoscape({
       container: document.getElementById("cy"),
 
@@ -26,7 +44,8 @@ export class ShowSchema extends Component {
           selector: "node[name]",
           style: {
             content: "data(name)",
-            backgroundColor: "#0b5ed7",
+            "background-image": "https://picsum.photos/100",
+            "background-fit": "cover cover",
           },
         },
 
@@ -95,12 +114,8 @@ export class ShowSchema extends Component {
       ],
 
       elements: {
-        nodes: [
-          { data: { id: "jean", name: "jean" } },
-          { data: { id: "michel", name: "michel" } },
-          { data: { id: "edwouard", name: "edwouard" } },
-        ],
-        edges: [{ data: { source: "jean", target: "michel" } }],
+        nodes: this.state.schemas,
+        edges: this.state.schemas,
       },
     });
 
@@ -177,15 +192,34 @@ export class ShowSchema extends Component {
       ]);
     });
   }
-
-  render() {
+  static renderSchemas(schemas) {
     return (
       <div>
-        <div className="container-fluid p-5">
+        {schemas.map((schema) => (
+          <ul key={schema.data.id}>
+            <li>{schema.data.name}</li>
+          </ul>
+        ))}
+      </div>
+    );
+  }
+  render() {
+    let dataschemas = this.state.loading ? (
+      <p>
+        <em>loading ...</em>
+      </p>
+    ) : (
+      ShowSchema.renderSchemas(this.state.schemas)
+    );
+
+    return (
+      <div className="test">
+        {dataschemas}
+        <div className="container-fluid ">
           <h3 className="d-flex justify-content-center p-5">Show schema</h3>
 
           <div className="row">
-            <div className="col-md-3 border p-3">
+            <div className="col-md-2 border p-3">
               Show schema option
               <div className="border p-2 container col">
                 <input
@@ -200,14 +234,12 @@ export class ShowSchema extends Component {
                   id="node_id"
                   placeholder="to node"
                 />
-
                 <button
                   id="addedge"
                   className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2  mt-2"
                 >
                   Add edge
                 </button>
-
                 <p>Left click on the screen to add a node</p>
                 <p>Right click on a node or a edge to delete it</p>
               </div>
