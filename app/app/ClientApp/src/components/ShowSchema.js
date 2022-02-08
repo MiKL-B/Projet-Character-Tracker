@@ -32,7 +32,6 @@ export class ShowSchema extends Component {
 
   async componentDidMount() {
     await this.getAllPersonage();
-
     var cy = cytoscape({
       container: document.getElementById("cy"),
 
@@ -174,6 +173,7 @@ export class ShowSchema extends Component {
     cy.on("tap", "edges", function (e) {
       var clickedNode = e.target;
       collection = collection.union(clickedNode);
+      console.log("id : ", e.target._private.data.id);
       console.log("source : ", e.target._private.data.source);
       console.log("target : ", e.target._private.data.target);
     });
