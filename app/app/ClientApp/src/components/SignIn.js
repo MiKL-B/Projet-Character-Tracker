@@ -10,6 +10,7 @@ export class SignIn extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleChange_pw = this.handleChange_pw.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = { accounts: [], loading: true };
     }
 
     handleChange(event) {
@@ -25,7 +26,21 @@ export class SignIn extends Component {
         event.preventDefault();
     }
 
+    componentDidMount() {
+        this.populateWeatherData();
+    }
+
+    async populateWeatherData() {
+        const response = await fetch('account');
+        const data = await response.json();
+        this.setState({ accounts: data, loading: false });
+    }
+
     render() {
+        let contents = this.state.loading
+            ? <p><em>Loading...</em></p>
+            : console.log(this.state.accounts[0].id);
+
         return (
             <div className="container-fluid ps-md-0">
                 <div className="row g-0">
