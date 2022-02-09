@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FormInput from "../components/FormInput";
+import { Button, Input } from "../components/FormInput";
 
 export class SignUp extends Component {
   static displayName = SignUp.name;
@@ -43,14 +43,14 @@ export class SignUp extends Component {
                     <h3 className="login-heading mb-4">Inscription</h3>
                     <div className="erreur" />
                     <form id="form-login" onSubmit={this.handleSubmit}>
-                      <FormInput
+                      <Input
                         type={"text"}
                         name={"name"}
                         label={"Name"}
                         value={this.state.name}
                         onChange={this.handleInputChange}
                       />
-                      <FormInput
+                      <Input
                         type={"email"}
                         name={"email"}
                         label={"Email"}
@@ -58,28 +58,21 @@ export class SignUp extends Component {
                         onChange={this.handleInputChange}
                         placeholder={"name@example.com"}
                       />
-                      <FormInput
+                      <Input
                         type={"password"}
                         name={"password"}
                         label={"Password"}
                         value={this.state.password}
                         onChange={this.handleInputChange}
                       />
-                      <FormInput
+                      <Input
                         type={"password"}
                         name={"confirmPassword"}
                         label={"Confirm Password"}
                         value={this.state.confirmPassword}
                         onChange={this.handleInputChange}
                       />
-                      <div className="d-grid">
-                        <button
-                          className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
-                          type="submit"
-                        >
-                          Sign up
-                        </button>
-                      </div>
+                      <Button type={"submit"} value={"submit"} />
                     </form>
                   </div>
                 </div>

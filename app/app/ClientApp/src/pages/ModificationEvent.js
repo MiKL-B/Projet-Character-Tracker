@@ -1,7 +1,40 @@
 import React, { Component } from "react";
+import { Button, Input, Select } from "../components/FormInput";
 
 export class ModificationEvent extends Component {
   static displayName = ModificationEvent.name;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      date: "",
+      actor: "",
+      target: "",
+      relationship: "",
+      force: "",
+      privacy: 0,
+      reciprocal: "",
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    console.log(target.value);
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+    console.log(name);
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log(this.state);
+  }
 
   render() {
     return (
@@ -12,109 +45,74 @@ export class ModificationEvent extends Component {
             <h1 className="d-flex justify-content-center p-5">
               Editing an event
             </h1>
-            <form action="" method="post">
-              <div className="form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="nameEvent"
-                  placeholder="name@example.com"
-                />
-                <label htmlFor="nameEvent">Name event</label>
-              </div>
-              <div className="form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="dateEvent"
-                  placeholder="name@example.com"
-                />
-                <label htmlFor="dateEvent">Date event</label>
-              </div>
+            <form onSubmit={this.handleSubmit}>
+              <Input
+                type={"text"}
+                name={"name"}
+                label={"Name event"}
+                value={this.state.name}
+                onChange={this.handleInputChange}
+              />
+              <Input
+                type={"text"}
+                name={"date"}
+                label={"Date event"}
+                value={this.state.date}
+                onChange={this.handleInputChange}
+              />
+
               <div className="row">
-                <div className="col form-floating mb-3">
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="personage1"
-                    placeholder="name@example.com"
-                  />
-                  <label htmlFor="personage1" className="mx-3">
-                    Personage 1
-                  </label>
+                <div className="col-md">
+                  <Input
+                    type={"text"}
+                    name={"actor"}
+                    label={"Actor"}
+                    value={this.state.actor}
+                    onChange={this.handleInputChange}
+                    col
+                  />{" "}
                 </div>
-
-                <div className="col form-floating mb-3">
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="personage1"
-                    placeholder="name@example.com"
+                <div className="col-md">
+                  <Input
+                    type={"text"}
+                    name={"actor"}
+                    label={"Target"}
+                    value={this.state.target}
+                    onChange={this.handleInputChange}
+                    col
                   />
-                  <label htmlFor="personage2" className="mx-3">
-                    Personage 2
-                  </label>
                 </div>
               </div>
-              <div className="col form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="dateEvent"
-                  placeholder="name@example.com"
-                />
-                <label htmlFor="dateEvent">Date event</label>
-              </div>
-              <div className="form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="typeRelation"
-                  placeholder="name@example.com"
-                />
-                <label htmlFor="typeRelation">Type of relationship</label>
-              </div>
-              <div className=" form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="forceRelation"
-                  placeholder="name@example.com"
-                />
-                <label htmlFor="forceRelation">
-                  Strength of the relationship
-                </label>
-              </div>
-              <div className="mb-3 border p-3">
-                <details>
-                  <summary>Is public or not</summary>
-                  <ul>
-                    <li className="mb-1">Public</li>
-                    <li className="mb-1">Private</li>
-                    <li className="mb-1">Secret</li>
-                  </ul>
-                </details>
-              </div>
+              <Input
+                type={"text"}
+                name={"relationship"}
+                label={"Type of relationship"}
+                value={this.state.relationship}
+                onChange={this.handleInputChange}
+              />
+              <Input
+                type={"text"}
+                name={"force"}
+                label={"Strength of the relationship"}
+                value={this.state.force}
+                onChange={this.handleInputChange}
+              />
 
-              <div className=" form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="relationReciproque"
-                  placeholder="name@example.com"
-                />
-                <label htmlFor="relationReciproque">
-                  Reciprocal relationship
-                </label>
-              </div>
-              <div className="d-grid">
-                <button
-                  className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </div>
+              <Select
+                name={"privacy"}
+                options={["Public", "Private", "Secret"]}
+                label={"Type of relation"}
+                value={this.state.privacy}
+                onChange={this.handleInputChange}
+              />
+              <Input
+                type={"text"}
+                name={"reciprocal"}
+                label={"Reciprocal relationship"}
+                value={this.state.reciprocal}
+                onChange={this.handleInputChange}
+              />
+              <Button type={"submit"} value={"submit"} />
             </form>
           </div>
         </div>

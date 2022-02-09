@@ -5,13 +5,18 @@
     <projectFile profileName="IIS Express">app/app.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="start refacto + add component FormInput">
+    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="refacto SignIn">
       <change afterPath="$PROJECT_DIR$/app/ClientApp/src/store/userStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/FormInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/FormInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/footer.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/FormCreateSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/FormCreateSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/ModificationEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ModificationEvent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -179,7 +184,7 @@
       <workItem from="1643958809398" duration="11183000" />
       <workItem from="1644221882091" duration="20191000" />
       <workItem from="1644304263231" duration="21630000" />
-      <workItem from="1644390597040" duration="4202000" />
+      <workItem from="1644390597040" duration="18583000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -265,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644394008855</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="refacto SignIn">
+      <created>1644395082986</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1644395082986</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +341,8 @@
     <MESSAGE value="cleaning" />
     <MESSAGE value="more cleaning" />
     <MESSAGE value="start refacto + add component FormInput" />
-    <option name="LAST_COMMIT_MESSAGE" value="start refacto + add component FormInput" />
+    <MESSAGE value="refacto SignIn" />
+    <option name="LAST_COMMIT_MESSAGE" value="refacto SignIn" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

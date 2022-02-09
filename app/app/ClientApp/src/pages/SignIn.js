@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./SignIn.css";
-import FormInput from "../components/FormInput";
+import { Button, Input } from "../components/FormInput";
 
 export class SignIn extends Component {
   static displayName = SignIn.name;
@@ -39,7 +39,7 @@ export class SignIn extends Component {
                     <h3 className="login-heading mb-4">Connexion</h3>
                     <div className="erreur" />
                     <form id="form-login" onSubmit={this.handleSubmit}>
-                      <FormInput
+                      <Input
                         type={"email"}
                         name={"email"}
                         label={"Email"}
@@ -47,21 +47,14 @@ export class SignIn extends Component {
                         onChange={this.handleInputChange}
                         placeholder={"name@example.com"}
                       />
-                      <FormInput
+                      <Input
                         type={"password"}
                         name={"password"}
                         label={"Password"}
                         value={this.state.password}
                         onChange={this.handleInputChange}
                       />
-                      <div className="d-grid">
-                        <button
-                          className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
-                          type="submit"
-                        >
-                          Sign in
-                        </button>
-                      </div>
+                      <Button type={"submit"} value={"submit"} />
                     </form>
                   </div>
                 </div>
