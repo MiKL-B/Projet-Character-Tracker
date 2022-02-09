@@ -19,28 +19,24 @@ export class ShowSchema extends Component {
       return {
         data: {
           id: personage.id,
-          name: personage.firstname,
-          source: personage.firstname,
-          target: personage.firstname,
-          // name: [`${personage.lastname} ${personage.firstname}`],
+          name: [`${personage.lastname} ${personage.firstname}`],
         },
       };
     });
-    // console.log(data);
     this.setState({ personages: data, loading: false });
   }
 
   async componentDidMount() {
     await this.getAllPersonage();
+
     var cy = cytoscape({
       container: document.getElementById("cy"),
-
       layout: {
         name: "concentric",
-        concentric: function (n) {
+        concentric: (n) => {
           return n.id() === "j" ? 200 : 0;
         },
-        levelWidth: function (nodes) {
+        levelWidth: () => {
           return 100;
         },
         minNodeSpacing: 100,
@@ -64,28 +60,6 @@ export class ShowSchema extends Component {
           },
         },
 
-        // some style for the extension
-
-        {
-          selector: ".eh-handle",
-          style: {
-            "background-color": "red",
-            width: 12,
-            height: 12,
-            shape: "ellipse",
-            "overlay-opacity": 0,
-            "border-width": 12, // makes the handle easier to hit
-            "border-opacity": 0,
-          },
-        },
-
-        {
-          selector: ".eh-hover",
-          style: {
-            "background-color": "red",
-          },
-        },
-
         {
           selector: ".eh-source",
           style: {
@@ -105,10 +79,8 @@ export class ShowSchema extends Component {
         {
           selector: ".eh-preview, .eh-ghost-edge",
           style: {
-            "background-color": "orange",
             "line-color": "lightblue",
             "target-arrow-color": "lightblue",
-            "source-arrow-color": "orange",
           },
         },
 
@@ -122,7 +94,6 @@ export class ShowSchema extends Component {
 
       elements: {
         nodes: this.state.personages,
-        edges: this.state.personages,
       },
     });
 
@@ -132,17 +103,31 @@ export class ShowSchema extends Component {
     cy.userZoomingEnabled(false);
 
     var eh = cy.edgehandles({
-      snap: false,
+      snap: true,
+      snapThreshold: 50,
+    });
+
+    cy.on("ehcomplete", (event, sourceNode, targetNode) => {
+      const source = sourceNode._private.data.id;
+      const target = targetNode._private.data.id;
+      console.log("source : ", source);
+      console.log("target : ", target);
+
+      localStorage.setItem("source", source);
+      localStorage.setItem("target", target);
     });
 
     document.querySelector("#addnode").addEventListener("click", function () {
       cy.add([
         {
-          group: "nodes",
-
+          group: "edges",
           position: {
             x: 200,
             y: 200,
+          },
+          data: {
+            source: localStorage.getItem("source"),
+            target: localStorage.getItem("target"),
           },
         },
       ]);
@@ -167,16 +152,6 @@ export class ShowSchema extends Component {
       console.log("tapped", edge.id());
       cy.remove(edge);
     });
-
-    //todo get source and target of the edge
-    var collection = cy.collection();
-    cy.on("tap", "edges", function (e) {
-      var clickedNode = e.target;
-      collection = collection.union(clickedNode);
-      console.log("id : ", e.target._private.data.id);
-      console.log("source : ", e.target._private.data.source);
-      console.log("target : ", e.target._private.data.target);
-    });
   }
 
   static renderPersonages(personages) {
@@ -191,6 +166,7 @@ export class ShowSchema extends Component {
       </div>
     );
   }
+
   render() {
     let dataspersonages = this.state.loading ? (
       <p>
@@ -230,7 +206,7 @@ export class ShowSchema extends Component {
                   id="addnode"
                   className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
                 >
-                  add node
+                  add edge
                 </button>
                 <button
                   id="draw-on"
