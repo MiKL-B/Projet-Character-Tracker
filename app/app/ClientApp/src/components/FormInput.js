@@ -1,4 +1,4 @@
-﻿const FormInput = ({
+const FormInput = ({
   type,
   value,
   name,
@@ -15,6 +15,7 @@
         className="form-control"
         placeholder={placeholder}
         name={name}
+        id={name}
       />
       <label htmlFor={name}>{label}</label>
     </div>

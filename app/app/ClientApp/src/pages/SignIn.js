@@ -1,52 +1,32 @@
 import React, { Component } from "react";
 import "./SignIn.css";
+import FormInput from "../components/FormInput";
 
 export class SignIn extends Component {
   static displayName = SignIn.name;
 
   constructor(props) {
     super(props);
-    this.state = { value: "" };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleChange_pw = this.handleChange_pw.bind(this);
+    this.state = { email: "", password: "", accounts: {}, loading: true };
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = { accounts: [], loading: true };
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
-
-  handleChange_pw(event) {
-    this.setState({ value_pw: event.target.value });
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value,
+    });
   }
 
   handleSubmit(event) {
-    alert(
-      "Le nom a été soumis : " + this.state.value + " " + this.state.value_pw
-    );
+    console.log(this.state);
     event.preventDefault();
   }
 
-  componentDidMount() {
-    this.populateWeatherData();
-  }
-
-  async populateWeatherData() {
-    const response = await fetch("account");
-    const data = await response.json();
-    this.setState({ accounts: data, loading: false });
-  }
-
   render() {
-    let contents = this.state.loading ? (
-      <p>
-        <em>Loading...</em>
-      </p>
-    ) : (
-      console.log(this.state.accounts[0].id)
-    );
-
     return (
       <div className="container-fluid ps-md-0">
         <div className="row g-0">
@@ -59,29 +39,21 @@ export class SignIn extends Component {
                     <h3 className="login-heading mb-4">Connexion</h3>
                     <div className="erreur" />
                     <form id="form-login" onSubmit={this.handleSubmit}>
-                      <div className="form-floating mb-3">
-                        <input
-                          type="email"
-                          value={this.state.value}
-                          onChange={this.handleChange}
-                          className="form-control"
-                          id="email"
-                          placeholder="name@example.com"
-                        />
-                        <label htmlFor="floatingInput">Email address</label>
-                      </div>
-                      <div className="form-floating mb-3">
-                        <input
-                          type="password"
-                          value_pw={this.state.value}
-                          onChange={this.handleChange_pw}
-                          className="form-control"
-                          id="password"
-                          placeholder="Password"
-                          minLength="8"
-                        />
-                        <label htmlFor="floatingPassword">Password</label>
-                      </div>
+                      <FormInput
+                        type={"email"}
+                        name={"email"}
+                        label={"Email"}
+                        value={this.state.email}
+                        onChange={this.handleInputChange}
+                        placeholder={"name@example.com"}
+                      />
+                      <FormInput
+                        type={"password"}
+                        name={"password"}
+                        label={"Password"}
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                      />
                       <div className="d-grid">
                         <button
                           className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"

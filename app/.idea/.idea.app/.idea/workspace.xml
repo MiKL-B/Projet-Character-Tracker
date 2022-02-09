@@ -5,28 +5,13 @@
     <projectFile profileName="IIS Express">app/app.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/ClientApp/src/components/FormInput.js" afterDir="false" />
+    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="start refacto + add component FormInput">
       <change afterPath="$PROJECT_DIR$/app/ClientApp/src/store/userStore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/Admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/FormCreateSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/FormCreateSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ModificationEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ModificationEvent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ModificationSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ModificationSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/MyGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/MyGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/MySchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/MySchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SettingsUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SettingsUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ShowSchema.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ShowSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ShowSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSearch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SignIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SignUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/FormInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/FormInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/FormCreateSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/FormCreateSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +73,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\User-14\Desktop\characterTracker\app\app\ClientApp\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
     <property name="ts.external.directory.path" value="C:\Users\User-14\Desktop\characterTracker\app\app\ClientApp\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -194,7 +179,7 @@
       <workItem from="1643958809398" duration="11183000" />
       <workItem from="1644221882091" duration="20191000" />
       <workItem from="1644304263231" duration="21630000" />
-      <workItem from="1644390597040" duration="3100000" />
+      <workItem from="1644390597040" duration="4202000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -273,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644335227306</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="start refacto + add component FormInput">
+      <created>1644394008855</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1644394008855</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +328,8 @@
     <MESSAGE value="add AuthController" />
     <MESSAGE value="cleaning" />
     <MESSAGE value="more cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="more cleaning" />
+    <MESSAGE value="start refacto + add component FormInput" />
+    <option name="LAST_COMMIT_MESSAGE" value="start refacto + add component FormInput" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
