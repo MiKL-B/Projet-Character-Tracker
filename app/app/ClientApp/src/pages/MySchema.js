@@ -10,26 +10,31 @@ export class MySchema extends Component {
 
   async getAllSchemas() {
     const response = await fetch("schema");
-    const raw = await response.json();
-    const data = raw.map((schema) => {
-      return {
-        schema,
-      };
-    });
+    const data = await response.json();
+
     this.setState({ schemas: data, loading: false });
   }
 
   async componentDidMount() {
     await this.getAllSchemas();
-    console.log(this.state.schemas);
   }
 
   static renderSchemas(schemas) {
     return (
-      <div className="">
-        {schemas.map((schema) => {
-          <div key={schema.id}>{schema.name}</div>;
-        })}
+      <div>
+        {schemas.map((schema) => (
+          <ul key={schema.id}>
+            <li>id: {schema.id}</li>
+            <li>name: {schema.name}</li>
+            <li>desc: {schema.desc}</li>
+            <li>group users: {schema.groupUsers}</li>
+            <li>img: {schema.img}</li>
+            <li>ispublic: {schema.isPublic}</li>
+            <li>permission: {schema.permission}</li>
+            <li>personages: {schema.personages}</li>
+            <li>readable date: {schema.readableDate}</li>
+          </ul>
+        ))}
       </div>
     );
   }
@@ -40,6 +45,7 @@ export class MySchema extends Component {
     ) : (
       MySchema.renderSchemas(this.state.schemas)
     );
+
     return (
       <div>
         <div className="container-fluid">
