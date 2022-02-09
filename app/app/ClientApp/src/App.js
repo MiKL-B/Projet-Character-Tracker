@@ -1,26 +1,27 @@
 import React, { Component } from "react";
 import { Route } from "react-router";
+
 import { Layout } from "./components/Layout";
-import { Home } from "./components/Home";
-import { SignUp } from "./components/SignUp";
-import { SignIn } from "./components/SignIn";
-import { MySchema } from "./components/MySchema";
-import { MyGroup } from "./components/MyGroup";
-import { SettingsUser } from "./components/SettingsUser";
-import { FormCreateSchema } from "./components/FormCreateSchema";
-import { ModificationSchema } from "./components/ModificationSchema";
-import { ModificationEvent } from "./components/ModificationEvent";
-import { ShowSchema } from "./components/ShowSchema";
-import { ShowSearch } from "./components/ShowSearch";
-import { Admin } from "./components/Admin";
+import { Home } from "./pages/Home";
+import { SignUp } from "./pages/SignUp";
+import { SignIn } from "./pages/SignIn";
+import { MySchema } from "./pages/MySchema";
+import { MyGroup } from "./pages/MyGroup";
+import { SettingsUser } from "./pages/SettingsUser";
+import { FormCreateSchema } from "./pages/FormCreateSchema";
+import { ModificationSchema } from "./pages/ModificationSchema";
+import { ModificationEvent } from "./pages/ModificationEvent";
+import { ShowSchema } from "./pages/ShowSchema";
+import { ShowSearch } from "./pages/ShowSearch";
+import { Admin } from "./pages/Admin";
 import "./custom.css";
 
 export default class App extends Component {
-    static displayName = App.name;
+  static displayName = App.name;
 
-    componentDidMount() {
-        document.title = "Character Tracker"
-    }
+  componentDidMount() {
+    document.title = "Character Tracker";
+  }
 
   render() {
     return (

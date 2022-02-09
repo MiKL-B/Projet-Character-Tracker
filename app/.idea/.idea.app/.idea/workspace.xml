@@ -5,25 +5,29 @@
     <projectFile profileName="IIS Express">app/app.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="add AuthController">
+    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/ClientApp/src/components/FormInput.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/ClientApp/src/store/userStore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ModificationEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/ModificationEvent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ModificationSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/ModificationSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/MyGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/MyGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/MySchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/MySchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/NavMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/NavMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SettingsUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/SettingsUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ShowSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/ShowSearch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/SignIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/Admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/FormCreateSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/FormCreateSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ModificationEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ModificationEvent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ModificationSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ModificationSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/MyGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/MyGroup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/MySchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/MySchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SettingsUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SettingsUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ShowSchema.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ShowSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/ShowSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSearch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SignIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SignUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +59,6 @@
     <setting file="file://$PROJECT_DIR$/app/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/WeatherForecast.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/Controllers/WeatherForecastController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/User-14/Desktop/characterTracker/app/app/Models/Account.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="JsBowerSettings">
     <bower-package value="" />
@@ -190,7 +193,8 @@
       <workItem from="1643872878358" duration="15876000" />
       <workItem from="1643958809398" duration="11183000" />
       <workItem from="1644221882091" duration="20191000" />
-      <workItem from="1644304263231" duration="17229000" />
+      <workItem from="1644304263231" duration="21630000" />
+      <workItem from="1644390597040" duration="3100000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -255,7 +259,21 @@
       <option name="project" value="LOCAL" />
       <updated>1644329499111</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="cleaning">
+      <created>1644331411279</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1644331411279</updated>
+    </task>
+    <task id="LOCAL-00011" summary="more cleaning">
+      <created>1644335227306</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1644335227306</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,7 +334,9 @@
     <MESSAGE value="WIP models database" />
     <MESSAGE value="WIP CRUD Account" />
     <MESSAGE value="add AuthController" />
-    <option name="LAST_COMMIT_MESSAGE" value="add AuthController" />
+    <MESSAGE value="cleaning" />
+    <MESSAGE value="more cleaning" />
+    <option name="LAST_COMMIT_MESSAGE" value="more cleaning" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

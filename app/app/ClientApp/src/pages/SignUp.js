@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FormInput from "../components/FormInput";
 
 export class SignUp extends Component {
   static displayName = SignUp.name;
@@ -29,22 +30,6 @@ export class SignUp extends Component {
     console.log(this.state);
   }
 
-  static Input(type, value, name, onChange, label) {
-    return (
-      <div className="form-floating mb-3">
-        <input
-          type={type}
-          value={value}
-          onChange={onChange}
-          className="form-control"
-          placeholder=""
-          name={name}
-        />
-        <label htmlFor={name}>{label}</label>
-      </div>
-    );
-  }
-
   render() {
     return (
       <div className="container-fluid ps-md-0">
@@ -58,34 +43,35 @@ export class SignUp extends Component {
                     <h3 className="login-heading mb-4">Inscription</h3>
                     <div className="erreur" />
                     <form id="form-login" onSubmit={this.handleSubmit}>
-                      {SignUp.Input(
-                        "text",
-                        this.state.name,
-                        "name",
-                        this.handleInputChange,
-                        "Name"
-                      )}
-                      {SignUp.Input(
-                        "email",
-                        this.state.email,
-                        "email",
-                        this.handleInputChange,
-                        "Email"
-                      )}
-                      {SignUp.Input(
-                        "password",
-                        this.state.password,
-                        "password",
-                        this.handleInputChange,
-                        "Password"
-                      )}
-                      {SignUp.Input(
-                        "password",
-                        this.state.confirmPassword,
-                        "confirmPassword",
-                        this.handleInputChange,
-                        "Confirm Password"
-                      )}
+                      <FormInput
+                        type={"text"}
+                        name={"name"}
+                        label={"Name"}
+                        value={this.state.name}
+                        onChange={this.handleInputChange}
+                      />
+                      <FormInput
+                        type={"email"}
+                        name={"email"}
+                        label={"Email"}
+                        value={this.state.email}
+                        onChange={this.handleInputChange}
+                        placeholder={"name@example.com"}
+                      />
+                      <FormInput
+                        type={"password"}
+                        name={"password"}
+                        label={"Password"}
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                      />
+                      <FormInput
+                        type={"password"}
+                        name={"confirmPassword"}
+                        label={"Confirm Password"}
+                        value={this.state.confirmPassword}
+                        onChange={this.handleInputChange}
+                      />
                       <div className="d-grid">
                         <button
                           className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
