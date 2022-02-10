@@ -20,11 +20,33 @@ export class SignIn extends Component {
       [name]: value,
     });
   }
+    handleSubmit(event) {
+        let e = 0;
 
-  handleSubmit(event) {
-    console.log(this.state);
-    event.preventDefault();
-  }
+        for (var i = 0; i < this.state.accounts.length; i++) {
+            if (this.state.accounts[i].mail === this.state.email) {
+                if (this.state.accounts[i].password === this.state.password) {
+                    e = 1;
+                    document.location.href = "https://localhost:44430/my-schema";
+                    alert("Connection");
+                }
+            }
+        }
+        if (e === 0) {
+            alert("Error connection");
+        }
+        event.preventDefault();
+    }
+
+    componentDidMount() {
+        this.populateWeatherData();
+    }
+
+    async populateWeatherData() {
+        const response = await fetch("account");
+        const data = await response.json();
+        this.setState({ accounts: data, loading: false });
+    }
 
   render() {
     return (

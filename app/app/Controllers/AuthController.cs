@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using app.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -14,6 +15,7 @@ namespace app.Controllers
     {
         public static User user = new User();
         private readonly IConfiguration _configuration;
+        private readonly CharacterTrackerContext _context;
 
         public AuthController(IConfiguration configuration)
         {
@@ -83,6 +85,14 @@ namespace app.Controllers
 
                 return computeHash.SequenceEqual(passwordHash);
             }
+        }
+
+        public async Task<ActionResult<Account>> GetAccount(long id)
+        {
+            var account = await _context.Accounts.FindAsync(id);
+            if (account == null) return NotFound();
+
+            return account;
         }
     }
 }
