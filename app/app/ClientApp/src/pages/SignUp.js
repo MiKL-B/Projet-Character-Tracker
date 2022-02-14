@@ -16,6 +16,16 @@ export class SignUp extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
+    componentDidMount() {
+        this.account();
+    }
+
+    async account() {
+        const response = await fetch("account");
+        const data = await response.json();
+        this.setState({ accounts: data, loading: false });
+    }
+
     handleInputChange(event) {
         const target = event.target;
         const value = target.value;
@@ -26,11 +36,27 @@ export class SignUp extends Component {
     }
 
     handleSubmit(event) {
+        var e = 0;
+
         if (this.state.name !== "" && this.state.email !== "" && this.state.password !== "") {
-            if (this.state.password === this.state.confirmPassword) {
-                this.register();
-            } else {
-                alert("Mots de passer differents");
+            for (var i = 0; i < this.state.accounts.length; i++) {
+                if (this.state.accounts[i].username === this.state.name) {
+                    e = 1;
+                    alert("User deja existant");
+                    break;
+                }
+                if (this.state.accounts[i].mail === this.state.email) {
+                    e = 1;
+                    alert("Email deja existant");
+                    break;
+                }
+            }
+            if (e === 0) {
+                if (this.state.password === this.state.confirmPassword) {
+                    this.register();
+                } else {
+                    alert("Mots de passer differents");
+                }
             }
         } else {
             alert("Error");
@@ -48,7 +74,6 @@ export class SignUp extends Component {
         const data = await response.json();
         this.setState({ accounts: data, loading: false });
     }
-
 
   render() {
     return (

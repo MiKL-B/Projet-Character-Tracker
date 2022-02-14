@@ -10,14 +10,10 @@ const target = env.ASPNETCORE_HTTPS_PORT
 const context = [
   "/weatherforecast",
   "/account",
+  "/auth",
   "/personage",
   "/family",
   "/schema",
-  "/sign-in",
-  "/sign-up",
-  "/auth",
-  "/auth/login",
-  "/auth/register",
 ];
 
 module.exports = function (app) {
