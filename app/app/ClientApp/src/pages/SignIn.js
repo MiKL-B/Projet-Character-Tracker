@@ -28,7 +28,6 @@ export class SignIn extends Component {
     }
 
     async login() {
-        localStorage.setItem('token', null)
         const requestOptions = {
             method: 'POST',
             headers: {
@@ -36,7 +35,14 @@ export class SignIn extends Component {
             },
             body: JSON.stringify({ username: this.state.username, password: this.state.password })
         };
-        await fetch("auth/login/", requestOptions).then(response => response.text()).then(data => localStorage.setItem('token', data));
+        let response = await fetch("auth/login/", requestOptions)
+            .catch((error) => {
+                console.log(error)
+            });
+        if (response.status === 200) {
+            let data = await response.text();
+            localStorage.setItem('token', data);
+        }
     }
 
   render() {
