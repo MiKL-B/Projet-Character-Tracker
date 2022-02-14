@@ -26,18 +26,15 @@ public class AuthController : ControllerBase
     public async Task<ActionResult<Account>> Login(Account account)
     {
         var user = await _context.Accounts.FirstOrDefaultAsync(a => a.Username == account.Username);
-        if (user == null) return NotFound();
 
-        //if (user.Password != account.Password) return ValidationProblem();
+        if (user == null) return NotFound();
         if (!VerifyPasswordHash(account.Password, user.PasswordHash, user.PasswordSalt))
         {
             return BadRequest("Wrong Password");
         }
-
         string token = CreateToken(account);
-        Console.WriteLine("token = " + token);
 
-        return user;
+        return Ok(token);
     }
 
     // REGISTER ACCOUNT
@@ -45,11 +42,9 @@ public class AuthController : ControllerBase
     public async Task<ActionResult<Account>> Register(Account account)
     {
         CreatePasswordHash(account.Password, out byte[] passwordHash, out byte[] passwordSalt);
-
         account.Password = null;
         account.PasswordHash = passwordHash;
         account.PasswordSalt = passwordSalt;
-
         _context.Accounts.Add(account);
         await _context.SaveChangesAsync();
 

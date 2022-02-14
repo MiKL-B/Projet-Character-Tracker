@@ -21,32 +21,23 @@ export class SignIn extends Component {
             [name]: value,
         });
     }
+
     handleSubmit(event) {
         this.login();
         event.preventDefault();
     }
-    /*
-    componentDidMount() {
-        this.account();
-    }
 
-    async account() {
-        const response = await fetch("account");
-        const data = await response.json();
-        this.setState({ accounts: data, loading: false });
-    }
-  */
     async login() {
+        localStorage.setItem('token', null)
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({ username: this.state.username, password: this.state.password })
         };
-        const response = await fetch("auth/login/", requestOptions);
-        const data = await response.json();
-        this.setState({ accounts: data, loading: false });
+        await fetch("auth/login/", requestOptions).then(response => response.text()).then(data => localStorage.setItem('token', data));
     }
-
 
   render() {
     return (
