@@ -12,6 +12,7 @@ export class FormCreateSchema extends Component {
       img: "",
       readableDate: false,
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -28,6 +29,21 @@ export class FormCreateSchema extends Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state);
+
+    console.log({ ...this.state });
+
+    fetch("/schema", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...this.state }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {

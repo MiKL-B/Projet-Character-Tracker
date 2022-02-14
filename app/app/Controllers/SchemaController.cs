@@ -52,9 +52,9 @@ namespace app.Controllers
             return NoContent();
         }
         [HttpPost]
-        public async Task<ActionResult<Schema>> Create(Schema schema)
+        public async Task<ActionResult<Schema>> Create( Schema schema)
         {
-            System.Console.WriteLine(schema);
+            System.Console.WriteLine("nique ta mere");
             _context.Schemas.Add(schema);
             await _context.SaveChangesAsync();
 
