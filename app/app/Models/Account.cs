@@ -9,6 +9,8 @@ public class Account
   [Column("id_account")] public long Id { get; set; }
   [Column("username")] public string? Username { get; set; }
   [Column("password")] public string? Password { get; set; }
+  [Column("password_hash")] public byte[]? PasswordHash { get; set; }
+  [Column("password_salt")] public byte[]? PasswordSalt { get; set; }
   [DataType(DataType.EmailAddress)]
   [Column("mail")] public string? Mail { get; set; }
   [Column("is_admin")] public bool IsAdmin { get; set; } = false;

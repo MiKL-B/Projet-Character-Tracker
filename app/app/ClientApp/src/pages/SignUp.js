@@ -2,33 +2,53 @@ import React, { Component } from "react";
 import { Button, Input } from "../components/FormInput";
 
 export class SignUp extends Component {
-  static displayName = SignUp.name;
+    static displayName = SignUp.name;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
+    }
 
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    this.setState({
-      [name]: value,
-    });
-  }
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value,
+        });
+    }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    console.log(this.state);
-  }
+    handleSubmit(event) {
+        if (this.state.name !== "" && this.state.email !== "" && this.state.password !== "") {
+            if (this.state.password === this.state.confirmPassword) {
+                this.register();
+            } else {
+                alert("Mots de passer differents");
+            }
+        } else {
+            alert("Error");
+        }
+        event.preventDefault();
+    }
+
+    async register() {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: this.state.name, password: this.state.password, is_admin: 'true', mail: this.state.email })
+        };
+        const response = await fetch("auth/register/", requestOptions);
+        const data = await response.json();
+        this.setState({ accounts: data, loading: false });
+    }
+
 
   render() {
     return (

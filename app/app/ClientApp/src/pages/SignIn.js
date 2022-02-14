@@ -1,52 +1,51 @@
 import React, { Component } from "react";
-import "./SignIn.css";
 import { Button, Input } from "../components/FormInput";
+import "./SignIn.css";
 
 export class SignIn extends Component {
-  static displayName = SignIn.name;
+    static displayName = SignIn.name;
 
-  constructor(props) {
-    super(props);
-    this.state = { email: "", password: "", accounts: {}, loading: true };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+    constructor(props) {
+        super(props);
+        this.state = { username: "", password: "", accounts: {}, loading: true };
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    this.setState({
-      [name]: value,
-    });
-  }
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value,
+        });
+    }
     handleSubmit(event) {
-        let e = 0;
-
-        for (var i = 0; i < this.state.accounts.length; i++) {
-            if (this.state.accounts[i].mail === this.state.email) {
-                if (this.state.accounts[i].password === this.state.password) {
-                    e = 1;
-                    document.location.href = "https://localhost:44430/my-schema";
-                    alert("Connection");
-                }
-            }
-        }
-        if (e === 0) {
-            alert("Error connection");
-        }
+        this.login();
         event.preventDefault();
     }
-
+    /*
     componentDidMount() {
-        this.populateWeatherData();
+        this.account();
     }
 
-    async populateWeatherData() {
+    async account() {
         const response = await fetch("account");
         const data = await response.json();
         this.setState({ accounts: data, loading: false });
     }
+  */
+    async login() {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: this.state.username, password: this.state.password })
+        };
+        const response = await fetch("auth/login/", requestOptions);
+        const data = await response.json();
+        this.setState({ accounts: data, loading: false });
+    }
+
 
   render() {
     return (
@@ -62,12 +61,12 @@ export class SignIn extends Component {
                     <div className="erreur" />
                     <form id="form-login" onSubmit={this.handleSubmit}>
                       <Input
-                        type={"email"}
-                        name={"email"}
-                        label={"Email"}
+                        type={"text"}
+                        name={"username"}
+                        label={"Username"}
                         value={this.state.email}
                         onChange={this.handleInputChange}
-                        placeholder={"name@example.com"}
+                        placeholder={"Username"}
                       />
                       <Input
                         type={"password"}

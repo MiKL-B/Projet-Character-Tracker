@@ -13,6 +13,11 @@ const context = [
   "/personage",
   "/family",
   "/schema",
+  "/sign-in",
+  "/sign-up",
+  "/auth",
+  "/auth/login",
+  "/auth/register",
 ];
 
 module.exports = function (app) {
