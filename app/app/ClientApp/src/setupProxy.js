@@ -14,6 +14,7 @@ const context = [
   "/personage",
   "/family",
   "/schema",
+  "/relation",
 ];
 
 module.exports = function (app) {

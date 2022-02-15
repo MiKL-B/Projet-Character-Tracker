@@ -4,50 +4,52 @@ import { Button, Input } from "../components/FormInput";
 import "./SignIn.css";
 
 export class SignIn extends Component {
-    static displayName = SignIn.name;
+  static displayName = SignIn.name;
 
-    constructor(props) {
-        super(props);
-        this.state = { username: "", password: "", accounts: {}, loading: true };
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.state = { username: "", password: "", accounts: {}, loading: true };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-        this.setState({
-            [name]: value,
-        });
-    }
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value,
+    });
+  }
 
-    handleSubmit(event) {
-        this.login();
-        event.preventDefault();
-    }
+  handleSubmit(event) {
+    this.login();
+    event.preventDefault();
+  }
 
-    async login() {
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username: this.state.username, password: this.state.password })
-        };
-        let response = await fetch("auth/login/", requestOptions)
-            .catch((error) => {
-                console.log(error)
-            });
-        if (response.status === 200) {
-            let data = await response.text();
-            localStorage.setItem('token', data);
-        }
+  async login() {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: this.state.username,
+        password: this.state.password,
+      }),
+    };
+    let response = await fetch("auth/login/", requestOptions).catch((error) => {
+      console.log(error);
+    });
+    if (response.status === 200) {
+      let data = await response.text();
+      localStorage.setItem("token", data);
     }
+  }
 
   render() {
     return (
-      <div className="container-fluid ps-md-0">
+      <div className="container ps-md-0">
         <div className="row g-0">
           <div className="d-none d-md-flex col-md-4 col-lg-6 bg-image" />
           <div className="col-md-8 col-lg-6">
