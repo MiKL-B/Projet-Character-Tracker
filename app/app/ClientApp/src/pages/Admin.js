@@ -17,11 +17,13 @@ export class Admin extends Component {
         };
         let response = await fetch("auth/verif", requestOptions)
             .catch((error) => {
-                console.log(error)
+                console.log(error);
             });
         if (response.status === 200) {
             let data = await response.text();
             console.log("data = " + data);
+        } else {
+            this.props.history.push('/');
         }
     }
 
