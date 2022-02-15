@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 export class MySchema extends Component {
   static displayName = MySchema.name;
 
   constructor(props) {
     super(props);
     this.state = { schemas: [], loading: true };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async getAllSchemas() {
@@ -18,22 +19,34 @@ export class MySchema extends Component {
   async componentDidMount() {
     await this.getAllSchemas();
   }
+  handleSubmit() {
+    console.log("pouet");
+  }
 
   static renderSchemas(schemas) {
     return (
       <div>
         {schemas.map((schema) => (
-          <ul key={schema.id}>
-            <li>id: {schema.id}</li>
-            <li>name: {schema.name}</li>
-            <li>desc: {schema.desc}</li>
-            <li>group users: {schema.groupUsers}</li>
-            <li>img: {schema.img}</li>
-            <li>ispublic: {schema.isPublic}</li>
-            <li>permission: {schema.permission}</li>
-            <li>personages: {schema.personages}</li>
-            <li>readable date: {schema.readableDate}</li>
-          </ul>
+          <div className="card" key={schema.id}>
+            <p>{schema.img}</p>
+            <div className="card-body">
+              <h5 className="card-title">{schema.name}</h5>
+              <p className="card-text">{schema.desc}</p>
+              <p>{schema.groupUsers}</p>
+              <p>{schema.isPublic}</p>
+              <p>{schema.permission}</p>
+              <p>{schema.personages}</p>
+              <p>{schema.readableDate}</p>
+
+              <Link
+                to="#"
+                className="btn btn-primary"
+                onClick={this.handleSubmit}
+              >
+                see this schema
+              </Link>
+            </div>
+          </div>
         ))}
       </div>
     );

@@ -31,7 +31,7 @@ namespace app.Controllers
         }
 
 
-        // UPDATE ACCOUNT
+        // UPDATE schema
         [HttpPut("{id:long}")]
         public async Task<IActionResult> UpdateSchema(long id, Schema schema)
         {

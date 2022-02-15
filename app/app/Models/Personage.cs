@@ -15,10 +15,10 @@ public class Personage
     [Column("img_pers")] public string? Img { get; set; }
 
     [Column("id_schema")] public long SchemaId { get; set; }
-    public Schema Schema { get; set; }
+    public Schema? Schema { get; set; }
 
     [Column("id_race")] public long? RaceId { get; set; }
-    public Race Race { get; set; }
+    public Race? Race { get; set; }
 
     public List<Family> Families { get; set; } = new List<Family>();
 
