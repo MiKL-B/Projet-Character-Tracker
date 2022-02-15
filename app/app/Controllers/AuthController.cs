@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace app.Controllers;
 
@@ -32,7 +33,9 @@ public class AuthController : ControllerBase
         {
             return BadRequest("Wrong Password");
         }
-        string token = CreateToken(account);
+        //string token = CreateToken(account);
+        var token = GenerateJwtToken(Convert.ToInt32(user.Id));
+        var id = ValidateJwtToken(token);
 
         return Ok(token);
     }
@@ -51,26 +54,23 @@ public class AuthController : ControllerBase
         return CreatedAtAction(nameof(GetAccount), new { id = account.Id }, account);
     }
 
+    // VERIF TOKEN
+    [HttpPost]
+    public int? Verif(TokenVerif token)
+    {
+        var id = ValidateJwtToken(token.Token);
+
+        if (id == null) return -1;
+
+        return id;
+    }
+
     public async Task<ActionResult<Account>> GetAccount(long id)
     {
         var account = await _context.Accounts.FindAsync(id);
         if (account == null) return NotFound();
 
         return account;
-    }
-
-    private string CreateToken(Account user)
-    {
-        List<Claim> claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.Username)
-            };
-        var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
-        var token = new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddDays(1), signingCredentials: creds);
-        var jwt = new JwtSecurityTokenHandler().WriteToken(token);
-
-        return jwt;
     }
 
     private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
@@ -91,4 +91,64 @@ public class AuthController : ControllerBase
             return computeHash.SequenceEqual(passwordHash);
         }
     }
+
+    public string GenerateJwtToken(int accountId)
+    {
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var key = Encoding.ASCII.GetBytes("[SECRET USED TO SIGN AND VERIFY JWT TOKENS, IT CAN BE ANY STRING]");
+        var tokenDescriptor = new SecurityTokenDescriptor
+        {
+            Subject = new ClaimsIdentity(new[] { new Claim("id", accountId.ToString()) }),
+            Expires = DateTime.UtcNow.AddDays(7),
+            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+        };
+        var token = tokenHandler.CreateToken(tokenDescriptor);
+
+        return tokenHandler.WriteToken(token);
+    }
+
+    public int? ValidateJwtToken(string token)
+    {
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var key = Encoding.ASCII.GetBytes("[SECRET USED TO SIGN AND VERIFY JWT TOKENS, IT CAN BE ANY STRING]");
+
+        try
+        {
+            tokenHandler.ValidateToken(token, new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                // set clockskew to zero so tokens expire exactly at token expiration time (instead of 5 minutes later)
+                ClockSkew = TimeSpan.Zero
+            }, out SecurityToken validatedToken);
+            var jwtToken = (JwtSecurityToken)validatedToken;
+            var accountId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
+
+            // return account id from JWT token if validation successful
+            return accountId;
+        }
+        catch
+        {
+            // return null if validation fails
+            return null;
+        }
+    }
 }
+
+/*
+     private string CreateToken(Account user)
+    {
+        List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.Username)
+            };
+        var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
+        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+        var token = new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddDays(1), signingCredentials: creds);
+        var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
+        return jwt;
+    }
+*/
