@@ -94,7 +94,7 @@ export class ShowSchema extends Component {
           />
           <Button
             color={!isDrawning ? "primary" : "danger"}
-            className={"text-uppercase fw-bold"}
+            className={"text-uppercase fw-bold schemaBtn"}
             onClick={this.drawning}
           >
             {!isDrawning ? "Link On" : "Link Off"}

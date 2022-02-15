@@ -4,7 +4,8 @@
 input {
   width: 150px;
 }
-button {
+
+.schemaBtn {
   position: absolute;
   top: 10px;
 }
