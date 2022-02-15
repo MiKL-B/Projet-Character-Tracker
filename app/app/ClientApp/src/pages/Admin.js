@@ -8,6 +8,8 @@ export class Admin extends Component {
     }
 
     async auth() {
+        var data = -1;
+
         const requestOptions = {
             method: 'POST',
             headers: {
@@ -20,15 +22,16 @@ export class Admin extends Component {
                 console.log(error);
             });
         if (response.status === 200) {
-            let data = await response.text();
+            data = await response.text();
             console.log("data = " + data);
         } else {
             this.props.history.push('/');
         }
     }
 
-  render() {
-    return (
+    render() {
+    if (this.data !== -1) {
+      return (
       <div>
         <div className="container-fluid p-5">
           <div className="row">
@@ -134,6 +137,9 @@ export class Admin extends Component {
           </div>
         </div>
       </div>
-    );
+     );
+    } else {
+        this.props.history.push('/');
+    }
   }
 }
