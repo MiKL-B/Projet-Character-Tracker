@@ -68,8 +68,7 @@ const Relation = ({ edges, nodes }, ref) => {
       });
 
       //remove edge on right click
-      cy.on("cxttap", "edges", (evt) => {
-        // TODO EDGES IS INVALID ??
+      cy.on("cxttap", "edge", (evt) => {
         const edge = evt.target;
         console.log("tapped", edge.id());
         cy.remove(edge);

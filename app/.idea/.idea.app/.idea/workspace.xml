@@ -5,25 +5,12 @@
     <projectFile profileName="IIS Express">app/app.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ClientApp/src/store/userStore.js" afterDir="false" />
+    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="Add personage &amp; relation from DB">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/TestHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/TestHook.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/FormCreateSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/FormCreateSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/RelationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/RelationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Relation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Relation.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +184,7 @@
       <workItem from="1644569102519" duration="4198000" />
       <workItem from="1644576363273" duration="447000" />
       <workItem from="1644827659370" duration="15764000" />
-      <workItem from="1644908995464" duration="11004000" />
+      <workItem from="1644908995464" duration="16708000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -297,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644414806383</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add personage &amp; relation from DB">
+      <created>1644920427240</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1644920427240</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +357,8 @@
     <MESSAGE value="start refacto + add component FormInput" />
     <MESSAGE value="refacto SignIn" />
     <MESSAGE value="refactor Input Component" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor Input Component" />
+    <MESSAGE value="Add personage &amp; relation from DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add personage &amp; relation from DB" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

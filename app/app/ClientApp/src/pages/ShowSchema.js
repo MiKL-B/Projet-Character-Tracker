@@ -28,10 +28,13 @@ export class ShowSchema extends Component {
     const listPersonage = await fetch("personage")
       .then((res) => res.json())
       .then((pers) =>
-        pers.map(({ lastname, firstname, ...rest }) => {
+        pers.map(({ lastname, firstname, img, ...rest }) => {
           return {
             data: {
               personage: `${lastname} ${firstname}`,
+              img:
+                img ||
+                "https://static.miraheze.org/windowswallpaperwiki/thumb/9/94/User_(Windows_8.x).png/192px-User_(Windows_8.x).png",
               ...rest,
             },
           };
