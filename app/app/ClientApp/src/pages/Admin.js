@@ -3,6 +3,28 @@ import React, { Component } from "react";
 export class Admin extends Component {
   static displayName = Admin.name;
 
+    componentDidMount() {
+        this.auth();
+    }
+
+    async auth() {
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token: localStorage.getItem('token') })
+        };
+        let response = await fetch("auth/verif", requestOptions)
+            .catch((error) => {
+                console.log(error)
+            });
+        if (response.status === 200) {
+            let data = await response.text();
+            console.log("data = " + data);
+        }
+    }
+
   render() {
     return (
       <div>
