@@ -15,9 +15,9 @@ public class RelationController : ControllerBase
     {
         _context = context;
     }
+    
     [HttpGet]
-    public async Task<ActionResult<List<Relation>>> GetAll() =>
-    await _context.Relations.ToListAsync();
+    public async Task<ActionResult<List<Relation>>> GetAll() => await _context.Relations.ToListAsync();
 
     //get a specific relation
     [HttpGet("{id:long}")]

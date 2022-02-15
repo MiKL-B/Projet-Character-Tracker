@@ -7,7 +7,6 @@ const TestHook = () => {
     const fetchData = async () => {
       const response = await fetch("account");
       const data = await response.json();
-      console.log(data);
       setAccounts(data);
     };
 

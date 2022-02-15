@@ -5,19 +5,25 @@
     <projectFile profileName="IIS Express">app/app.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="refacto SignIn">
+    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/ClientApp/src/store/userStore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/FormInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/FormInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/footer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/TestHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/TestHook.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/FormCreateSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/FormCreateSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/ModificationEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ModificationEvent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/RelationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/RelationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Relation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Relation.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +34,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTTP Request" />
+        <option value="JSON File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -68,6 +75,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.data.extractors.current.export.id" value="JSON-Groovy.json.groovy" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.13.2" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.21" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -184,7 +192,12 @@
       <workItem from="1643958809398" duration="11183000" />
       <workItem from="1644221882091" duration="20191000" />
       <workItem from="1644304263231" duration="21630000" />
-      <workItem from="1644390597040" duration="18583000" />
+      <workItem from="1644390597040" duration="25734000" />
+      <workItem from="1644477184913" duration="19362000" />
+      <workItem from="1644569102519" duration="4198000" />
+      <workItem from="1644576363273" duration="447000" />
+      <workItem from="1644827659370" duration="15764000" />
+      <workItem from="1644908995464" duration="11004000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -277,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644395082986</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="refactor Input Component">
+      <created>1644414806383</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1644414806383</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +362,8 @@
     <MESSAGE value="more cleaning" />
     <MESSAGE value="start refacto + add component FormInput" />
     <MESSAGE value="refacto SignIn" />
-    <option name="LAST_COMMIT_MESSAGE" value="refacto SignIn" />
+    <MESSAGE value="refactor Input Component" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor Input Component" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

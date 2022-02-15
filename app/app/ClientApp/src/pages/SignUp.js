@@ -2,82 +2,91 @@ import React, { Component } from "react";
 import { Button, Input } from "../components/FormInput";
 
 export class SignUp extends Component {
-    static displayName = SignUp.name;
+  static displayName = SignUp.name;
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
-        };
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
 
-    componentDidMount() {
-        this.account();
-    }
+  componentDidMount() {
+    this.account();
+  }
 
-    async account() {
-        const response = await fetch("account");
-        const data = await response.json();
-        this.setState({ accounts: data, loading: false });
-    }
+  async account() {
+    const response = await fetch("account");
+    const data = await response.json();
+    this.setState({ accounts: data, loading: false });
+  }
 
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-        this.setState({
-            [name]: value,
-        });
-    }
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value,
+    });
+  }
 
-    handleSubmit(event) {
-        var e = 0;
+  handleSubmit(event) {
+    var e = 0;
 
-        if (this.state.name !== "" && this.state.email !== "" && this.state.password !== "") {
-            for (var i = 0; i < this.state.accounts.length; i++) {
-                if (this.state.accounts[i].username === this.state.name) {
-                    e = 1;
-                    alert("User deja existant");
-                    break;
-                }
-                if (this.state.accounts[i].mail === this.state.email) {
-                    e = 1;
-                    alert("Email deja existant");
-                    break;
-                }
-            }
-            if (e === 0) {
-                if (this.state.password === this.state.confirmPassword) {
-                    this.register();
-                } else {
-                    alert("Mots de passer differents");
-                }
-            }
-        } else {
-            alert("Error");
+    if (
+      this.state.name !== "" &&
+      this.state.email !== "" &&
+      this.state.password !== ""
+    ) {
+      for (var i = 0; i < this.state.accounts.length; i++) {
+        if (this.state.accounts[i].username === this.state.name) {
+          e = 1;
+          alert("User deja existant");
+          break;
         }
-        event.preventDefault();
+        if (this.state.accounts[i].mail === this.state.email) {
+          e = 1;
+          alert("Email deja existant");
+          break;
+        }
+      }
+      if (e === 0) {
+        if (this.state.password === this.state.confirmPassword) {
+          this.register();
+        } else {
+          alert("Mots de passer differents");
+        }
+      }
+    } else {
+      alert("Error");
     }
+    event.preventDefault();
+  }
 
-    async register() {
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username: this.state.name, password: this.state.password, is_admin: 'true', mail: this.state.email })
-        };
-        const response = await fetch("auth/register/", requestOptions);
-        const data = await response.json();
-        this.setState({ accounts: data, loading: false });
-    }
+  async register() {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: this.state.name,
+        password: this.state.password,
+        is_admin: "true",
+        mail: this.state.email,
+      }),
+    };
+    const response = await fetch("auth/register/", requestOptions);
+    const data = await response.json();
+    this.setState({ accounts: data, loading: false });
+  }
 
   render() {
     return (
-      <div className="container-fluid ps-md-0">
+      <div className="container ps-md-0">
         <div className="row g-0">
           <div className="d-none d-md-flex col-md-4 col-lg-6 bg-image" />
           <div className="col-md-8 col-lg-6">
