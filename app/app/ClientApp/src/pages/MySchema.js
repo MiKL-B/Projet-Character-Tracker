@@ -6,7 +6,6 @@ export class MySchema extends Component {
   constructor(props) {
     super(props);
     this.state = { schemas: [], loading: true };
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async getAllSchemas() {
@@ -18,9 +17,6 @@ export class MySchema extends Component {
 
   async componentDidMount() {
     await this.getAllSchemas();
-  }
-  handleSubmit() {
-    console.log("pouet");
   }
 
   static renderSchemas(schemas) {
@@ -38,11 +34,7 @@ export class MySchema extends Component {
               <p>{schema.personages}</p>
               <p>{schema.readableDate}</p>
 
-              <Link
-                to="#"
-                className="btn btn-primary"
-                onClick={this.handleSubmit}
-              >
+              <Link to={`/schema/${schema.id}`} className="btn btn-primary">
                 see this schema
               </Link>
             </div>

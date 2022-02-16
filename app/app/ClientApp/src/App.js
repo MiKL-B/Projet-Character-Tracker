@@ -14,6 +14,7 @@ import { ModificationEvent } from "./pages/ModificationEvent";
 import { ShowSchema } from "./pages/ShowSchema";
 import { ShowSearch } from "./pages/ShowSearch";
 import { Admin } from "./pages/Admin";
+import { Schema } from "./components/Schema";
 import "./custom.css";
 
 export default class App extends Component {
@@ -38,6 +39,7 @@ export default class App extends Component {
         <Route path="/show-schema" component={ShowSchema} />
         <Route path="/show-search" component={ShowSearch} />
         <Route path="/admin" component={Admin} />
+        <Route path="/schema/:id" component={Schema} />
       </Layout>
     );
   }
