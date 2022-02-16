@@ -14,9 +14,11 @@ export class ModificationSchema extends Component {
       gender: "",
       img: "",
       raceId: 0,
-      schemaId: 0,
+      schemaId: null,
     };
-
+    this.setState({
+      schemaId: this.props.schema,
+    });
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -101,13 +103,13 @@ export class ModificationSchema extends Component {
             value={this.state.raceId}
             onChange={this.handleInputChange}
           />
-          <Input
+          {/* <Input
             type={"number"}
             name={"schemaId"}
             label={"schema"}
             value={this.state.schemaId}
             onChange={this.handleInputChange}
-          />
+          /> */}
           <Button type={"submit"} value={"submit"} />
         </form>
       </div>

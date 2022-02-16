@@ -1,0 +1,40 @@
+.container-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.my-card {
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.head-card {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.body-card {
+  padding: 1rem;
+}
+.add-card {
+  border: 4px dashed #707070;
+  border-radius: 10px;
+  font-size: 5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #707070;
+  background: rgb(236, 236, 236);
+  cursor: pointer;
+}
+.add-card:hover {
+  border: 4px dashed #0b5ed7;
+  color: #0b5ed7;
+  background: #e2ecfa;
+}
+@media screen and (min-width: 768px) {
+  .container-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
