@@ -5,17 +5,17 @@ export class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
-      name: "",
-      email: "",
+      username: "",
+      mail: "",
       password: "",
       confirmPassword: "",
       formErrors: {
-        name: null,
-        email: null,
+        username: null,
+        mail: null,
         password: null,
         confirmPassword: null,
       },
+      info: null,
     };
     this.register = this.register.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,36 +26,36 @@ export class SignUp extends Component {
     const emailRegEx = RegExp(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/);
     const passwordRegEx = RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/);
 
-    const { name, email, password, confirmPassword } = this.state;
+    const { username, mail, password, confirmPassword } = this.state;
 
-    if (!userRegEx.test(name)) {
+    if (!userRegEx.test(username)) {
       await this.setState({
         formErrors: {
           ...this.state.formErrors,
-          name: "Username invalid",
+          username: "Username invalid",
         },
       });
     } else {
       await this.setState({
         formErrors: {
           ...this.state.formErrors,
-          name: null,
+          username: null,
         },
       });
     }
 
-    if (!emailRegEx.test(email)) {
+    if (!emailRegEx.test(mail)) {
       await this.setState({
         formErrors: {
           ...this.state.formErrors,
-          email: "Email invalid",
+          mail: "Email invalid",
         },
       });
     } else {
       await this.setState({
         formErrors: {
           ...this.state.formErrors,
-          email: null,
+          mail: null,
         },
       });
     }
@@ -93,7 +93,7 @@ export class SignUp extends Component {
       });
     }
 
-    return this.state.formErrors;
+    return Object.values(this.state.formErrors).some((e) => e);
   }
 
   handleInputChange(event) {
@@ -107,22 +107,39 @@ export class SignUp extends Component {
 
   async register(event) {
     event.preventDefault();
-    const { loading, ...credential } = this.state;
+    const { username, mail, password } = this.state;
 
-    if (!(await this.formValidation())) return;
+    if (await this.formValidation()) {
+      return this.setState({ info: "Please verify informations", error: true });
+    } else {
+      this.setState({ info: null, error: null });
+    }
 
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(credential),
+      body: JSON.stringify({ username, mail, password }),
     };
-    const response = await fetch("api/auth/register/", requestOptions).then((res) =>
-      res.json()
-    );
-    this.setState({ accounts: response, loading: false });
+    const response = await fetch("api/auth/register/", requestOptions)
+      .then((res) => res.json())
+      .catch();
+    if (response["status"] === 400)
+      return this.setState({ info: response["detail"], error: true });
+    this.setState({
+      accounts: response,
+      error: false,
+      info: "Account successfully register",
+      username: "",
+      mail: "",
+      password: "",
+      confirmPassword: "",
+    });
   }
 
   render() {
+    const info = this.state.info;
+    const error = this.state.error;
+
     return (
       <div className="container ps-md-0">
         <div className="row g-0">
@@ -133,27 +150,33 @@ export class SignUp extends Component {
                 <div className="row">
                   <div className="col-md-9 col-lg-8 mx-auto">
                     <h3 className="login-heading mb-4">Inscription</h3>
-                    <div className="erreur" />
+                    {info && (
+                      <div
+                        className={`alert alert-${
+                          error ? "danger" : "success"
+                        }`}
+                        role="alert"
+                      >
+                        {info}
+                      </div>
+                    )}
                     <form onSubmit={this.register}>
                       <Input
                         type={"text"}
-                        name={"name"}
+                        name={"username"}
                         label={"Name"}
-                        value={this.state.name}
+                        value={this.state.username}
                         onChange={this.handleInputChange}
-                        feedback={this.state.formErrors.name}
+                        feedback={this.state.formErrors.username}
                       />
-                      <div className="invalid-feedback">
-                        Please choose a username.
-                      </div>
                       <Input
                         type={"email"}
-                        name={"email"}
+                        name={"mail"}
                         label={"Email"}
-                        value={this.state.email}
+                        value={this.state.mail}
                         onChange={this.handleInputChange}
                         placeholder={"name@example.com"}
-                        feedback={this.state.formErrors.email}
+                        feedback={this.state.formErrors.mail}
                       />
                       <Input
                         type={"password"}

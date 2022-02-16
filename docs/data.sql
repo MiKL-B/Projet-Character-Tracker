@@ -39,7 +39,7 @@ CREATE TABLE Account(
    password_hash bytea ,
    password_salt bytea ,
    is_admin BOOLEAN,
-   mail VARCHAR(50) ,
+   mail VARCHAR(100) ,
    img_user VARCHAR(50) ,
    PRIMARY KEY(id_account)
 );

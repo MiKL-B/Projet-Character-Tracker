@@ -8,7 +8,7 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
-import { Button } from "../components/FormInput";
+import { Button } from "./FormInput";
 import { Link } from "react-router-dom";
 import logo from "../image/outline_home_black_24dp.png";
 import "./NavMenu.css";
@@ -57,9 +57,11 @@ export class NavMenu extends Component {
       },
       body: JSON.stringify({ token: localStorage.getItem("token") }),
     };
-    let response = await fetch("api/auth/verif", requestOptions).catch((error) => {
-      console.log(error);
-    });
+    let response = await fetch("api/auth/verif", requestOptions).catch(
+      (error) => {
+        console.log(error);
+      }
+    );
       if (response.status !== 200) {
         setState({ data: response.status });
     } else {

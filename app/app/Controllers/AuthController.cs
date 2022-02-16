@@ -10,7 +10,7 @@ using System.Text;
 namespace app.Controllers;
 
 [ApiController]
-[Route("[controller]/[action]")]
+[Route("api/[controller]/[action]")]
 public class AuthController : ControllerBase
 {
     private readonly CharacterTrackerContext _context;
@@ -43,13 +43,16 @@ public class AuthController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Account>> Register(Account account)
     {
+        var exist = _context.Accounts.Any(e => e.Username == account.Username || e.Mail == account.Mail);
+      
+        if (exist) return ValidationProblem("Account already exist");
         CreatePasswordHash(account.Password, out byte[] passwordHash, out byte[] passwordSalt);
         account.PasswordHash = passwordHash;
         account.PasswordSalt = passwordSalt;
-
+        
         _context.Accounts.Add(account);
         await _context.SaveChangesAsync();
-
+        
         return CreatedAtAction(nameof(GetAccount), new { id = account.Id }, account);
     }
 

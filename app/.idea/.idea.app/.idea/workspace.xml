@@ -5,20 +5,11 @@
     <projectFile profileName="IIS Express">app/app.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
+    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="fix API Route">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/FormInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/FormInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Schema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/MySchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/MySchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/NavMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/NavMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/setupProxy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/AccountController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/FamilyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/FamilyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/PersonageController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/PersonageController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/RelationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/RelationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/SchemaController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/SchemaController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/WeatherForecastController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/WeatherForecastController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +43,7 @@
     <setting file="file://$PROJECT_DIR$/app/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/WeatherForecast.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/User-14/Desktop/characterTracker/app/app/Controllers/AuthController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User-14/Desktop/characterTracker/app/app/Controllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/Controllers/WeatherForecastController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JsBowerSettings">
@@ -195,7 +187,7 @@
       <workItem from="1644576363273" duration="447000" />
       <workItem from="1644827659370" duration="15764000" />
       <workItem from="1644908995464" duration="19883000" />
-      <workItem from="1644995555080" duration="11836000" />
+      <workItem from="1644995555080" duration="20896000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -316,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644932767226</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fix API Route">
+      <created>1645008859029</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1645008859029</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +384,8 @@
     <MESSAGE value="Add personage &amp; relation from DB" />
     <MESSAGE value="fix Img Missing for Personage" />
     <MESSAGE value="fix CSS Button" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix CSS Button" />
+    <MESSAGE value="fix API Route" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix API Route" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
