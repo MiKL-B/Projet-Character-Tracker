@@ -34,7 +34,7 @@ public class AuthController : ControllerBase
             return BadRequest("Wrong credential");
         }
         var token = GenerateJwtToken(Convert.ToInt32(user.Id));
-        var id = ValidateJwtToken(token);
+        //var id = ValidateJwtToken(token);
 
         return Ok(token);
     }
@@ -47,9 +47,9 @@ public class AuthController : ControllerBase
       
         if (exist) return ValidationProblem("Account already exist");
         CreatePasswordHash(account.Password, out byte[] passwordHash, out byte[] passwordSalt);
+        account.Password = null;
         account.PasswordHash = passwordHash;
         account.PasswordSalt = passwordSalt;
-        
         _context.Accounts.Add(account);
         await _context.SaveChangesAsync();
         
@@ -70,6 +70,7 @@ public class AuthController : ControllerBase
     public async Task<ActionResult<Account>> GetAccount(long id)
     {
         var account = await _context.Accounts.FindAsync(id);
+
         if (account == null) return NotFound();
 
         return account;
