@@ -3,13 +3,12 @@ import React, { Component } from "react";
 export class Admin extends Component {
   static displayName = Admin.name;
 
-    componentDidMount() {
+    constructor(props) {
+        super(props);
         this.auth();
     }
 
     async auth() {
-        var data = -1;
-
         const requestOptions = {
             method: 'POST',
             headers: {
@@ -21,17 +20,13 @@ export class Admin extends Component {
             .catch((error) => {
                 console.log(error);
             });
-        if (response.status === 200) {
-            data = await response.text();
-            console.log("data = " + data);
-        } else {
+        if (response.status !== 200) {
             this.props.history.push('/');
         }
     }
 
     render() {
-    if (this.data !== -1) {
-      return (
+    return (
       <div>
         <div className="container-fluid p-5">
           <div className="row">
@@ -138,8 +133,5 @@ export class Admin extends Component {
         </div>
       </div>
      );
-    } else {
-        this.props.history.push('/');
-    }
   }
 }
