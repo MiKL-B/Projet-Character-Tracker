@@ -19,7 +19,7 @@ export class Admin extends Component {
             },
             body: JSON.stringify({ token: localStorage.getItem('token') })
         };
-        let response = await fetch("auth/verif", requestOptions)
+        let response = await fetch("api/auth/verif", requestOptions)
             .catch((error) => {
                 console.log(error);
             });

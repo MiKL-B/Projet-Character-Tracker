@@ -2,19 +2,19 @@ const createProxyMiddleware = require("http-proxy-middleware");
 const { env } = require("process");
 
 const target = env.ASPNETCORE_HTTPS_PORT
-  ? `https://localhost:${env.ASPNETCORE_HTTPS_PORT}/api`
+  ? `https://localhost:${env.ASPNETCORE_HTTPS_PORT}`
   : env.ASPNETCORE_URLS
   ? env.ASPNETCORE_URLS.split(";")[0]
-  : "http://localhost:47372/api";
+  : "http://localhost:47372";
 
 const context = [
-  "/weatherforecast",
-  "/account",
-  "/auth",
-  "/personage",
-  "/family",
-  "/schema",
-  "/relation",
+  "/api/weatherforecast",
+  "/api/account",
+  "/api/auth",
+  "/api/personage",
+  "/api/family",
+  "/api/schema",
+  "/api/relation",
 ];
 
 module.exports = function (app) {

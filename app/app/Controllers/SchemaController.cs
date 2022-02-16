@@ -4,7 +4,7 @@ using app.Models;
 
 namespace app.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
 
 

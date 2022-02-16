@@ -8,14 +8,16 @@ export class Schema extends Component {
     this.state = { schema: [], loading: true, nodes: [] };
   }
   async getSchema() {
-    const response = await fetch(`schema/${this.props.match.params.id}`).then(
-      (res) => res.json()
-    );
+    const response = await fetch(
+      `api/schema/${this.props.match.params.id}`
+    ).then((res) => res.json());
     console.log(response);
     this.setState({ schema: response, loading: false });
   }
   async getPersonage() {
-    const listPersonage = await fetch("personage").then((res) => res.json());
+    const listPersonage = await fetch("api/personage").then((res) =>
+      res.json()
+    );
 
     console.log(listPersonage);
     this.setState({ nodes: listPersonage });

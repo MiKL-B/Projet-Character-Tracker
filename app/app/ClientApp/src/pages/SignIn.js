@@ -39,7 +39,7 @@ export class SignIn extends Component {
         password: this.state.password,
       }),
     };
-    let response = await fetch("auth/login/", requestOptions).catch((error) => {
+    let response = await fetch("api/auth/login/", requestOptions).catch((error) => {
       console.log(error);
     });
     if (response.status === 200) {

@@ -25,7 +25,7 @@ export class ShowSchema extends Component {
   };
 
   async getPersonage() {
-    const listPersonage = await fetch("personage")
+    const listPersonage = await fetch("api/personage")
       .then((res) => res.json())
       .then((pers) =>
         pers.map(({ lastname, firstname, img, ...rest }) => {
@@ -44,7 +44,7 @@ export class ShowSchema extends Component {
   }
 
   async getRelation() {
-    const listRelation = await fetch("relation")
+    const listRelation = await fetch("api/relation")
       .then((res) => res.json())
       .then((rel) =>
         rel.map(({ actor, id, affinity, ...rest }) => {

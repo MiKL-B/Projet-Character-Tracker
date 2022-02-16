@@ -27,11 +27,11 @@ public class AuthController : ControllerBase
     public async Task<ActionResult<Account>> Login(Account account)
     {
         var user = await _context.Accounts.FirstOrDefaultAsync(a => a.Username == account.Username);
-
-        if (user == null) return NotFound();
+        if (user == null) return BadRequest("Wrong credential");
+        
         if (!VerifyPasswordHash(account.Password, user.PasswordHash, user.PasswordSalt))
         {
-            return BadRequest("Wrong Password");
+            return BadRequest("Wrong credential");
         }
         var token = GenerateJwtToken(Convert.ToInt32(user.Id));
         var id = ValidateJwtToken(token);
@@ -44,9 +44,9 @@ public class AuthController : ControllerBase
     public async Task<ActionResult<Account>> Register(Account account)
     {
         CreatePasswordHash(account.Password, out byte[] passwordHash, out byte[] passwordSalt);
-        account.Password = null;
         account.PasswordHash = passwordHash;
         account.PasswordSalt = passwordSalt;
+
         _context.Accounts.Add(account);
         await _context.SaveChangesAsync();
 

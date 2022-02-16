@@ -5,7 +5,7 @@ const TestHook = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("account");
+      const response = await fetch("api/account");
       const data = await response.json();
       setAccounts(data);
     };

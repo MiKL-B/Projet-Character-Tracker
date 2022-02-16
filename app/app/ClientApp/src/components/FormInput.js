@@ -1,6 +1,14 @@
 import React from "react";
 
-const Input = ({ type, value, name, label, onChange, placeholder = "" }) => {
+const Input = ({
+  type,
+  value,
+  name,
+  label,
+  onChange,
+  placeholder = "",
+  feedback,
+}) => {
   return (
     <div className={"form-floating mb-3"}>
       <input
@@ -13,6 +21,7 @@ const Input = ({ type, value, name, label, onChange, placeholder = "" }) => {
         id={name}
       />
       <label htmlFor={name}>{label}</label>
+      {feedback && <span className={"text-danger p-1"}>{feedback}</span>}
     </div>
   );
 };

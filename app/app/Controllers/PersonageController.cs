@@ -5,7 +5,7 @@ using app.Models;
 namespace app.Controllers{
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 
 
 public class PersonageController : ControllerBase

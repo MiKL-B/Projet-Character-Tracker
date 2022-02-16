@@ -29,7 +29,7 @@ export class FormCreateSchema extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    fetch("/schema", {
+    fetch("api/schema", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...this.state }),

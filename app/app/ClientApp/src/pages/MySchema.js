@@ -10,7 +10,7 @@ export class MySchema extends Component {
   }
 
   async getAllSchemas() {
-    const response = await fetch("schema");
+    const response = await fetch("api/schema");
     const data = await response.json();
 
     this.setState({ schemas: data, loading: false });

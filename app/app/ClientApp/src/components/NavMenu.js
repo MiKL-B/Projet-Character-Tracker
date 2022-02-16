@@ -58,7 +58,7 @@ export class NavMenu extends Component {
       },
       body: JSON.stringify({ token: localStorage.getItem("token") }),
     };
-    let response = await fetch("auth/verif", requestOptions).catch((error) => {
+    let response = await fetch("api/auth/verif", requestOptions).catch((error) => {
       console.log(error);
     });
     if (response.status !== 200) {
