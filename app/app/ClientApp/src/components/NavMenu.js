@@ -8,6 +8,7 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+import { Button } from "../components/FormInput";
 import { Link } from "react-router-dom";
 import logo from "../image/outline_home_black_24dp.png";
 import "./NavMenu.css";
