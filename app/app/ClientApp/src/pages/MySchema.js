@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { FormCreateSchema } from "./FormCreateSchema";
 export class MySchema extends Component {
   static displayName = MySchema.name;
 
@@ -56,7 +57,12 @@ export class MySchema extends Component {
         <div className="container-fluid">
           <h3 className="d-flex justify-content-center p-5">My schema</h3>
           <div className="row ">
-            <div className="col-md-3 border p-3">Schema option</div>
+            <div className="col-md-3 border p-3">
+              Schema option
+              {/* creation schema */}
+              <FormCreateSchema />
+              {/* creation schema */}
+            </div>
             <div className="col border p-3">{datasschemas}</div>
           </div>
         </div>

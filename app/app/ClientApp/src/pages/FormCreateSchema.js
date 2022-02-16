@@ -46,16 +46,13 @@ export class FormCreateSchema extends Component {
   render() {
     return (
       <div>
-        <div className="d-flex justify-content-center p-5">
-          <h1>Schema creation form</h1>
-        </div>
         <div className="container ps-md-0 ">
           <div className="row g-0 ">
-            <div className="col-md-8 col-lg-6 mx-auto">
-              <div className="d-flex  align-items-center py-5">
+            <div className="">
+              <div className="">
                 <div className="container-fluid">
                   <div className="row">
-                    <div className="col-md-9 col-lg-8 mx-auto ">
+                    <div className=" ">
                       <div className="erreur"></div>
                       <form id="form-login" onSubmit={this.handleSubmit}>
                         <Input

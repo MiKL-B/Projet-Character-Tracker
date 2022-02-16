@@ -48,8 +48,6 @@ export class NavMenu extends Component {
               <img src={logo} width="40" height="40" alt="" />
             </NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-
-
             <div className="dropdown">
               <Link
                 to="#"
@@ -79,18 +77,8 @@ export class NavMenu extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/form-create-schema" className="dropdown-item">
-                    form-create-schema
-                  </Link>
-                </li>
-                <li>
                   <Link to="/modification-event" className="dropdown-item">
                     modif event
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/modification-schema" className="dropdown-item">
-                    modif schema
                   </Link>
                 </li>
                 <li>
@@ -110,8 +98,6 @@ export class NavMenu extends Component {
               isOpen={!this.state.collapsed}
               navbar
             >
-
-
               <ul className="navbar-nav flex-grow">
                 <input placeholder="Search..." />
                 {NavMenu.Item("/sign-in", "Sign In")}
