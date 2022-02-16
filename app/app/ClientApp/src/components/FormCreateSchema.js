@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Checkbox, File, Input } from "../components/FormInput";
+import { Button, Checkbox, File, Input } from "./FormInput";
 
 export class FormCreateSchema extends Component {
   static displayName = FormCreateSchema.name;

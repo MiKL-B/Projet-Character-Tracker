@@ -8,8 +8,6 @@ import { SignIn } from "./pages/SignIn";
 import { MySchema } from "./pages/MySchema";
 import { MyGroup } from "./pages/MyGroup";
 import { SettingsUser } from "./pages/SettingsUser";
-import { FormCreateSchema } from "./pages/FormCreateSchema";
-import { ModificationSchema } from "./pages/ModificationSchema";
 import { ModificationEvent } from "./pages/ModificationEvent";
 import { ShowSchema } from "./pages/ShowSchema";
 import { ShowSearch } from "./pages/ShowSearch";
@@ -33,8 +31,6 @@ export default class App extends Component {
         <Route path="/my-schema" component={MySchema} />
         <Route path="/my-group" component={MyGroup} />
         <Route path="/settings" component={SettingsUser} />
-        <Route path="/form-create-schema" component={FormCreateSchema} />
-        <Route path="/modification-schema" component={ModificationSchema} />
         <Route path="/modification-event" component={ModificationEvent} />
         <Route path="/show-schema" component={ShowSchema} />
         <Route path="/show-search" component={ShowSearch} />

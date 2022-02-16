@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ModificationSchema } from "../pages/ModificationSchema";
+import { ModificationSchema } from "./ModificationSchema.js";
 
 import "./Schema.css";
 export class Schema extends Component {
@@ -39,11 +39,6 @@ export class Schema extends Component {
           <p className="d-flex justify-content-center ">
             {this.state.schema.desc}
           </p>
-
-          {/* <div className="col-md-3 border p-3">
-          
-              <ModificationSchema />
-            </div> */}
 
           <div className="container-card">
             {/* card */}
@@ -95,7 +90,7 @@ export class Schema extends Component {
                     </button>
                   </div>
                   <div className="modal-body">
-                    <ModificationSchema schema={this.state.schema.id} />
+                    <ModificationSchema id={this.state.schema.id} />
                   </div>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Input, File, Select } from "../components/FormInput";
+import { Button, Input, File, Select } from "./FormInput";
 
 export class ModificationSchema extends Component {
   static displayName = ModificationSchema.name;
@@ -14,11 +14,8 @@ export class ModificationSchema extends Component {
       gender: "",
       img: "",
       raceId: 0,
-      schemaId: null,
     };
-    this.setState({
-      schemaId: this.props.schema,
-    });
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -27,7 +24,7 @@ export class ModificationSchema extends Component {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
-    console.log(name);
+
     this.setState({
       [name]: value,
     });
@@ -35,17 +32,14 @@ export class ModificationSchema extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log({ ...this.state });
 
     fetch("api/personage", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...this.state }),
+      body: JSON.stringify({ ...this.state, schemaId: this.props.id }),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
+      .then((data) => {})
       .catch((error) => {
         console.log(error);
       });
@@ -103,13 +97,7 @@ export class ModificationSchema extends Component {
             value={this.state.raceId}
             onChange={this.handleInputChange}
           />
-          {/* <Input
-            type={"number"}
-            name={"schemaId"}
-            label={"schema"}
-            value={this.state.schemaId}
-            onChange={this.handleInputChange}
-          /> */}
+
           <Button type={"submit"} value={"submit"} />
         </form>
       </div>

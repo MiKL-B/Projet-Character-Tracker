@@ -7,6 +7,10 @@
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
+.title-card {
+  padding: 1rem;
+  text-align: center;
+}
 .head-card {
   display: flex;
   justify-content: center;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { FormCreateSchema } from "./FormCreateSchema";
+import { FormCreateSchema } from "../components/FormCreateSchema";
+import "../components/Schema.css";
 export class MySchema extends Component {
   static displayName = MySchema.name;
 
@@ -20,50 +21,72 @@ export class MySchema extends Component {
     await this.getAllSchemas();
   }
 
-  static renderSchemas(schemas) {
-    return (
-      <div>
-        {schemas.map((schema) => (
-          <div className="card" key={schema.id}>
-            <p>{schema.img}</p>
-            <div className="card-body">
-              <h5 className="card-title">{schema.name}</h5>
-              <p className="card-text">{schema.desc}</p>
-              <p>{schema.groupUsers}</p>
-              <p>{schema.isPublic}</p>
-              <p>{schema.permission}</p>
-              <p>{schema.personages}</p>
-              <p>{schema.readableDate}</p>
-
-              <Link to={`/schema/${schema.id}`} className="btn btn-primary">
-                see this schema
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
-    );
-  }
-
   render() {
-    let datasschemas = this.state.loading ? (
-      <p>loading...</p>
-    ) : (
-      MySchema.renderSchemas(this.state.schemas)
-    );
-
     return (
       <div>
-        <div className="container-fluid">
-          <h3 className="d-flex justify-content-center p-5">My schema</h3>
-          <div className="row ">
-            <div className="col-md-3 border p-3">
-              Schema option
-              {/* creation schema */}
-              <FormCreateSchema />
-              {/* creation schema */}
+        <div className="container">
+          <h3 className="d-flex justify-content-center p-3">My Schema</h3>
+          <div className="container-card">
+            {this.state.schemas.map((s) => (
+              <div className="col my-card" key={s.id}>
+                <h5 className="title-card text-uppercase text-primary">
+                  {s.name}
+                </h5>
+
+                <div className="head-card">
+                  <img src="https://picsum.photos/200" />
+                </div>
+                <div className="body-card">
+                  <p>{s.desc}</p>
+                  <p>{s.groupUsers}</p>
+                  <p>{s.isPublic}</p>
+                  <p>{s.permission}</p>
+                  <p>{s.personages}</p>
+                  <p>{s.readableDate}</p>
+                </div>
+                <div className="card-footer">
+                  <Link to={`/schema/${s.id}`} className="btn btn-primary">
+                    see this schema
+                  </Link>
+                </div>
+              </div>
+            ))}
+
+            <div
+              data-toggle="modal"
+              data-target="#exampleModal"
+              className="add-card"
+            >
+              +
             </div>
-            <div className="col border p-3">{datasschemas}</div>
+            <div
+              className="modal fade"
+              id="exampleModal"
+              tabIndex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">
+                      Creation schema
+                    </h5>
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    <FormCreateSchema />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
