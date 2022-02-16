@@ -44,7 +44,9 @@ export class SignIn extends Component {
     });
     if (response.status === 200) {
       let data = await response.text();
-      localStorage.setItem("token", data);
+        localStorage.setItem("token", data);
+        this.props.history.push('/');
+        window.location.reload(false);
     }
   }
 

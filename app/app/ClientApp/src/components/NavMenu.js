@@ -50,7 +50,6 @@ export class NavMenu extends Component {
 
   async auth() {
     const setState = this.setState.bind(this);
-
     const requestOptions = {
       method: "POST",
       headers: {
@@ -61,13 +60,23 @@ export class NavMenu extends Component {
     let response = await fetch("api/auth/verif", requestOptions).catch((error) => {
       console.log(error);
     });
-    if (response.status !== 200) {
+      if (response.status !== 200) {
+        setState({ data: response.status });
     } else {
-      setState({ data: response.status });
+        setState({ data: response.status });
     }
   }
 
-  render() {
+    render() {
+        let comp;
+
+        if (this.state.data === null) {
+            comp = <div></div>
+        } else if (this.state.data === 404) {
+            comp = <ul className="navbar-nav flex-grow"> <input placeholder="Search..." />{NavMenu.Item("/sign-in", "Sign In")} {NavMenu.Item("/sign-up", "Sign Up")} </ul>
+        } else {
+            comp = <form id="form-login" onSubmit={this.handleSubmit}> <Button type={"submit"} value={"logout"} /> </form>
+        }
     return (
       <header>
         <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow">
@@ -121,12 +130,18 @@ export class NavMenu extends Component {
               </ul>
             </div>
 
-            <Collapse
-              className="d-sm-inline-flex flex-sm-row-reverse"
-              isOpen={!this.state.collapsed}
-              navbar
-            >
-              {this.state.data === null ? (
+            <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
+              { comp }
+            </Collapse>
+          </Container>
+        </Navbar>
+      </header>
+    );
+  }
+}
+
+/*
+                            this.state.data === null ? (
                 <ul className="navbar-nav flex-grow">
                   <input placeholder="Search..." />
                   {NavMenu.Item("/sign-in", "Sign In")}
@@ -138,11 +153,5 @@ export class NavMenu extends Component {
                     <Button type={"submit"} value={"logout"} />
                   </form>
                 </div>
-              )}
-            </Collapse>
-          </Container>
-        </Navbar>
-      </header>
-    );
-  }
-}
+                            )
+*/
