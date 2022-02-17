@@ -12,19 +12,18 @@ export class NavMenu extends Component {
 
   constructor(props) {
     super(props);
-    this.toggleNavbar = this.toggleNavbar.bind(this);
     this.state = {
-      collapsed: true,
+        data: null
     };
     this.auth();
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+    }
 
-  toggleNavbar() {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  }
+  handleSubmit(event) {
+        localStorage.clear();
+        window.location.reload(false);
+        event.preventDefault();
+   }
 
   static Item(to, children) {
     return (
@@ -36,32 +35,22 @@ export class NavMenu extends Component {
     );
   }
 
-  handleSubmit(event) {
-    localStorage.clear();
-    window.location.reload(false);
-    event.preventDefault();
-  }
-
-  async auth() {
-    const setState = this.setState.bind(this);
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ token: localStorage.getItem("token") }),
-    };
-    let response = await fetch("api/auth/verif", requestOptions).catch(
-      (error) => {
-        console.log(error);
-      }
-    );
-      if (response.status !== 200) {
-        setState({ data: response.status });
-    } else {
+    async auth() {
+        const setState = this.setState.bind(this);
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ token: localStorage.getItem("token") }),
+        };
+        let response = await fetch("api/auth/verif", requestOptions).catch(
+            (error) => {
+                console.log(error);
+            }
+        );
         setState({ data: response.status });
     }
-  }
 
     render() {
         let compMenu;
@@ -127,19 +116,3 @@ export class NavMenu extends Component {
     );
   }
 }
-
-/*
-                            this.state.data === null ? (
-                <ul className="navbar-nav flex-grow">
-                  <input placeholder="Search..." />
-                  {NavMenu.Item("/sign-in", "Sign In")}
-                  {NavMenu.Item("/sign-up", "Sign Up")}
-                </ul>
-              ) : (
-                <div>
-                  <form id="form-login" onSubmit={this.handleSubmit}>
-                    <Button type={"submit"} value={"logout"} />
-                  </form>
-                </div>
-                            )
-*/

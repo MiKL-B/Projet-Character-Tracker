@@ -6,7 +6,7 @@ export class Admin extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: ""
+            data: null
         }
         this.auth();
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -57,9 +57,7 @@ export class Admin extends Component {
     render() {
         let autoAccount;
 
-        if (this.state.data === null) {
-            autoAccount = <div></div>
-        } else if (this.state.data === 200) {
+         if (this.state.data === 200) {
             autoAccount = <div className="container-fluid p-5">
                 <div className="row">
                     {/* sidebar */}
@@ -163,7 +161,10 @@ export class Admin extends Component {
                     </div>
                 </div>
             </div>
-        }
+        } else {
+            autoAccount = <div></div>
+        } 
+
         return (
             <div>
                 { autoAccount }
