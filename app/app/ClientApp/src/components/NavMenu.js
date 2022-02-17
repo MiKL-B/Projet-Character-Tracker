@@ -70,14 +70,51 @@ export class NavMenu extends Component {
   }
 
     render() {
-        let comp;
+        let compMenu;
 
         if (this.state.data === null) {
-            comp = <div></div>
+            compMenu = <div></div>
         } else if (this.state.data === 404) {
-            comp = <ul className="navbar-nav flex-grow"> <input placeholder="Search..." />{NavMenu.Item("/sign-in", "Sign In")} {NavMenu.Item("/sign-up", "Sign Up")} </ul>
+            compMenu = <ul className="navbar-nav flex-grow"> <input placeholder="Search..." />{NavMenu.Item("/sign-in", "Sign In")} {NavMenu.Item("/sign-up", "Sign Up")} </ul>
         } else {
-            comp = <form id="form-login" onSubmit={this.handleSubmit}> <Button type={"submit"} value={"logout"} /> </form>
+            compMenu = <div className="dropdown">
+                <Link to="#" className="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    Menu
+                </Link>
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li>
+                        <Link to="/my-schema" className="dropdown-item">
+                            my-schema
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/my-group" className="dropdown-item">
+                            my-group
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/settings" className="dropdown-item">
+                            setting
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/modification-event" className="dropdown-item">
+                            modif event
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/show-schema" className="dropdown-item">
+                            show schema
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/show-search" className="dropdown-item">
+                            show search
+                        </Link>
+                    </li>
+                    <form id="form-login" onSubmit={this.handleSubmit}> <Button type={"submit"} value={"logout"} /> </form>
+                </ul>
+            </div>
         }
     return (
       <header>
@@ -87,53 +124,8 @@ export class NavMenu extends Component {
               <img src={logo} width="40" height="40" alt="" />
             </NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-            <div className="dropdown">
-              <Link
-                to="#"
-                className="btn btn-secondary dropdown-toggle"
-                role="button"
-                id="dropdownMenuLink"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Menu
-              </Link>
-              <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li>
-                  <Link to="/my-schema" className="dropdown-item">
-                    my-schema
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/my-group" className="dropdown-item">
-                    my-group
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/settings" className="dropdown-item">
-                    setting
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/modification-event" className="dropdown-item">
-                    modif event
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/show-schema" className="dropdown-item">
-                    show schema
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/show-search" className="dropdown-item">
-                    show search
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-              { comp }
+              {compMenu}
             </Collapse>
           </Container>
         </Navbar>
