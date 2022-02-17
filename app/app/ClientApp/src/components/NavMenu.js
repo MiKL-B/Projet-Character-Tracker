@@ -1,16 +1,10 @@
-import React, { Component } from "react";
-import {
-  Collapse,
-  Container,
-  Navbar,
-  NavbarBrand,
-  NavbarToggler,
-  NavItem,
-  NavLink,
-} from "reactstrap";
 import { Button } from "./FormInput";
 import { Link } from "react-router-dom";
+import React, { Component } from "react";
+import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, } from "reactstrap";
+
 import logo from "../image/outline_home_black_24dp.png";
+
 import "./NavMenu.css";
 
 export class NavMenu extends Component {
