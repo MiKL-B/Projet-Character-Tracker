@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from "../components/FormInput";
 
 export class Admin extends Component {
   static displayName = Admin.name;
@@ -15,6 +16,7 @@ export class Admin extends Component {
     
     handleSubmit(event) {
         this.delete();
+        event.preventDefault();
     }
 
     async auth() {
@@ -39,13 +41,16 @@ export class Admin extends Component {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ id: 19 })
+            body: JSON.stringify({ id: this.state.id })
         };
         let response = await fetch("api/account/", requestOptions)
             .catch((error) => {
                 console.log(error);
             });
-        if (response.status === 200) {
+        if (response.status === 204) {
+            localStorage.clear("token");
+            window.location.reload(false);
+            this.props.history.push('/');
         } else {
             alert("Error delete account");
         }
@@ -86,6 +91,9 @@ export class Admin extends Component {
                                         Dashboard
                                     </a>
                                 </li>
+                                <form id="form-login" onSubmit={this.handleSubmit}>
+                                    <Button type={"submit"} value={"Delete"} />
+                                </form>
                             </ul>
                         </div>
                     </div>
