@@ -5,12 +5,19 @@
     <projectFile profileName="IIS Express">app/app.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="fix API Route">
+    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/NavMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/NavMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Schema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/Home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/MySchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/MySchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/PersonageController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/PersonageController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +49,6 @@
     <setting file="file://$PROJECT_DIR$/app/ClientApp/package.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/WeatherForecast.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/User-14/Desktop/characterTracker/app/app/Controllers/AuthController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/User-14/Desktop/characterTracker/app/app/Controllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/Controllers/WeatherForecastController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JsBowerSettings">
@@ -75,7 +80,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\User-14\Desktop\characterTracker\app\app\ClientApp\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="ts.external.directory.path" value="C:\Users\User-14\Desktop\characterTracker\app\app\ClientApp\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -187,7 +192,9 @@
       <workItem from="1644576363273" duration="447000" />
       <workItem from="1644827659370" duration="15764000" />
       <workItem from="1644908995464" duration="19883000" />
-      <workItem from="1644995555080" duration="20896000" />
+      <workItem from="1644995555080" duration="22591000" />
+      <workItem from="1645082771631" duration="6773000" />
+      <workItem from="1645168276047" duration="13200000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -315,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645008859029</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="validation SignUp">
+      <created>1645023251157</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1645023251157</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +399,8 @@
     <MESSAGE value="fix Img Missing for Personage" />
     <MESSAGE value="fix CSS Button" />
     <MESSAGE value="fix API Route" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix API Route" />
+    <MESSAGE value="validation SignUp" />
+    <option name="LAST_COMMIT_MESSAGE" value="validation SignUp" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,6 +1,6 @@
 export const style = [
   {
-    selector: "node",
+    selector: "node[personage]",
     style: {
       content: "data(personage)",
       "background-image": "data(img)",
@@ -14,6 +14,11 @@ export const style = [
     style: {
       "curve-style": "bezier",
       "target-arrow-shape": "triangle",
+    },
+  },
+  {
+    selector: "edge[affinity]",
+    style: {
       "target-arrow-color": "data(affinity)",
       "line-color": "data(affinity)",
     },

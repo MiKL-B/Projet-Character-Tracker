@@ -1,9 +1,5 @@
-﻿html, body {
-    height: 100%;
-}
-
-.login {
-    min-height: 100vh;
+﻿.login {
+    min-height: calc(100vh - 67px);
 }
 
 .bg-image {

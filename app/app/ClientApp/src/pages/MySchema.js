@@ -51,7 +51,7 @@ export class MySchema extends Component {
                 </h5>
 
                 <div className="head-card">
-                  <img src="https://picsum.photos/200" />
+                  <img src="https://picsum.photos/200" alt="" />
                 </div>
                 <div className="body-card">
                   <p>{s.desc}</p>

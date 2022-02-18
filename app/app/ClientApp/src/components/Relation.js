@@ -44,20 +44,15 @@ const Relation = ({ edges, nodes }, ref) => {
         })
       );
 
-      cy.on("tap", (event) => {
-        console.log("tap cy", event);
-        console.log("target", event.target);
+      cy.on("dbltap ", "node", (event) => {
         console.dir(event.target.data());
       });
 
       cy.on("ehcomplete", (event, sourceNode, targetNode) => {
-        const source = sourceNode._private.data.id;
-        const target = targetNode._private.data.id;
+        const source = sourceNode.id();
+        const target = targetNode.id();
         console.log("source : ", source);
         console.log("target : ", target);
-
-        localStorage.setItem("source", source);
-        localStorage.setItem("target", target);
       });
 
       //remove node on right click
@@ -85,8 +80,8 @@ const Relation = ({ edges, nodes }, ref) => {
       stylesheet={style}
       layout={layout}
       cy={cyCallback}
-      minZoom={0.5}
-      maxZoom={2}
+      minZoom={0.8}
+      maxZoom={1.5}
     />
   );
 };
