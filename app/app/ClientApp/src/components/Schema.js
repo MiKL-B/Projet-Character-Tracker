@@ -16,17 +16,17 @@ export class Schema extends Component {
     // console.log(response);
     this.setState({ schema: response, loading: false });
   }
-  async getPersonage() {
-    const listPersonage = await fetch("api/personage").then((res) =>
-      res.json()
-    );
+  async getPersoBySchema() {
+    const listPersonage = await fetch(
+      `api/personage/${this.props.match.params.id}`
+    ).then((res) => res.json());
 
     // console.log(listPersonage);
     this.setState({ nodes: listPersonage });
   }
 
   async componentDidMount() {
-    await this.getPersonage();
+    await this.getPersoBySchema();
     await this.getSchema();
   }
   render() {

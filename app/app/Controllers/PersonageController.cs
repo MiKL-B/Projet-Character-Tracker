@@ -2,37 +2,54 @@
 using Microsoft.AspNetCore.Mvc;
 using app.Models;
 
-namespace app.Controllers{
-
-[ApiController]
-[Route("api/[controller]")]
-
-
-public class PersonageController : ControllerBase
+namespace app.Controllers
 {
-    private readonly CharacterTrackerContext _context;
 
-    public PersonageController(CharacterTrackerContext context)
+    [ApiController]
+    [Route("api/[controller]")]
+
+
+    public class PersonageController : ControllerBase
     {
-        _context = context;
-    }
+        private readonly CharacterTrackerContext _context;
 
-    // GET ALL PERSONAGE
-    [HttpGet]
-    public async Task<ActionResult<List<Personage>>> GetAll() =>
-            await _context.Personages.ToListAsync();
+        public PersonageController(CharacterTrackerContext context)
+        {
+            _context = context;
+        }
 
-    // GET A SPECIFIC PERSONAGE
-    [HttpGet("{id:long}")]
-    public async Task<ActionResult<Personage>> GetPersonage(long id)
-    {
-        var personage = await _context.Personages.FindAsync(id);
-        if (personage == null) return NotFound();
+        // GET ALL PERSONAGE
+        // [HttpGet]
+        // public async Task<ActionResult<List<Personage>>> GetAll() =>
+        //         await _context.Personages.ToListAsync();
 
-        return personage;
-    }
+        // // GET A SPECIFIC PERSONAGE
+        // [HttpGet("{id:long}")]
+        // public async Task<ActionResult<Personage>> GetPersonage(long id)
+        // {
+        //     var personage = await _context.Personages.FindAsync(id);
+        //     if (personage == null) return NotFound();
 
-      // UPDATE personage
+        //     return personage;
+        // }
+
+        [HttpGet("{id:long}")]
+        // public IQueryable<List<Personage>> getPersoBySchema()
+        public List<Personage> getPersoBySchema(long id)
+        {
+            // var query = "SELECT * FROM personage INNER JOIN schema on personage.id_schema = schema.id_schema";
+            // var query = "SELECT * FROM personage WHERE id_schema = 1";
+            // var query = "SELECT personage.* FROM personage INNER JOIN "schema" on personage.id_schema = schema.id_schema";
+            var query = "SELECT personage.* FROM personage WHERE id_schema=" + id;
+            var persoBySchema = _context.Personages.FromSqlRaw(query).ToList<Personage>();
+            if (persoBySchema == null) return new List<Personage>();
+            // System.Console.WriteLine(persoBySchema);
+            // System.Console.Out.Flush();
+            // return persoBySchema.ToList();
+            return persoBySchema;
+        }
+
+        // UPDATE personage
         [HttpPut("{id:long}")]
         public async Task<IActionResult> UpdatePersonage(long id, Personage personage)
         {
@@ -53,9 +70,9 @@ public class PersonageController : ControllerBase
             return NoContent();
         }
         [HttpPost]
-        public async Task<ActionResult<Personage>> Create( Personage personage)
+        public async Task<ActionResult<Personage>> Create(Personage personage)
         {
-        
+
             _context.Personages.Add(personage);
             await _context.SaveChangesAsync();
 
@@ -80,5 +97,5 @@ public class PersonageController : ControllerBase
         {
             return _context.Personages.Any(e => e.Id == id);
         }
-}
+    }
 }
