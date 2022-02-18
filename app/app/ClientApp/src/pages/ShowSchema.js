@@ -5,16 +5,30 @@ import "./ShowSchema.css";
 import Relation from "../components/Relation";
 
 export class ShowSchema extends Component {
+
   constructor(props) {
     super(props);
-    this.state = {
-      nodes: [],
-      edges: [],
-      draw: false,
-    };
+    this.state = { nodes: [], edges: [], draw: false, id: null, status: null };
     this.rel = React.createRef();
     this.drawning = this.drawning.bind(this);
-  }
+    this.auth();
+    }
+
+    async auth() {
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ token: localStorage.getItem("token") }),
+        };
+        const response = await fetch("api/auth/verif", requestOptions)
+        const data = await response.json();
+        this.setState({ id: data, status: response.status })
+        if (this.state.status !== 200) {
+            this.props.history.push('/');
+        }
+    }
 
   drawning = (e) => {
     e.preventDefault();

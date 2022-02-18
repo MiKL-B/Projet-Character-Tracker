@@ -7,7 +7,8 @@ export class MySchema extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { schemas: [], loading: true };
+      this.state = { schemas: [], loading: true, id: null, status: null };
+      this.auth();
   }
 
   async getAllSchemas() {
@@ -19,7 +20,23 @@ export class MySchema extends Component {
 
   async componentDidMount() {
     await this.getAllSchemas();
-  }
+    }
+
+    async auth() {
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ token: localStorage.getItem("token") }),
+        };
+        const response = await fetch("api/auth/verif", requestOptions)
+        const data = await response.json();
+        this.setState({ id: data, status: response.status })
+        if (this.state.status !== 200) {
+            this.props.history.push('/');
+        }
+    }
 
   render() {
     return (
