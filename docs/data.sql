@@ -35,7 +35,6 @@ CREATE TABLE Event(
 CREATE TABLE Account(
    id_account SERIAL,
    username VARCHAR(50) ,
-   password VARCHAR(50) ,
    password_hash bytea ,
    password_salt bytea ,
    is_admin BOOLEAN,
