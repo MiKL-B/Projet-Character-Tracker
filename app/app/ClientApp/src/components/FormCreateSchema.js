@@ -34,7 +34,11 @@ export class FormCreateSchema extends Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...this.state }),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        res.json();
+        window.location.reload();
+      })
+
       .then((data) => {
         console.log(data);
       })

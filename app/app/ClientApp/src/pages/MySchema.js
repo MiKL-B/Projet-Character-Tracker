@@ -28,11 +28,6 @@ export class MySchema extends Component {
       body: schemId,
     })
       .then((res) => {
-        // const data = res.json();
-        // if (!res.ok) {
-        //   const error = (data && data.message) || res.status;
-        //   return Promise.reject(error);
-        // }
         this.setState({
           schemas: this.state.schemas.filter((schema) => {
             return schema.id !== schemId;
@@ -92,10 +87,13 @@ export class MySchema extends Component {
                     see this schema
                   </Link>
                   <button
-                    onClick={(id) => this.handleDeleteSchema(s.id)}
+                    onClick={(id) => {
+                      if (window.confirm("Do you want to delete this schema ?"))
+                        this.handleDeleteSchema(s.id);
+                    }}
                     className="btn btn-danger"
                   >
-                    delete
+                    Delete
                   </button>
                 </div>
               </div>
