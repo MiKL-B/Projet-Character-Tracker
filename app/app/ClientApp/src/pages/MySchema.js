@@ -8,6 +8,7 @@ export class MySchema extends Component {
   constructor(props) {
     super(props);
     this.state = { schemas: [], loading: true };
+    this.test = this.test.bind(this);
   }
 
   async getAllSchemas() {
@@ -16,7 +17,30 @@ export class MySchema extends Component {
 
     this.setState({ schemas: data, loading: false });
   }
+  test(schemId) {
+    fetch(`/api/schema/${schemId}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        contentType: "application/json",
+      },
+    })
+      .then((res) => {
+        const data = res.json();
+        if (!res.ok) {
+          const error = (data && data.message) || res.status;
+          return Promise.reject(error);
+        }
+        this.setState({
+          schemas: this.schemas.filter((schema) => schema.id !== schemId),
+        });
+        alert("delete success");
+      })
 
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+  }
   async componentDidMount() {
     await this.getAllSchemas();
   }
@@ -44,10 +68,16 @@ export class MySchema extends Component {
                   <p>{s.personages}</p>
                   <p>{s.readableDate}</p>
                 </div>
-                <div className="card-footer">
+                <div className="card-footer d-flex justify-content-around ">
                   <Link to={`/schema/${s.id}`} className="btn btn-primary">
                     see this schema
                   </Link>
+                  <button
+                    onClick={() => this.test(s.id)}
+                    className="btn btn-danger"
+                  >
+                    delete
+                  </button>
                 </div>
               </div>
             ))}
