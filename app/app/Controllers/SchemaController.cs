@@ -54,26 +54,34 @@ namespace app.Controllers
         [HttpPost]
         public async Task<ActionResult<Schema>> Create(Schema schema)
         {
-            System.Console.WriteLine("nique ta mere");
+
             _context.Schemas.Add(schema);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetSchema", new { id = schema.Id }, schema);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeleteSchema(Schema schem)
+
+        [HttpDelete("{id:long}")]
+        public async Task<IActionResult> DeleteSchema(long id)
         {
-            var schema = await _context.Schemas.FindAsync(schem.Id);
-            if (schema == null)
+            try
             {
-                return NotFound();
+                var schema = await _context.Schemas.FindAsync(id);
+                if (schema == null)
+                {
+                    return NotFound();
+                }
+
+                _context.Schemas.Remove(schema);
+                await _context.SaveChangesAsync();
+                return Ok();
             }
+            catch
+            {
 
-            _context.Schemas.Remove(schema);
-            await _context.SaveChangesAsync();
-
-            return Ok();
+                throw;
+            }
         }
         private bool SchemaExists(long id)
         {

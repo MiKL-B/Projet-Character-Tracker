@@ -8,9 +8,9 @@ export class MySchema extends Component {
   constructor(props) {
     super(props);
 
-      this.state = { schemas: [], loading: true, id: null, status: null };
-      this.auth();
-
+    this.state = { schemas: [], loading: true, id: null, status: null };
+    this.auth();
+    this.handleDeleteSchema = this.handleDeleteSchema.bind(this);
   }
 
   async getAllSchemas() {
@@ -19,49 +19,50 @@ export class MySchema extends Component {
 
     this.setState({ schemas: data, loading: false });
   }
-  test(schemId) {
+  handleDeleteSchema(schemId) {
     fetch(`/api/schema/${schemId}`, {
       method: "DELETE",
       headers: {
-        Accept: "application/json",
-        contentType: "application/json",
+        "Content-Type": "application/json",
       },
+      body: schemId,
     })
       .then((res) => {
-        const data = res.json();
-        if (!res.ok) {
-          const error = (data && data.message) || res.status;
-          return Promise.reject(error);
-        }
+        // const data = res.json();
+        // if (!res.ok) {
+        //   const error = (data && data.message) || res.status;
+        //   return Promise.reject(error);
+        // }
         this.setState({
-          schemas: this.schemas.filter((schema) => schema.id !== schemId),
+          schemas: this.state.schemas.filter((schema) => {
+            return schema.id !== schemId;
+          }),
         });
         alert("delete success");
       })
-
       .catch((error) => {
         console.error("There was an error!", error);
       });
   }
   async componentDidMount() {
     await this.getAllSchemas();
-    }
+  }
 
-    async auth() {
-        const requestOptions = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ token: localStorage.getItem("token") }),
-        };
-        const response = await fetch("api/auth/verif", requestOptions)
-        const data = await response.json();
-        this.setState({ id: data, status: response.status })
-        if (this.state.status !== 200) {
-            this.props.history.push('/');
-        }
+  async auth() {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ token: localStorage.getItem("token") }),
+    };
+    const response = await fetch("api/auth/verif", requestOptions);
+    const data = await response.json();
+    this.setState({ id: data, status: response.status });
+    if (this.state.status !== 200) {
+      this.props.history.push("/");
     }
+  }
 
   render() {
     return (
@@ -91,7 +92,7 @@ export class MySchema extends Component {
                     see this schema
                   </Link>
                   <button
-                    onClick={() => this.test(s.id)}
+                    onClick={(id) => this.handleDeleteSchema(s.id)}
                     className="btn btn-danger"
                   >
                     delete
