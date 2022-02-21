@@ -7,7 +7,7 @@ export class Schema extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { schema: [], loading: true, nodes: [] };
+    this.state = { schema: [], loading: true, personages: [] };
   }
   async getSchema() {
     const response = await fetch(
@@ -22,10 +22,11 @@ export class Schema extends Component {
     ).then((res) => res.json());
 
     // console.log(listPersonage);
-    this.setState({ nodes: listPersonage });
+    this.setState({ personages: listPersonage });
   }
 
   async componentDidMount() {
+    console.log(this.props.match.params.id);
     await this.getPersoBySchema();
     await this.getSchema();
   }
@@ -42,10 +43,10 @@ export class Schema extends Component {
 
           <div className="container-card">
             {/* card */}
-            {this.state.nodes.map((n) => (
+            {this.state.personages.map((n) => (
               <div className="col my-card" key={n.id}>
                 <div className="head-card">
-                  <img src="https://picsum.photos/200" />
+                  <img src={n?.img} alt="" />
                 </div>
 
                 <div className="body-card">

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using app.Models;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace app.Controllers
 {
@@ -17,35 +18,33 @@ namespace app.Controllers
         {
             _context = context;
         }
-
+        //
         // GET ALL PERSONAGE
-        // [HttpGet]
-        // public async Task<ActionResult<List<Personage>>> GetAll() =>
-        //         await _context.Personages.ToListAsync();
+        [HttpGet]
+        public async Task<ActionResult<List<Personage>>> GetAll() =>
+                await _context.Personages.ToListAsync();
 
-        // // GET A SPECIFIC PERSONAGE
+        // GET A SPECIFIC PERSONAGE
         // [HttpGet("{id:long}")]
         // public async Task<ActionResult<Personage>> GetPersonage(long id)
         // {
         //     var personage = await _context.Personages.FindAsync(id);
         //     if (personage == null) return NotFound();
-
+        //
         //     return personage;
         // }
 
         [HttpGet("{id:long}")]
         // public IQueryable<List<Personage>> getPersoBySchema()
-        public List<Personage> getPersoBySchema(long id)
+        public List<Personage> GetPersoBySchema(long id)
         {
             // var query = "SELECT * FROM personage INNER JOIN schema on personage.id_schema = schema.id_schema";
             // var query = "SELECT * FROM personage WHERE id_schema = 1";
             // var query = "SELECT personage.* FROM personage INNER JOIN "schema" on personage.id_schema = schema.id_schema";
-            var query = "SELECT personage.* FROM personage WHERE id_schema=" + id;
+            var query = "SELECT personage.* FROM personage  LEFT JOIN race r on personage.id_race = r.id_race WHERE id_schema=" + id;
             var persoBySchema = _context.Personages.FromSqlRaw(query).ToList<Personage>();
-            if (persoBySchema == null) return new List<Personage>();
-            // System.Console.WriteLine(persoBySchema);
-            // System.Console.Out.Flush();
-            // return persoBySchema.ToList();
+            // var nique = _context.Personages.Select(p => p).Where(p => p.SchemaId == id).ToList();
+
             return persoBySchema;
         }
 
@@ -76,7 +75,7 @@ namespace app.Controllers
             _context.Personages.Add(personage);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPersonage", new { id = personage.Id }, personage);
+            return CreatedAtAction("getPersoBySchema", new { id = personage.Id }, personage);
         }
 
         [HttpDelete]

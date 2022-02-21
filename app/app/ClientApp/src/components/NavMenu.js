@@ -55,11 +55,9 @@ export class NavMenu extends Component {
     render() {
         let compMenu;
 
-        if (this.state.data === null) {
-            compMenu = <div></div>
-        } else if (this.state.data === 404) {
+         if (this.state.data === 404) {
             compMenu = <ul className="navbar-nav flex-grow"> <input placeholder="Search..." />{NavMenu.Item("/sign-in", "Sign In")} {NavMenu.Item("/sign-up", "Sign Up")} </ul>
-        } else {
+        } else if (this.state.data === 200) {
             compMenu = <div className="dropdown">
                 <Link to="#" className="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     Menu
@@ -98,6 +96,8 @@ export class NavMenu extends Component {
                     <form id="form-login" onSubmit={this.handleSubmit}> <Button type={"submit"} value={"logout"} /> </form>
                 </ul>
             </div>
+        } else {
+            compMenu = <div></div>
         }
     return (
       <header>

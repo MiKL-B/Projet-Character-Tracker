@@ -24,12 +24,12 @@ public class AuthController : ControllerBase
 
     // LOGIN USER
     [HttpPost]
-    public async Task<ActionResult<Account>> Login(Account account)
+    public async Task<ActionResult<Account>> Login(LoginAccount loginAccount)
     {
-        var user = await _context.Accounts.FirstOrDefaultAsync(a => a.Username == account.Username);
+        var user = await _context.Accounts.FirstOrDefaultAsync(a => a.Username == loginAccount.Username);
         if (user == null) return BadRequest("Wrong credential");
         
-        if (!VerifyPasswordHash(account.Password, user.PasswordHash, user.PasswordSalt))
+        if (!VerifyPasswordHash(loginAccount.Password, user.PasswordHash, user.PasswordSalt))
         {
             return BadRequest("Wrong credential");
         }

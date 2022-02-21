@@ -36,7 +36,7 @@ export class SignIn extends Component {
   handleSubmit(event) {
     this.login();
     event.preventDefault();
-    }
+  }
 
     async formValidation() {
         const userRegEx = RegExp(/^[a-z0-9-_]{3,}$/);
@@ -68,11 +68,12 @@ export class SignIn extends Component {
         password: this.state.password,
       }),
     };
-    let response = await fetch("api/auth/login/", requestOptions).catch((error) => {
-      console.log(error);
-    });
+      const response = await fetch("api/auth/login/", requestOptions)
+          .catch((error) => {
+              console.log(error);
+      });
     if (response.status === 200) {
-      let data = await response.text();
+        let data = await response.text();
         localStorage.setItem("token", data);
         this.props.history.push('/');
         window.location.reload(false);

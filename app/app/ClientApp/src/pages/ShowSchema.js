@@ -5,16 +5,30 @@ import "./ShowSchema.css";
 import Relation from "../components/Relation";
 
 export class ShowSchema extends Component {
+
   constructor(props) {
     super(props);
-    this.state = {
-      nodes: [],
-      edges: [],
-      draw: false,
-    };
+    this.state = { nodes: [], edges: [], draw: false, id: null, status: null };
     this.rel = React.createRef();
     this.drawning = this.drawning.bind(this);
-  }
+    this.auth();
+    }
+
+    async auth() {
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ token: localStorage.getItem("token") }),
+        };
+        const response = await fetch("api/auth/verif", requestOptions)
+        const data = await response.json();
+        this.setState({ id: data, status: response.status })
+        if (this.state.status !== 200) {
+            this.props.history.push('/');
+        }
+    }
 
   drawning = (e) => {
     e.preventDefault();
@@ -71,22 +85,11 @@ export class ShowSchema extends Component {
     const isDrawning = this.state.draw;
 
     return (
-      <div className="row container-fluid">
-        <div className="col-md-2 border p-3">
-          Show schema option
-          <div className="border p-2 container col">
-            <p>Right click on a node or a edge to delete it</p>
-          </div>
+      <div className="row container-fluid wrapper">
+        <div className="col-md-2 border-end">
+          <h2>SCHEMA NAME</h2>
         </div>
         <div className="col p-3 position-relative">
-          {/* name event */}
-          <div className="d-flex justify-content-around">
-            <h4>Name Event</h4>
-            <div>
-              <span>&lt;</span> <span>2 / 12</span>
-              <span>&gt;</span>
-            </div>
-          </div>
           <Relation
             edges={this.state.edges}
             nodes={this.state.nodes}
@@ -97,8 +100,13 @@ export class ShowSchema extends Component {
             className={"text-uppercase fw-bold schemaBtn"}
             onClick={this.drawning}
           >
-            {!isDrawning ? "Link On" : "Link Off"}
+            {!isDrawning ? "Make relation" : "Stop relation"}
           </Button>
+          <div className={"help-affinity"}>
+            <p className={"enemy"}>Enemy</p>
+            <p className={"neutral"}>Neutral</p>
+            <p className={"ally"}>Ally</p>
+          </div>
         </div>
       </div>
     );

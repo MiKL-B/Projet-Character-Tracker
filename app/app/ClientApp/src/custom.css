@@ -1,4 +1,8 @@
-/* Provide sufficient contrast against white background */
+html,
+body {
+  height: 100%;
+}
+
 a {
   color: #0366d6;
 }
