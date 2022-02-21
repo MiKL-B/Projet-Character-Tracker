@@ -14,15 +14,16 @@ export const style = [
     style: {
       "curve-style": "bezier",
       "target-arrow-shape": "triangle",
+      "target-arrow-color": "black",
     },
   },
-  {
-    selector: "edge[affinity]",
-    style: {
-      "target-arrow-color": "data(affinity)",
-      "line-color": "data(affinity)",
-    },
-  },
+  // {
+  //   selector: "edge[affinity]",
+  //   style: {
+  //     "target-arrow-color": "data(color)",
+  //     "line-color": "data(color)",
+  //   },
+  // },
 
   {
     selector: ".eh-source",

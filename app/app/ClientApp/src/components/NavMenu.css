@@ -17,7 +17,7 @@ html {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-input {
+.searchBar {
     width: 240px;
     border-radius: 8px;
     border: 1px solid;
@@ -28,14 +28,4 @@ input {
 
 .navlinkhover:hover {
     color: #2699FB !important;
-}
-
-img {
-    position: relative;
-    /*transition: top ease 0.5s;*/
-}
-
-img:hover {
-    /* filter: grayscale(200%); */
-    top: -5px;
 }

@@ -70,9 +70,8 @@ export class MySchema extends Component {
                 <h5 className="title-card text-uppercase text-primary">
                   {s.name}
                 </h5>
-
-                <div className="head-card">
-                  <img src="https://picsum.photos/200" alt="" />
+                <div className={"head-card"}>
+                  <img src="https://picsum.photos/200" alt={s.name} />
                 </div>
                 <div className="body-card">
                   <p>{s.desc}</p>

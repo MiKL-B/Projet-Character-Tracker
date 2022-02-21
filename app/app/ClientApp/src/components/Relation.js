@@ -10,9 +10,10 @@ import {
   useState,
 } from "react";
 import { layout, style } from "./Relation.config";
+
 cytoscape.use(edgehandles);
 
-const Relation = ({ edges, nodes }, ref) => {
+const Relation = ({ edges, nodes, setRelation }, ref) => {
   const cyRef = useRef(null);
   const [eh, setEh] = useState();
 
@@ -26,11 +27,11 @@ const Relation = ({ edges, nodes }, ref) => {
   }));
 
   useEffect(() => {
-    if (cyRef.current !== null) {
+    if (cyRef.current) {
       cyRef.current.layout(layout).run();
       cyRef.current.fit();
     }
-  });
+  }, [edges, nodes]);
 
   const cyCallback = useCallback(
     (cy) => {
@@ -44,15 +45,21 @@ const Relation = ({ edges, nodes }, ref) => {
         })
       );
 
-      cy.on("dbltap ", "node", (event) => {
-        console.dir(event.target.data());
+      cy.on("render", () => {
+        cy.edges().forEach((e) =>
+          e.style(
+            "line-color",
+            e.data().affinity === 5
+              ? "blue"
+              : e.data().affinity > 5
+              ? "green"
+              : "red"
+          )
+        );
       });
 
-      cy.on("ehcomplete", (event, sourceNode, targetNode) => {
-        const source = sourceNode.id();
-        const target = targetNode.id();
-        console.log("source : ", source);
-        console.log("target : ", target);
+      cy.on("dbltap ", "node", (event) => {
+        console.dir(event.target.data());
       });
 
       //remove node on right click
@@ -71,7 +78,20 @@ const Relation = ({ edges, nodes }, ref) => {
     },
     [cyRef]
   );
+
+  cyRef.current?.on(
+    "ehcomplete",
+    (event, sourceNode, targetNode, addedEdge) => {
+      addedEdge.remove();
+      const source = sourceNode.data();
+      const target = targetNode.data();
+      const id = addedEdge.id();
+      setRelation({ source: source, target: target, addedEdge: id });
+    }
+  );
+
   const data = CytoscapeComponent.normalizeElements({ nodes, edges });
+  console.log(edges.length);
 
   return (
     <CytoscapeComponent
