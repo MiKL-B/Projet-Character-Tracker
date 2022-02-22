@@ -68,7 +68,7 @@ const Select = ({ name, options = [], label, value, onChange }) => (
       name={name}
     >
       {options.map((opt, key) => (
-        <option key={key} value={key}>
+        <option key={key} value={key + 1}>
           {opt}
         </option>
       ))}
@@ -77,9 +77,13 @@ const Select = ({ name, options = [], label, value, onChange }) => (
   </div>
 );
 
-const Button = ({ type, value, color = "primary", col }) => (
+const Button = ({ type, value, color = "primary", col, onClick }) => (
   <div className={`d-grid mb-3 ${col && "col"}`}>
-    <button className={`btn btn-${color} text-uppercase fw-bold`} type={type}>
+    <button
+      className={`btn btn-${color} text-uppercase fw-bold`}
+      type={type}
+      onClick={onClick}
+    >
       {value}
     </button>
   </div>
@@ -88,7 +92,7 @@ const Button = ({ type, value, color = "primary", col }) => (
 const Range = ({ label, name, value = 5, onChange }) => (
   <>
     <label htmlFor={name} className="form-label">
-      {label}
+      {`${label} (${value})`}
     </label>
     <input
       type="range"

@@ -24,74 +24,47 @@ const Relation = ({ edges, nodes, setRelation }, ref) => {
     enableDrawMode: () => {
       eh.enableDrawMode();
     },
+    remove: (id) => cyRef.current.getElementById(id).remove(),
   }));
 
   useEffect(() => {
-    if (cyRef.current) {
-      cyRef.current.layout(layout).run();
-      cyRef.current.fit();
-    }
-  }, [edges, nodes]);
+    cyRef.current.layout(layout).run();
+  }, [nodes, edges]);
 
   const cyCallback = useCallback(
     (cy) => {
       if (cyRef.current) return;
       cyRef.current = cy;
 
-      setEh(
-        cy.edgehandles({
-          snap: true,
-          snapThreshold: 20,
-        })
-      );
-
-      cy.on("render", () => {
-        cy.edges().forEach((e) =>
-          e.style(
-            "line-color",
-            e.data().affinity === 5
-              ? "blue"
-              : e.data().affinity > 5
-              ? "green"
-              : "red"
-          )
+      if (!eh) {
+        setEh(
+          cy.edgehandles({
+            snap: true,
+            snapThreshold: 20,
+            noEdgeEventsInDraw: true,
+            disableBrowserGestures: true,
+          })
         );
+      }
+
+      cy.on("ehcomplete", (event, sourceNode, targetNode, addedEdge) => {
+        const source = sourceNode.data();
+        const target = targetNode.data();
+        const id = addedEdge.id();
+        setRelation({ source, target, id, newer: true });
       });
 
-      cy.on("dbltap ", "node", (event) => {
-        console.dir(event.target.data());
-      });
-
-      //remove node on right click
-      cy.on("cxttap", "node", (evt) => {
-        const node = evt.target;
-        console.log("tapped", node.id());
-        cy.remove(node);
-      });
-
-      //remove edge on right click
-      cy.on("cxttap", "edge", (evt) => {
-        const edge = evt.target;
-        console.log("tapped", edge.id());
-        cy.remove(edge);
+      cy.on("dbltap ", "edge", (event) => {
+        const source = event.target.source().data();
+        const target = event.target.target().data();
+        const { id, idPrivacy, affinity } = event.target.data();
+        setRelation({ source, target, id, idPrivacy, affinity });
       });
     },
-    [cyRef]
-  );
-
-  cyRef.current?.on(
-    "ehcomplete",
-    (event, sourceNode, targetNode, addedEdge) => {
-      addedEdge.remove();
-      const source = sourceNode.data();
-      const target = targetNode.data();
-      const id = addedEdge.id();
-      setRelation({ source: source, target: target, addedEdge: id });
-    }
+    [setRelation, eh]
   );
 
   const data = CytoscapeComponent.normalizeElements({ nodes, edges });
-  console.log(edges.length);
 
   return (
     <CytoscapeComponent

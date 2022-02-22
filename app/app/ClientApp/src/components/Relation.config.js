@@ -14,14 +14,15 @@ export const style = [
     style: {
       "curve-style": "bezier",
       "target-arrow-shape": "triangle",
-      "target-arrow-color": "black",
+      "line-opacity": 0.6,
     },
   },
   // {
   //   selector: "edge[affinity]",
   //   style: {
-  //     "target-arrow-color": "data(color)",
-  //     "line-color": "data(color)",
+  //     // "target-arrow-color": "data(color)",
+  //     // "line-color": "data(color)",
+  //
   //   },
   // },
 
@@ -56,10 +57,30 @@ export const style = [
   },
 ];
 
+const lineStyle = (privacy) => {
+  privacy = Number(privacy);
+  if (privacy === 1) return "solid";
+  if (privacy === 2) return "dashed";
+  if (privacy === 3) return "dotted";
+};
+
+const lineColor = (affinity) => {
+  if (affinity === 5) return "blue";
+  if (affinity > 5) return "green";
+  if (affinity < 5) return "red";
+};
+
 export const layout = {
-  name: "concentric",
-  levelWidth: () => {
-    return 100;
+  name: "circle",
+  ready: ({ cy }) => {
+    cy.edges().forEach((e) => {
+      const affinity = lineColor(e.data("affinity"));
+      const privacy = lineStyle(e.data("idPrivacy"));
+      return e.style({
+        "line-style": privacy,
+        "line-color": affinity,
+        "target-arrow-color": affinity,
+      });
+    });
   },
-  minNodeSpacing: 150,
 };

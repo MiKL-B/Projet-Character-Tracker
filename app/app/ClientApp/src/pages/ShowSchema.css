@@ -11,8 +11,13 @@
   top: 10px;
 }
 
+.formRelation{
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+}
+
 .help-affinity {
-  background: rgba(0, 0, 0, 0.1);
   padding: .75rem 1rem;
   border-radius: 5px;
   position: absolute;
@@ -34,9 +39,10 @@
   height: 16px;
   width: 16px;
   border-radius: 50px;
-  border: 2px solid gray;
+  border: 1px solid black;
   content: "";
   background-color: red;
+  opacity: 0.6;
 }
 
 .help-affinity .neutral:before{

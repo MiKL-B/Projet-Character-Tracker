@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import "./ShowSchema.css";
 
-import { Input, Range, Button } from "../components/FormInput";
+import { Input, Range, Button, Select } from "../components/FormInput";
 import { ButtonToggle } from "reactstrap";
 import Relation from "../components/Relation";
 
 const initialState = {
   sourceName: "",
   targetName: "",
-  affinity: 5,
 };
 
 export class ShowSchema extends Component {
@@ -29,6 +28,7 @@ export class ShowSchema extends Component {
     this.handleCallback = this.handleCallback.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     // this.auth();
   }
 
@@ -47,14 +47,6 @@ export class ShowSchema extends Component {
       this.props.history.push("/");
     }
   }
-
-  drawning = () => {
-    this.setState({ draw: !this.state.draw });
-    this.state.draw
-      ? this.rel.current.disableDrawMode()
-      : this.rel.current.enableDrawMode();
-  };
-
   async getPersonage() {
     const listPersonage = await fetch("api/personage")
       .then((res) => res.json())
@@ -73,7 +65,6 @@ export class ShowSchema extends Component {
       );
     this.setState({ nodes: listPersonage });
   }
-
   async getRelation() {
     const listRelation = await fetch("api/relation")
       .then((res) => res.json())
@@ -87,11 +78,17 @@ export class ShowSchema extends Component {
       .catch((e) => console.error(e));
     this.setState({ edges: listRelation });
   }
-
   async componentDidMount() {
     await this.getPersonage();
     await this.getRelation();
   }
+
+  drawning = () => {
+    this.setState({ draw: !this.state.draw });
+    this.state.draw
+      ? this.rel.current.disableDrawMode()
+      : this.rel.current.enableDrawMode();
+  };
 
   handleInputChange({ target }) {
     const value = target.value;
@@ -106,12 +103,18 @@ export class ShowSchema extends Component {
     });
   }
 
-  handleCallback({ source, target, addedEdge }) {
-    this.setState({ draw: false });
+  async handleCallback({
+    source,
+    target,
+    id,
+    idPrivacy = 1,
+    affinity = 5,
+    newer = false,
+  }) {
     this.rel.current.disableDrawMode();
-
-    this.setState(({ newRelation }) => {
+    await this.setState(({ newRelation }) => {
       return {
+        draw: false,
         newRelation: {
           ...newRelation,
           source: source["id"],
@@ -119,32 +122,49 @@ export class ShowSchema extends Component {
           sourceName: source["personage"],
           targetName: target["personage"],
           schemaId: source["schemaId"],
-          id: addedEdge,
+          affinity,
+          idPrivacy,
+          newer,
+          id,
         },
       };
     });
   }
 
-  async handleSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault();
-    if (!this.state.newRelation.id) return;
-    await this.setState({
-      edges: [...this.state.edges, { data: this.state.newRelation }],
+    const { newRelation, edges } = this.state;
+    if (!newRelation.id) return;
+    if (newRelation.newer) this.rel.current.remove(newRelation.id);
+    this.setState({
+      edges: [...edges, { data: newRelation }],
       newRelation: initialState,
     });
-    console.log(this.state.edges);
   }
 
   handleReset(event) {
     event.preventDefault();
+    const { newRelation } = this.state;
+    if (newRelation.newer) this.rel.current.remove(newRelation.id);
+
     this.setState({
+      newRelation: initialState,
+    });
+  }
+
+  handleDelete(event) {
+    event.preventDefault();
+    const { edges, newRelation } = this.state;
+    this.setState({
+      edges: edges.filter(({ data }) => data["id"] !== newRelation["id"]),
       newRelation: initialState,
     });
   }
 
   render() {
     const isDrawning = this.state.draw;
-    const { sourceName, targetName, affinity, id } = this.state.newRelation;
+    const { sourceName, targetName, affinity, id, idPrivacy, newer } =
+      this.state.newRelation;
 
     return (
       <div className="row container-fluid wrapper">
@@ -158,11 +178,13 @@ export class ShowSchema extends Component {
           </p>
           <hr />
           <form
-            className={"formRelation"}
+            className={`formRelation ${
+              !Boolean(id) ? null : "opacity-100 visible"
+            }`}
             onSubmit={this.handleSubmit}
             onReset={this.handleReset}
           >
-            <h5>New relation</h5>
+            <h5>Relation</h5>
             <Input
               name={"source"}
               label={"Source"}
@@ -176,6 +198,13 @@ export class ShowSchema extends Component {
               value={targetName}
               onChange={this.handleInputChange}
               disabled
+            />
+            <Select
+              name={"idPrivacy"}
+              label={"Privacy"}
+              value={idPrivacy}
+              onChange={this.handleInputChange}
+              options={["Public", "Private", "Secret"]}
             />
             <Range
               name={"affinity"}
@@ -191,6 +220,13 @@ export class ShowSchema extends Component {
                 disabled={Boolean(id)}
               />
               <Button type={"reset"} value={"cancel"} color={"danger"} col />
+              {!Boolean(newer) && (
+                <Button
+                  value={"delete"}
+                  color={"dark"}
+                  onClick={this.handleDelete}
+                />
+              )}
             </div>
           </form>
         </div>
