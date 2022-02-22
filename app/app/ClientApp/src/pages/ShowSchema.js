@@ -177,6 +177,7 @@ export class ShowSchema extends Component {
             tenetur! Laboriosam repellat unde ut!
           </p>
           <hr />
+          <p>Double click on edge to edit a relation</p>
           <form
             className={`formRelation ${
               !Boolean(id) ? null : "opacity-100 visible"
@@ -220,7 +221,7 @@ export class ShowSchema extends Component {
                 disabled={Boolean(id)}
               />
               <Button type={"reset"} value={"cancel"} color={"danger"} col />
-              {!Boolean(newer) && (
+              {!newer && (
                 <Button
                   value={"delete"}
                   color={"dark"}
@@ -246,10 +247,15 @@ export class ShowSchema extends Component {
           >
             {!isDrawning ? "Make relation" : "Stop relation"}
           </ButtonToggle>
-          <div className={"help-affinity"}>
-            <p className={"enemy"}>Enemy</p>
-            <p className={"neutral"}>Neutral</p>
-            <p className={"ally"}>Ally</p>
+          <div className={"helpContainer"}>
+            <h5>Affinity</h5>
+            <p className={"aff enemy"}>Enemy</p>
+            <p className={"aff neutral"}>Neutral</p>
+            <p className={"aff ally"}>Ally</p>
+            <h5>Privacy</h5>
+            <p className={"priv public"}>Public</p>
+            <p className={"priv private"}>Private</p>
+            <p className={"priv secret"}>Secret</p>
           </div>
         </div>
       </div>
