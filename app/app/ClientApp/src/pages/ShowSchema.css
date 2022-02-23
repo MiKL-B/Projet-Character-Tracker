@@ -3,7 +3,11 @@
 }
 
 .cy {
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .schemaBtn {
@@ -11,8 +15,13 @@
   top: 10px;
 }
 
-.help-affinity {
-  background: rgba(0, 0, 0, 0.1);
+.formRelation {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+}
+
+.helpContainer {
   padding: .75rem 1rem;
   border-radius: 5px;
   position: absolute;
@@ -23,26 +32,53 @@
   border: 1px solid darkgray;
 }
 
-.help-affinity p {
+.helpContainer p {
   margin-bottom: 0;
   font-weight: 600;
 }
 
-.help-affinity p:before{
+.helpContainer .aff:before {
   margin-right: 0.3rem;
   display: inline-flex;
-  height: 16px;
-  width: 16px;
-  border-radius: 50px;
-  border: 2px solid gray;
+  height: 14px;
+  width: 14px;
+  border: 1px solid black;
   content: "";
   background-color: red;
+  opacity: 0.6;
 }
 
-.help-affinity .neutral:before{
+.helpContainer .neutral:before {
   background-color: blue;
 }
 
-.help-affinity .ally:before{
+.helpContainer .ally:before {
   background-color: green;
+  margin-bottom: 1rem;
+}
+
+.helpContainer .priv:before {
+  margin-right: 0.3rem;
+  display: inline-flex;
+  height: 10px;
+  width: 20px;
+  background: gray;
+  content: "";
+  opacity: 0.6;
+}
+
+.helpContainer .private:before{
+  background: repeating-linear-gradient(to left,
+  #808080,
+  #808080 8px,
+  transparent 8px,
+  transparent 10px);
+}
+
+.helpContainer .secret:before{
+  background: repeating-linear-gradient(to left,
+  #808080,
+  #808080 3px,
+  transparent 3px,
+  transparent 5px);
 }
