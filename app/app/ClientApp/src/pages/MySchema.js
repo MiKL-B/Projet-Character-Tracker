@@ -23,14 +23,15 @@ export class MySchema extends Component {
 
   async getSchemaByUser() {
     let token = localStorage.getItem("token");
-    let decoded = jwt_decode(token);
-    let id_token = decoded.id;
+    if (token) {
+      let decoded = jwt_decode(token);
+      let id_token = decoded.id;
+      const listSchema = await fetch(`api/schema/${id_token}`).then((res) =>
+        res.json()
+      );
 
-    const listSchema = await fetch(`api/schema/${id_token}`).then((res) =>
-      res.json()
-    );
-
-    this.setState({ schemas: listSchema });
+      this.setState({ schemas: listSchema });
+    }
   }
   handleDeleteSchema(schemId) {
     fetch(`/api/schema/${schemId}`, {
