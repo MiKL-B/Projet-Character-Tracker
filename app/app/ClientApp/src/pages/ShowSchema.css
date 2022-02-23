@@ -3,7 +3,11 @@
 }
 
 .cy {
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .schemaBtn {
@@ -36,9 +40,8 @@
 .helpContainer .aff:before {
   margin-right: 0.3rem;
   display: inline-flex;
-  height: 16px;
-  width: 16px;
-  border-radius: 50px;
+  height: 14px;
+  width: 14px;
   border: 1px solid black;
   content: "";
   background-color: red;

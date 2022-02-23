@@ -51,13 +51,10 @@ export class ShowSchema extends Component {
     const listPersonage = await fetch("api/personage")
       .then((res) => res.json())
       .then((pers) =>
-        pers.map(({ lastname, firstname, img, ...rest }) => {
+        pers.map(({ lastname, firstname, ...rest }) => {
           return {
             data: {
               personage: `${lastname} ${firstname}`,
-              img:
-                img ||
-                "https://static.miraheze.org/windowswallpaperwiki/thumb/9/94/User_(Windows_8.x).png/192px-User_(Windows_8.x).png",
               ...rest,
             },
           };
@@ -170,7 +167,14 @@ export class ShowSchema extends Component {
       <div className="row container-fluid wrapper">
         <div className="col-md-2 border-end">
           <h2>SCHEMA NAME</h2>
-          <p>
+          <a
+            className={"modal-title text-decoration-none"}
+            data-bs-toggle="collapse"
+            href="#descCollapse"
+          >
+            Description
+          </a>
+          <p className={"collapse"} id={"descCollapse"}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci,
             animi aut ducimus eius eligendi exercitationem fugit in natus
             perferendis praesentium quis quos ratione reprehenderit repudiandae
@@ -233,9 +237,9 @@ export class ShowSchema extends Component {
         </div>
         <div className="col p-3 position-relative">
           <Relation
+            ref={this.rel}
             edges={this.state.edges}
             nodes={this.state.nodes}
-            ref={this.rel}
             setRelation={this.handleCallback}
           />
           <ButtonToggle

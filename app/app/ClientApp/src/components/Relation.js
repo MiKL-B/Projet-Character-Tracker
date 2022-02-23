@@ -71,9 +71,8 @@ const Relation = ({ edges, nodes, setRelation }, ref) => {
       className="cy"
       elements={data}
       stylesheet={style}
-      layout={layout}
       cy={cyCallback}
-      minZoom={0.8}
+      minZoom={0.6}
       maxZoom={1.5}
     />
   );

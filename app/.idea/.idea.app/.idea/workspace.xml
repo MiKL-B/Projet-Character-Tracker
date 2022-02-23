@@ -5,8 +5,10 @@
     <projectFile profileName="IIS Express">app/app.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="CRUD Relation DOM only">
+    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Relation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.js" afterDir="false" />
     </list>
@@ -188,7 +190,8 @@
       <workItem from="1645168276047" duration="13200000" />
       <workItem from="1645181651157" duration="257000" />
       <workItem from="1645431186053" duration="23486000" />
-      <workItem from="1645514015255" duration="25395000" />
+      <workItem from="1645514015255" duration="26163000" />
+      <workItem from="1645600464391" duration="5769000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -344,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645542373475</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Improve relation legend">
+      <created>1645544448405</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1645544448405</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,7 +428,8 @@
     <MESSAGE value="update relation" />
     <MESSAGE value="WIP relation..." />
     <MESSAGE value="CRUD Relation DOM only" />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD Relation DOM only" />
+    <MESSAGE value="Improve relation legend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve relation legend" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

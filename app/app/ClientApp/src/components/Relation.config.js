@@ -3,12 +3,18 @@ export const style = [
     selector: "node[personage]",
     style: {
       content: "data(personage)",
-      "background-image": "data(img)",
+      "background-image":
+        "https://static.miraheze.org/windowswallpaperwiki/thumb/9/94/User_(Windows_8.x).png/192px-User_(Windows_8.x).png",
       "background-fit": "cover cover",
-      "font-size": 12,
+      "font-size": 16,
     },
   },
-
+  {
+    selector: "node[?img]",
+    style: {
+      "background-image": "data(img)",
+    },
+  },
   {
     selector: "edge",
     style: {
@@ -17,15 +23,6 @@ export const style = [
       "line-opacity": 0.6,
     },
   },
-  // {
-  //   selector: "edge[affinity]",
-  //   style: {
-  //     // "target-arrow-color": "data(color)",
-  //     // "line-color": "data(color)",
-  //
-  //   },
-  // },
-
   {
     selector: ".eh-source",
     style: {
@@ -72,6 +69,8 @@ const lineColor = (affinity) => {
 
 export const layout = {
   name: "circle",
+  fit: true,
+  padding: 50,
   ready: ({ cy }) => {
     cy.edges().forEach((e) => {
       const affinity = lineColor(e.data("affinity"));
