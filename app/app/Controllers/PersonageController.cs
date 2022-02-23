@@ -35,15 +35,11 @@ namespace app.Controllers
         // }
 
         [HttpGet("{id:long}")]
-        // public IQueryable<List<Personage>> getPersoBySchema()
+
         public List<Personage> GetPersoBySchema(long id)
         {
-            // var query = "SELECT * FROM personage INNER JOIN schema on personage.id_schema = schema.id_schema";
-            // var query = "SELECT * FROM personage WHERE id_schema = 1";
-            // var query = "SELECT personage.* FROM personage INNER JOIN "schema" on personage.id_schema = schema.id_schema";
             var query = "SELECT personage.* FROM personage  LEFT JOIN race r on personage.id_race = r.id_race WHERE id_schema=" + id;
             var persoBySchema = _context.Personages.FromSqlRaw(query).ToList<Personage>();
-            // var nique = _context.Personages.Select(p => p).Where(p => p.SchemaId == id).ToList();
 
             return persoBySchema;
         }

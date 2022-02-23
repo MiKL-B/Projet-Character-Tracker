@@ -139,7 +139,12 @@ VALUES
   ('Licorne'),
   ('Humain');
 INSERT INTO
-  Schema(is_public, name_schema, desc_schema, readable_date)
+  Schema(
+    is_public,
+    name_schema,
+    desc_schema,
+    readable_date
+  )
 VALUES
   (
     false,
@@ -165,7 +170,15 @@ INSERT INTO
   )
 VALUES
   ('snow', 'jon', '1980', '2020', 'homme', 1, 1),
-  ('indiana', 'jones', '1980', '2024', 'homme', 2, 2),
+  (
+    'indiana',
+    'jones',
+    '1980',
+    '2024',
+    'homme',
+    2,
+    2
+  ),
   (
     'Reine des neiges',
     'Elsa',
@@ -175,8 +188,24 @@ VALUES
     1,
     2
   ),
-  ('Michel', 'Maurice', '1980', '2020', 'homme', 3, 1),
-  ('SkyWalker', 'Luke', '1980', '2020', 'jedi', 4, 1);
+  (
+    'Michel',
+    'Maurice',
+    '1980',
+    '2020',
+    'homme',
+    3,
+    1
+  ),
+  (
+    'SkyWalker',
+    'Luke',
+    '1980',
+    '2020',
+    'jedi',
+    4,
+    1
+  );
 INSERT INTO
   Family(name_family, desc_family)
 VALUES
@@ -237,3 +266,29 @@ INSERT INTO
   )
 VALUES
   (1, 2, 1, 1, 1, 'cousins', 5);
+----------------------------------------
+  --drop
+  DROP FUNCTION insert_group_user_func() CASCADE;
+--function
+  CREATE FUNCTION insert_group_user_func() RETURNS TRIGGER AS $ $ DECLARE test integer;
+BEGIN
+INSERT INTO
+  groupuser(img_group, desc_group, private)
+VALUES
+  ('e', 'e', false) returning id_group_user into test;
+INSERT INTO
+  group_account
+VALUES
+  (new.id_account, test);
+RETURN new;
+END;
+$ $ LANGUAGE plpgsql;
+--triggeer
+CREATE TRIGGER trigger1
+AFTER
+INSERT
+  ON account FOR EACH ROW EXECUTE PROCEDURE insert_group_user_func();
+--insert
+INSERT INTO
+  account(username)
+VALUES('michel');

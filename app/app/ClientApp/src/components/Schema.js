@@ -21,12 +21,10 @@ export class Schema extends Component {
       `api/personage/${this.props.match.params.id}`
     ).then((res) => res.json());
 
-    // console.log(listPersonage);
     this.setState({ personages: listPersonage });
   }
 
   async componentDidMount() {
-    console.log(this.props.match.params.id);
     await this.getPersoBySchema();
     await this.getSchema();
   }

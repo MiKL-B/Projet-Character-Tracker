@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FormCreateSchema } from "../components/FormCreateSchema";
+import jwt_decode from "jwt-decode";
 import "../components/Schema.css";
 export class MySchema extends Component {
   static displayName = MySchema.name;
@@ -13,11 +14,23 @@ export class MySchema extends Component {
     this.handleDeleteSchema = this.handleDeleteSchema.bind(this);
   }
 
-  async getAllSchemas() {
-    const response = await fetch("api/schema");
-    const data = await response.json();
+  // async getAllSchemas() {
+  //   const response = await fetch("api/schema");
+  //   const data = await response.json();
 
-    this.setState({ schemas: data, loading: false });
+  //   this.setState({ schemas: data, loading: false });
+  // }
+
+  async getSchemaByUser() {
+    let token = localStorage.getItem("token");
+    let decoded = jwt_decode(token);
+    let id_token = decoded.id;
+
+    const listSchema = await fetch(`api/schema/${id_token}`).then((res) =>
+      res.json()
+    );
+
+    this.setState({ schemas: listSchema });
   }
   handleDeleteSchema(schemId) {
     fetch(`/api/schema/${schemId}`, {
@@ -40,7 +53,8 @@ export class MySchema extends Component {
       });
   }
   async componentDidMount() {
-    await this.getAllSchemas();
+    // await this.getAllSchemas();
+    await this.getSchemaByUser();
   }
 
   async auth() {
@@ -84,7 +98,7 @@ export class MySchema extends Component {
                 </div>
                 <div className="card-footer d-flex justify-content-around ">
                   <Link to={`/schema/${s.id}`} className="btn btn-primary">
-                    see this schema
+                    See this schema
                   </Link>
                   <button
                     onClick={(id) => {
