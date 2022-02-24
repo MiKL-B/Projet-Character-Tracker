@@ -41,13 +41,15 @@ public class AuthController : ControllerBase
 
     // REGISTER ACCOUNT
     [HttpPost]
-    public async Task<ActionResult<Account>> Register(Account account)
+    public async Task<ActionResult<Account>> Register(ResgistreAccount registreAccount)
     {
-        var exist = _context.Accounts.Any(e => e.Username == account.Username || e.Mail == account.Mail);
+        var exist = _context.Accounts.Any(e => e.Username == registreAccount.Username || e.Mail == registreAccount.Mail);
       
         if (exist) return ValidationProblem("Account already exist");
-        CreatePasswordHash(account.Password, out byte[] passwordHash, out byte[] passwordSalt);
-        account.Password = null;
+        CreatePasswordHash(registreAccount.Password, out byte[] passwordHash, out byte[] passwordSalt);
+        Account account = new();
+        account.Username = registreAccount.Username; 
+        account.Mail = registreAccount.Mail;
         account.PasswordHash = passwordHash;
         account.PasswordSalt = passwordSalt;
         _context.Accounts.Add(account);

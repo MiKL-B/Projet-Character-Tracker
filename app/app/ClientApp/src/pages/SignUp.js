@@ -118,7 +118,7 @@ export class SignUp extends Component {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, mail, password }),
+        body: JSON.stringify({ username, password, mail }),
     };
     const response = await fetch("api/auth/register/", requestOptions)
       .then((res) => res.json())
