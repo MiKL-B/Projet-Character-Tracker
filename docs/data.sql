@@ -122,13 +122,13 @@ CREATE TABLE GROUP_ACCOUNT(
   FOREIGN KEY(id_group_user) REFERENCES GroupUser(id_group_user)
 );
 INSERT INTO
-  Account(username, password, is_admin, mail)
+  Account(username, is_admin, mail)
 VALUES
-  ('michel', 'pass', true, 'michel@gmail.com'),
-  ('paul', '1234', false, 'paul@gmail.com'),
-  ('jean', 'word', false, 'jean@gmail.com'),
-  ('maurice', 'password', true, 'maurice@gmail.com'),
-  ('edwouard', 'pass', true, 'edwouard@gmail.com');
+  ('michel', true, 'michel@gmail.com'),
+  ('paul', false, 'paul@gmail.com'),
+  ('jean', false, 'jean@gmail.com'),
+  ('maurice', true, 'maurice@gmail.com'),
+  ('edwouard', true, 'edwouard@gmail.com');
 INSERT INTO
   Race(name_race)
 VALUES
@@ -267,77 +267,12 @@ INSERT INTO
 VALUES
   (1, 2, 1, 1, 1, 'cousins', 5);
 ----------------------------------------
-  --PROCEDURE INSERT GPS
+  -----------------------------------------------------------------------------------
+  --INSERT GROUP USER
   --drop
-  drop procedure if exists insert_gps;
---procedure
-  CREATE
-  OR REPLACE PROCEDURE insert_gps(
-    id_account int,
-    id_permission int,
-    is_public bool,
-    name_schema varchar(255),
-    desc_schema varchar(255),
-    readable_date bool,
-    img_schema varchar(255)
-  ) LANGUAGE plpgsql AS $ $ DECLARE idSchema integer;
-idGroupUser integer;
-BEGIN
-INSERT INTO
-  schema(
-    is_public,
-    name_schema,
-    desc_schema,
-    readable_date,
-    img_schema
-  )
-VALUES(
-    is_public,
-    name_schema,
-    desc_schema,
-    readable_date,
-    img_schema
-  ) RETURNING id_schema into idSchema;
-INSERT INTO
-  group_permission_schema
-VALUES(
-    id_permission,
-    idSchema,
-    (
-      SELECT
-        id_group_user
-      FROM
-        groupuser
-      WHERE
-        id_account = id_account
-      LIMIT
-        1
-    )
-  );
-SELECT
-  *
-FROM
-  schema
-WHERE
-  id_schema = idSchema INTO _val;
-COMMIT;
-END;
-$ $;
-call insert_gps(
-  74,
-  1,
-  false,
-  'test',
-  'schema de test',
-  false,
-  'img_test'
-);
------------------------------------------------------------------------------------
---INSERT GROUP USER
---drop
-DROP FUNCTION insert_group_user_func() CASCADE;
+  DROP FUNCTION insert_group_user_func() CASCADE;
 --function
-CREATE FUNCTION insert_group_user_func() RETURNS TRIGGER AS $ $ DECLARE test integer;
+  CREATE FUNCTION insert_group_user_func() RETURNS TRIGGER AS $ $ DECLARE test integer;
 BEGIN
 INSERT INTO
   groupuser(private)
