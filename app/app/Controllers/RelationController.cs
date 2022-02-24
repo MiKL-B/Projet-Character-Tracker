@@ -15,7 +15,7 @@ public class RelationController : ControllerBase
     {
         _context = context;
     }
-    
+
     [HttpGet]
     public async Task<ActionResult<List<Relation>>> GetAll() => await _context.Relations.ToListAsync();
 
@@ -28,4 +28,15 @@ public class RelationController : ControllerBase
 
         return relation;
     }
+
+
+    [HttpGet("byrelation/{id:long}")]
+    public List<Relation> GetRelationBySchema(long id)
+    {
+        var query = "SELECT * FROM relation inner join personage on relation.actor = personage.id_personage WHERE id_schema =" + id;
+        var relationBySchema = _context.Relations.FromSqlRaw(query).ToList<Relation>();
+
+        return relationBySchema;
+    }
+
 }

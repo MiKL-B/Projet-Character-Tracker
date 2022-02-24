@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { ModificationSchema } from "./ModificationSchema.js";
 
 import "./Schema.css";
@@ -66,6 +67,12 @@ export class Schema extends Component {
             >
               +
             </div>
+            <Link
+              to={`/show-schema/${this.props.match.params.id}`}
+              className="btn btn-primary"
+            >
+              show schema
+            </Link>
             <div
               className="modal fade"
               id="exampleModal"
@@ -89,7 +96,7 @@ export class Schema extends Component {
                     </button>
                   </div>
                   <div className="modal-body">
-                    <ModificationSchema id={this.state.schema.id} />
+                    <ModificationSchema id={this.props.match.params.id} />
                   </div>
                 </div>
               </div>

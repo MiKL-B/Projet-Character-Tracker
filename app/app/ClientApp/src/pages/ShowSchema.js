@@ -48,7 +48,9 @@ export class ShowSchema extends Component {
     }
   }
   async getPersonage() {
-    const listPersonage = await fetch("api/personage")
+    const listPersonage = await fetch(
+      `api/personage/${this.props.match.params.id}`
+    )
       .then((res) => res.json())
       .then((pers) =>
         pers.map(({ lastname, firstname, ...rest }) => {
@@ -63,7 +65,9 @@ export class ShowSchema extends Component {
     this.setState({ nodes: listPersonage });
   }
   async getRelation() {
-    const listRelation = await fetch("api/relation")
+    const listRelation = await fetch(
+      `api/relation/byrelation/${this.props.match.params.id}`
+    )
       .then((res) => res.json())
       .then((rel) =>
         rel.map(({ id, ...rest }) => {

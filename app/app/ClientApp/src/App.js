@@ -32,7 +32,7 @@ export default class App extends Component {
         <Route path="/my-group" component={MyGroup} />
         <Route path="/settings" component={SettingsUser} />
         <Route path="/modification-event" component={ModificationEvent} />
-        <Route path="/show-schema" component={ShowSchema} />
+        <Route path="/show-schema/:id" component={ShowSchema} />
         <Route path="/show-search" component={ShowSearch} />
         <Route path="/admin" component={Admin} />
         <Route path="/schema/:id" component={Schema} />

@@ -20,22 +20,23 @@ namespace app.Controllers
         public async Task<ActionResult<List<Schema>>> GetAll() =>
         await _context.Schemas.ToListAsync();
 
-        //GET A SPECIFIC SCHEMA
-        // [HttpGet("{id:long}")]
-        // public async Task<ActionResult<Schema>> GetSchema(long id)
-        // {
-        //     var schema = await _context.Schemas.FindAsync(id);
-        //     if (schema == null) return NotFound();
 
-        //     return schema;
-        // }
-
+        // GET A SPECIFIC SCHEMA
         [HttpGet("{id:long}")]
+        public async Task<ActionResult<Schema>> GetSchema(long id)
+        {
+            var schema = await _context.Schemas.FindAsync(id);
+            if (schema == null) return NotFound();
 
+            return schema;
+        }
+
+
+        [HttpGet("byuser/{id:long}")]
         public List<Schema> GetSchemaByUser(long id)
         {
             var query = "SELECT schema.* FROM schema INNER JOIN group_permission_schema ON schema.id_schema = group_permission_schema.id_schema INNER JOIN groupuser on group_permission_schema.id_group_user = groupuser.id_group_user INNER JOIN group_account on groupuser.id_group_user = group_account.id_group_user INNER JOIN account ON group_account.id_account = account.id_account WHERE account.id_account =" + id;
-            // var query2 = "SELECT schema.* FROM schema";
+
             var schemaByUser = _context.Schemas.FromSqlRaw(query).ToList<Schema>();
 
             return schemaByUser;

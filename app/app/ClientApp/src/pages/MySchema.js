@@ -26,8 +26,8 @@ export class MySchema extends Component {
     if (token) {
       let decoded = jwt_decode(token);
       let id_token = decoded.id;
-      const listSchema = await fetch(`api/schema/${id_token}`).then((res) =>
-        res.json()
+      const listSchema = await fetch(`api/schema/byuser/${id_token}`).then(
+        (res) => res.json()
       );
 
       this.setState({ schemas: listSchema });

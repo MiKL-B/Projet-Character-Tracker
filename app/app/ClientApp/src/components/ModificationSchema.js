@@ -32,7 +32,7 @@ export class ModificationSchema extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
+    console.log(this.props.id);
     fetch("api/personage", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
