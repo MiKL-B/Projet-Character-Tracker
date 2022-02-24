@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Checkbox, File, Input } from "./FormInput";
-
+import jwt_decode from "jwt-decode";
 export class FormCreateSchema extends Component {
   static displayName = FormCreateSchema.name;
 
@@ -10,6 +10,7 @@ export class FormCreateSchema extends Component {
       name: "",
       desc: "",
       img: "",
+      isPublic: false,
       readableDate: false,
     };
 
@@ -26,13 +27,15 @@ export class FormCreateSchema extends Component {
     });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
+    let token = jwt_decode(localStorage.getItem("token"));
+
     event.preventDefault();
 
     fetch("api/schema", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...this.state }),
+      body: JSON.stringify({ ...this.state, idAccount: token.id }),
     })
       .then((res) => {
         res.json();

@@ -15,4 +15,5 @@ public class Schema
     public ICollection<Personage>? Personages { get; set; }
     public ICollection<Permission>? Permissions { get; set; }
     public ICollection<GroupUser>? GroupUsers { get; set; }
+
 }

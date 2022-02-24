@@ -35,6 +35,7 @@ namespace app.Controllers
         public List<Schema> GetSchemaByUser(long id)
         {
             var query = "SELECT schema.* FROM schema INNER JOIN group_permission_schema ON schema.id_schema = group_permission_schema.id_schema INNER JOIN groupuser on group_permission_schema.id_group_user = groupuser.id_group_user INNER JOIN group_account on groupuser.id_group_user = group_account.id_group_user INNER JOIN account ON group_account.id_account = account.id_account WHERE account.id_account =" + id;
+            // var query2 = "SELECT schema.* FROM schema";
             var schemaByUser = _context.Schemas.FromSqlRaw(query).ToList<Schema>();
 
             return schemaByUser;
@@ -59,17 +60,31 @@ namespace app.Controllers
 
             return NoContent();
         }
+        // [HttpPost]
+        // public async Task<ActionResult<Schema>> Create(Schema schema)
+        // {
+
+        //     _context.Schemas.Add(schema);
+        //     await _context.SaveChangesAsync();
+
+        //     return CreatedAtAction("GetSchema", new { id = schema.Id }, schema);
+        // }
+
         [HttpPost]
-        public async Task<ActionResult<Schema>> Create(Schema schema)
+        public List<Schema> Create(SchemaVirtual schema)
         {
 
-            _context.Schemas.Add(schema);
-            await _context.SaveChangesAsync();
+            // var query2 = $"call insert_gps({schema.IdAccount} ,1,{schema.IsPublic},  '{schema.Name}', '{schema.Desc}',  {schema.ReadableDate} , '{schema.Img}' )";
 
-            return CreatedAtAction("GetSchema", new { id = schema.Id }, schema);
+            //var query2 = "call insert_gps(" + schema.IdAccount + ",1," + schema.IsPublic + ",'" + schema.Name + "','" + schema.Desc + "'," + schema.ReadableDate + ",'" + schema.Img + "')";
+            var query2 = $"SELECT  * FROM insert_schema_func({schema.IdAccount} ,1,{schema.IsPublic},  '{schema.Name}', '{schema.Desc}',  {schema.ReadableDate} , '{schema.Img}' )";
+
+
+
+            var createSchemaByUser = _context.Schemas.FromSqlRaw(query2).ToList<Schema>();
+            // return CreatedAtAction('getSchemaByUser', new { id = schema.Id }, createSchemaByUser);
+            return createSchemaByUser;
         }
-
-
         [HttpDelete("{id:long}")]
         public async Task<IActionResult> DeleteSchema(long id)
         {
@@ -80,7 +95,8 @@ namespace app.Controllers
                 {
                     return NotFound();
                 }
-                _context.Schemas.Remove(schema);
+                _context.Schemas.RemoveRange(schema);
+
                 await _context.SaveChangesAsync();
                 return Ok();
             }
