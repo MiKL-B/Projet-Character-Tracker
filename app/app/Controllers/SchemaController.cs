@@ -60,29 +60,19 @@ namespace app.Controllers
 
             return NoContent();
         }
-        // [HttpPost]
-        // public async Task<ActionResult<Schema>> Create(Schema schema)
-        // {
 
-        //     _context.Schemas.Add(schema);
-        //     await _context.SaveChangesAsync();
-
-        //     return CreatedAtAction("GetSchema", new { id = schema.Id }, schema);
-        // }
 
         [HttpPost]
         public List<Schema> Create(SchemaVirtual schema)
         {
 
-            // var query2 = $"call insert_gps({schema.IdAccount} ,1,{schema.IsPublic},  '{schema.Name}', '{schema.Desc}',  {schema.ReadableDate} , '{schema.Img}' )";
 
-            //var query2 = "call insert_gps(" + schema.IdAccount + ",1," + schema.IsPublic + ",'" + schema.Name + "','" + schema.Desc + "'," + schema.ReadableDate + ",'" + schema.Img + "')";
             var query2 = $"SELECT  * FROM insert_schema_func({schema.IdAccount} ,1,{schema.IsPublic},  '{schema.Name}', '{schema.Desc}',  {schema.ReadableDate} , '{schema.Img}' )";
 
 
 
             var createSchemaByUser = _context.Schemas.FromSqlRaw(query2).ToList<Schema>();
-            // return CreatedAtAction('getSchemaByUser', new { id = schema.Id }, createSchemaByUser);
+
             return createSchemaByUser;
         }
         [HttpDelete("{id:long}")]

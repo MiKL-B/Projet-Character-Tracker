@@ -111,7 +111,7 @@ CREATE TABLE GROUP_PERMISSION_SCHEMA(
   id_group_user INTEGER,
   PRIMARY KEY(id_permission, id_schema, id_group_user),
   FOREIGN KEY(id_permission) REFERENCES Permission(id_permission),
-  FOREIGN KEY(id_schema) REFERENCES Schema(id_schema),
+  FOREIGN KEY(id_schema) REFERENCES Schema(id_schema) ON DELETE CASCADE,
   FOREIGN KEY(id_group_user) REFERENCES GroupUser(id_group_user)
 );
 CREATE TABLE GROUP_ACCOUNT(
@@ -267,15 +267,82 @@ INSERT INTO
 VALUES
   (1, 2, 1, 1, 1, 'cousins', 5);
 ----------------------------------------
+  --PROCEDURE INSERT GPS
   --drop
-  DROP FUNCTION insert_group_user_func() CASCADE;
---function
-  CREATE FUNCTION insert_group_user_func() RETURNS TRIGGER AS $ $ DECLARE test integer;
+  drop procedure if exists insert_gps;
+--procedure
+  CREATE
+  OR REPLACE PROCEDURE insert_gps(
+    id_account int,
+    id_permission int,
+    is_public bool,
+    name_schema varchar(255),
+    desc_schema varchar(255),
+    readable_date bool,
+    img_schema varchar(255)
+  ) LANGUAGE plpgsql AS $ $ DECLARE idSchema integer;
+idGroupUser integer;
 BEGIN
 INSERT INTO
-  groupuser(img_group, desc_group, private)
+  schema(
+    is_public,
+    name_schema,
+    desc_schema,
+    readable_date,
+    img_schema
+  )
+VALUES(
+    is_public,
+    name_schema,
+    desc_schema,
+    readable_date,
+    img_schema
+  ) RETURNING id_schema into idSchema;
+INSERT INTO
+  group_permission_schema
+VALUES(
+    id_permission,
+    idSchema,
+    (
+      SELECT
+        id_group_user
+      FROM
+        groupuser
+      WHERE
+        id_account = id_account
+      LIMIT
+        1
+    )
+  );
+SELECT
+  *
+FROM
+  schema
+WHERE
+  id_schema = idSchema INTO _val;
+COMMIT;
+END;
+$ $;
+call insert_gps(
+  74,
+  1,
+  false,
+  'test',
+  'schema de test',
+  false,
+  'img_test'
+);
+-----------------------------------------------------------------------------------
+--INSERT GROUP USER
+--drop
+DROP FUNCTION insert_group_user_func() CASCADE;
+--function
+CREATE FUNCTION insert_group_user_func() RETURNS TRIGGER AS $ $ DECLARE test integer;
+BEGIN
+INSERT INTO
+  groupuser(private)
 VALUES
-  ('e', 'e', false) returning id_group_user into test;
+  (false) RETURNING id_group_user into test;
 INSERT INTO
   group_account
 VALUES
@@ -284,11 +351,64 @@ RETURN new;
 END;
 $ $ LANGUAGE plpgsql;
 --triggeer
-CREATE TRIGGER trigger1
+CREATE TRIGGER trigger_group_user
 AFTER
 INSERT
   ON account FOR EACH ROW EXECUTE PROCEDURE insert_group_user_func();
---insert
+----------------------------------------------------------------------------
+  --FUNCTION INSERT SCHEMA FUNC
+  --function
+  CREATE
+  OR REPLACE FUNCTION insert_schema_func(
+    idAccount int,
+    idPermission int,
+    isPublic bool,
+    nameSchema varchar(255),
+    descSchema varchar(255),
+    readableDate bool,
+    imgSchema varchar(255)
+  ) RETURNS TABLE (
+    id_schema integer,
+    is_public BOOLEAN,
+    name_schema VARCHAR(50),
+    desc_schema TEXT,
+    readable_date BOOLEAN,
+    img_schema VARCHAR(50)
+  ) LANGUAGE plpgsql AS $ $ DECLARE idSchema integer;
+idGroupUser integer;
+BEGIN
 INSERT INTO
-  account(username)
-VALUES('michel');
+  schema(
+    is_public,
+    name_schema,
+    desc_schema,
+    readable_date,
+    img_schema
+  )
+VALUES(
+    isPublic,
+    nameSchema,
+    descSchema,
+    readableDate,
+    imgSchema
+  ) RETURNING schema.id_schema into idSchema;
+SELECT
+  id_group_user
+FROM
+  group_account
+WHERE
+  id_account = idAccount
+LIMIT
+  1 INTO idGroupUser;
+INSERT INTO
+  group_permission_schema
+VALUES(idPermission, idSchema, idGroupUser);
+RETURN QUERY
+SELECT
+  *
+FROM
+  schema
+WHERE
+  schema.id_schema = idSchema;
+END;
+$ $;
