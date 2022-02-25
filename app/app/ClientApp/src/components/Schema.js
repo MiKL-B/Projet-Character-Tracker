@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { ModificationSchema } from "./ModificationSchema.js";
+import { FormPersonage } from "./FormPersonage.js";
 import { withHook } from "../helpers";
 
 import "./Schema.css";
+import { Modal } from "reactstrap";
 
 class Schema extends Component {
   constructor(props) {
     super(props);
-    this.state = { schema: [], loading: true, personages: [] };
+    this.state = { schema: [], isOpen: false, personages: [] };
+    this.handleCallback = this.handleCallback.bind(this);
+    this.handleModal = this.handleModal.bind(this);
   }
 
   async getSchema() {
@@ -29,6 +32,18 @@ class Schema extends Component {
     await this.getPersoBySchema();
     await this.getSchema();
   }
+
+  handleCallback(data) {
+    this.setState({
+      personages: [...this.state.personages, data],
+      isOpen: false,
+    });
+  }
+
+  handleModal() {
+    this.setState({ isOpen: !this.state.isOpen });
+  }
+
   render() {
     return (
       <div>
@@ -61,6 +76,7 @@ class Schema extends Component {
               </div>
             ))}
             <div
+              onClick={this.handleModal}
               data-toggle="modal"
               data-target="#exampleModal"
               className="add-card"
@@ -73,34 +89,26 @@ class Schema extends Component {
             >
               show schema
             </Link>
-            <div
-              className="modal fade"
-              id="exampleModal"
-              tabIndex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">
-                      Creation personage
-                    </h5>
-                    <button
-                      type="button"
-                      className="btn btn-secondary"
-                      data-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                  </div>
-                  <div className="modal-body">
-                    <ModificationSchema id={this.state.schema.id} />
-                  </div>
+            <Modal isOpen={this.state.isOpen} toggle={this.handleModal}>
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Creation personage</h5>
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={this.handleModal}
+                  >
+                    Close
+                  </button>
+                </div>
+                <div className="modal-body">
+                  <FormPersonage
+                    id={this.state.schema.id}
+                    onUpdate={this.handleCallback}
+                  />
                 </div>
               </div>
-            </div>
+            </Modal>
             {/* card */}
           </div>
         </div>

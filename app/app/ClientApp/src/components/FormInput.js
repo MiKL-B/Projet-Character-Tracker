@@ -9,6 +9,7 @@ const Input = ({
   placeholder = "",
   feedback,
   disabled = false,
+  required = false,
 }) => (
   <div className={"form-floating mb-3"}>
     <input
@@ -20,6 +21,7 @@ const Input = ({
       name={name}
       id={name}
       disabled={disabled}
+      required={required}
     />
     <label htmlFor={name}>{label}</label>
     {feedback && (

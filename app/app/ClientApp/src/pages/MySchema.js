@@ -16,7 +16,7 @@ class MySchema extends Component {
   }
 
   async getSchemaByUser() {
-    const listSchema = await fetch(`api/schema/${getUserId()}`)
+    const listSchema = await fetch(`api/schema/byuser/${getUserId()}`)
       .then((res) => res.json())
       .catch((e) => console.log(e));
     if (Array.isArray(listSchema)) this.setState({ schemas: listSchema });
@@ -36,7 +36,6 @@ class MySchema extends Component {
             return schema.id !== schemId;
           }),
         });
-        alert("delete success");
       })
       .catch((error) => {
         console.error("There was an error!", error);

@@ -118,7 +118,11 @@ class SignUp extends Component {
     }
 
     const isRegistered = await this.auth.register({ username, password, mail });
-    if (isRegistered) return window.location.reload(false);
+    if (isRegistered) {
+      this.props.history.push("/");
+      return window.location.reload(false);
+    }
+
     this.setState({
       error: true,
       info: "Please verify informations",

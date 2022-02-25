@@ -13,7 +13,6 @@ class SignIn extends Component {
       info: null,
       error: null,
     };
-    console.log(props.auth);
     this.auth = props.auth;
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,7 +31,10 @@ class SignIn extends Component {
     event.preventDefault();
     const { username, password } = this.state;
     const logged = await this.auth.signin({ username, password });
-    if (logged) return window.location.reload(false);
+    if (logged) {
+      this.props.history.push("/");
+      return window.location.reload(false);
+    }
     this.setState({
       error: true,
       info: "Error account doesn't exist or password are bad",

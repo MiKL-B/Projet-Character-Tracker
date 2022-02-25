@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Button, Input, File, Select } from "./FormInput";
+import { Button, Input, Select } from "./FormInput";
 
-export class ModificationSchema extends Component {
-  static displayName = ModificationSchema.name;
-
+export class FormPersonage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,9 +11,9 @@ export class ModificationSchema extends Component {
       deathdate: "",
       gender: "",
       img: "",
-      raceId: 0,
+      raceId: 1,
     };
-
+    this.onUpdate = this.props.onUpdate;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -30,19 +28,18 @@ export class ModificationSchema extends Component {
     });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
-    console.log(this.props.id);
-    fetch("api/personage", {
+    const data = await fetch("api/personage", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...this.state, schemaId: this.props.id }),
     })
       .then((res) => res.json())
-      .then((data) => {})
       .catch((error) => {
-        console.log(error);
+        return console.log(error);
       });
+    this.onUpdate({ ...data });
   }
 
   render() {
@@ -55,6 +52,7 @@ export class ModificationSchema extends Component {
             label={"Last name"}
             value={this.state.lastname}
             onChange={this.handleInputChange}
+            required
           />
           <Input
             type={"text"}
@@ -62,6 +60,7 @@ export class ModificationSchema extends Component {
             label={"First name"}
             value={this.state.firstname}
             onChange={this.handleInputChange}
+            required
           />
           <Input
             type={"text"}
@@ -84,12 +83,12 @@ export class ModificationSchema extends Component {
             value={this.state.gender}
             onChange={this.handleInputChange}
           />
-          <File
+          {/* <File
             name={"img"}
             label={"img"}
             value={this.state.img}
             onChange={this.handleInputChange}
-          />
+          /> */}
           <Select
             name={"raceId"}
             options={["Orc", "Elfe", "Nain", "Poney", "Licorne", "Humain"]}
