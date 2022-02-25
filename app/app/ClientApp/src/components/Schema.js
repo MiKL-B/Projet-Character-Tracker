@@ -1,25 +1,25 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { ModificationSchema } from "./ModificationSchema.js";
+import { withHook } from "../helpers";
 
 import "./Schema.css";
-export class Schema extends Component {
-  static displayName = Schema.name;
 
+class Schema extends Component {
   constructor(props) {
     super(props);
     this.state = { schema: [], loading: true, personages: [] };
   }
+
   async getSchema() {
-    const response = await fetch(
-      `api/schema/${this.props.match.params.id}`
-    ).then((res) => res.json());
-    // console.log(response);
+    const response = await fetch(`api/schema/${this.props.params.id}`).then(
+      (res) => res.json()
+    );
     this.setState({ schema: response, loading: false });
   }
   async getPersoBySchema() {
     const listPersonage = await fetch(
-      `api/personage/${this.props.match.params.id}`
+      `api/personage/${this.props.params.id}`
     ).then((res) => res.json());
 
     this.setState({ personages: listPersonage });
@@ -68,7 +68,7 @@ export class Schema extends Component {
               +
             </div>
             <Link
-              to={`/show-schema/${this.props.match.params.id}`}
+              to={`/show-schema/${this.props.params.id}`}
               className="btn btn-primary"
             >
               show schema
@@ -96,7 +96,7 @@ export class Schema extends Component {
                     </button>
                   </div>
                   <div className="modal-body">
-                    <ModificationSchema id={this.props.match.params.id} />
+                    <ModificationSchema id={this.state.schema.id} />
                   </div>
                 </div>
               </div>
@@ -108,3 +108,5 @@ export class Schema extends Component {
     );
   }
 }
+
+export default withHook(Schema);

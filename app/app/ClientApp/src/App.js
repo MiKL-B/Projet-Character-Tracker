@@ -1,42 +1,65 @@
 import React, { Component } from "react";
-import { Route } from "react-router";
+import { Route, Switch } from "react-router";
 
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
-import { SignUp } from "./pages/SignUp";
-import { SignIn } from "./pages/SignIn";
-import { MySchema } from "./pages/MySchema";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
+import MySchema from "./pages/MySchema";
 import { MyGroup } from "./pages/MyGroup";
 import { SettingsUser } from "./pages/SettingsUser";
 import { ModificationEvent } from "./pages/ModificationEvent";
-import { ShowSchema } from "./pages/ShowSchema";
+import ShowSchema from "./pages/ShowSchema";
 import { ShowSearch } from "./pages/ShowSearch";
 import { Admin } from "./pages/Admin";
-import { Schema } from "./components/Schema";
+import Schema from "./components/Schema";
 import "./custom.css";
+import { PrivateRoute, ProvideAuth } from "./Auth";
 
 export default class App extends Component {
-  static displayName = App.name;
-
-  componentDidMount() {
+  async componentDidMount() {
     document.title = "Character Tracker";
   }
 
   render() {
     return (
-      <Layout>
-        <Route exact path="/" component={Home} />
-        <Route path="/sign-up" component={SignUp} />
-        <Route path="/sign-in" component={SignIn} />
-        <Route path="/my-schema" component={MySchema} />
-        <Route path="/my-group" component={MyGroup} />
-        <Route path="/settings" component={SettingsUser} />
-        <Route path="/modification-event" component={ModificationEvent} />
-        <Route path="/show-schema/:id" component={ShowSchema} />
-        <Route path="/show-search" component={ShowSearch} />
-        <Route path="/admin" component={Admin} />
-        <Route path="/schema/:id" component={Schema} />
-      </Layout>
+      <ProvideAuth>
+        <Switch>
+          <Layout>
+            <Route exact path="/" component={Home} />
+            <Route path="/sign-up">
+              <SignUp />
+            </Route>
+            <Route path="/sign-in">
+              <SignIn />
+            </Route>
+            <PrivateRoute path="/my-schema">
+              <MySchema />
+            </PrivateRoute>
+            <PrivateRoute path="/my-group">
+              <MyGroup />
+            </PrivateRoute>
+            <PrivateRoute path="/settings">
+              <SettingsUser />{" "}
+            </PrivateRoute>
+            <PrivateRoute path="/modification-event">
+              <ModificationEvent />{" "}
+            </PrivateRoute>
+            <PrivateRoute path="/show-schema/:id">
+              <ShowSchema />{" "}
+            </PrivateRoute>
+            <PrivateRoute path="/show-search">
+              <ShowSearch />{" "}
+            </PrivateRoute>
+            <PrivateRoute path="/admin">
+              <Admin />
+            </PrivateRoute>
+            <PrivateRoute path="/schema/:id">
+              <Schema />
+            </PrivateRoute>
+          </Layout>
+        </Switch>
+      </ProvideAuth>
     );
   }
 }

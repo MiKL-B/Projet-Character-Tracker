@@ -1,29 +1,10 @@
 import React, { Component } from "react";
 
 export class ShowSearch extends Component {
-    static displayName = ShowSearch.name;
-
-    constructor(props) {
-        super(props);
-        this.state = { id: null, status: null };
-        this.auth();
-    }
-
-    async auth() {
-        const requestOptions = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ token: localStorage.getItem("token") }),
-        };
-        const response = await fetch("api/auth/verif", requestOptions)
-        const data = await response.json();
-        this.setState({ id: data, status: response.status })
-        if (this.state.status !== 200) {
-            this.props.history.push('/');
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = { id: null, status: null };
+  }
 
   render() {
     return (

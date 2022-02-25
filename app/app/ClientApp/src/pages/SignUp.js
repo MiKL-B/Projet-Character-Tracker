@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Button, Input } from "../components/FormInput";
+import { withHook } from "../helpers";
 
-export class SignUp extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,6 +18,7 @@ export class SignUp extends Component {
       },
       info: null,
     };
+    this.auth = props.auth;
     this.register = this.register.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -115,24 +117,11 @@ export class SignUp extends Component {
       this.setState({ info: null, error: null });
     }
 
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password, mail }),
-    };
-    const response = await fetch("api/auth/register/", requestOptions)
-      .then((res) => res.json())
-      .catch();
-    if (response["status"] === 400)
-      return this.setState({ info: response["detail"], error: true });
+    const isRegistered = await this.auth.register({ username, password, mail });
+    if (isRegistered) return window.location.reload(false);
     this.setState({
-      accounts: response,
-      error: false,
-      info: "Account successfully register",
-      username: "",
-      mail: "",
-      password: "",
-      confirmPassword: "",
+      error: true,
+      info: "Please verify informations",
     });
   }
 
@@ -206,3 +195,5 @@ export class SignUp extends Component {
     );
   }
 }
+
+export default withHook(SignUp);

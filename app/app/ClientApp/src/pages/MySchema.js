@@ -1,38 +1,27 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FormCreateSchema } from "../components/FormCreateSchema";
-import jwt_decode from "jwt-decode";
+
 import "../components/Schema.css";
-export class MySchema extends Component {
+import { getUserId, withHook } from "../helpers";
+
+class MySchema extends Component {
   static displayName = MySchema.name;
 
   constructor(props) {
     super(props);
 
     this.state = { schemas: [], loading: true, id: null, status: null };
-    this.auth();
     this.handleDeleteSchema = this.handleDeleteSchema.bind(this);
   }
 
-  // async getAllSchemas() {
-  //   const response = await fetch("api/schema");
-  //   const data = await response.json();
-
-  //   this.setState({ schemas: data, loading: false });
-  // }
-
   async getSchemaByUser() {
-    let token = localStorage.getItem("token");
-    if (token) {
-      let decoded = jwt_decode(token);
-      let id_token = decoded.id;
-      const listSchema = await fetch(`api/schema/byuser/${id_token}`).then(
-        (res) => res.json()
-      );
-
-      this.setState({ schemas: listSchema });
-    }
+    const listSchema = await fetch(`api/schema/${getUserId()}`)
+      .then((res) => res.json())
+      .catch((e) => console.log(e));
+    if (Array.isArray(listSchema)) this.setState({ schemas: listSchema });
   }
+
   handleDeleteSchema(schemId) {
     fetch(`/api/schema/${schemId}`, {
       method: "DELETE",
@@ -54,24 +43,7 @@ export class MySchema extends Component {
       });
   }
   async componentDidMount() {
-    // await this.getAllSchemas();
     await this.getSchemaByUser();
-  }
-
-  async auth() {
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ token: localStorage.getItem("token") }),
-    };
-    const response = await fetch("api/auth/verif", requestOptions);
-    const data = await response.json();
-    this.setState({ id: data, status: response.status });
-    if (this.state.status !== 200) {
-      this.props.history.push("/");
-    }
   }
 
   render() {
@@ -154,3 +126,5 @@ export class MySchema extends Component {
     );
   }
 }
+
+export default withHook(MySchema);

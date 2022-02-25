@@ -4,13 +4,14 @@ import "./ShowSchema.css";
 import { Input, Range, Button, Select } from "../components/FormInput";
 import { ButtonToggle } from "reactstrap";
 import Relation from "../components/Relation";
+import { withHook } from "../helpers";
 
 const initialState = {
   sourceName: "",
   targetName: "",
 };
 
-export class ShowSchema extends Component {
+class ShowSchema extends Component {
   constructor(props) {
     super(props);
 
@@ -29,28 +30,10 @@ export class ShowSchema extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    // this.auth();
   }
 
-  async auth() {
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ token: localStorage.getItem("token") }),
-    };
-    const response = await fetch("api/auth/verif", requestOptions);
-    const data = await response.json();
-    this.setState({ id: data, status: response.status });
-    if (this.state.status !== 200) {
-      this.props.history.push("/");
-    }
-  }
   async getPersonage() {
-    const listPersonage = await fetch(
-      `api/personage/${this.props.match.params.id}`
-    )
+    const listPersonage = await fetch(`api/personage/${this.props.params.id}`)
       .then((res) => res.json())
       .then((pers) =>
         pers.map(({ lastname, firstname, ...rest }) => {
@@ -66,7 +49,7 @@ export class ShowSchema extends Component {
   }
   async getRelation() {
     const listRelation = await fetch(
-      `api/relation/byrelation/${this.props.match.params.id}`
+      `api/relation/byrelation/${this.props.params.id}`
     )
       .then((res) => res.json())
       .then((rel) =>
@@ -311,3 +294,5 @@ export class ShowSchema extends Component {
     );
   }
 }
+
+export default withHook(ShowSchema);
