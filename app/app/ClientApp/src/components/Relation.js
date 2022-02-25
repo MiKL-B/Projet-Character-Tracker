@@ -55,10 +55,11 @@ const Relation = ({ edges, nodes, setRelation }, ref) => {
       });
 
       cy.on("dbltap ", "edge", (event) => {
+        console.log(event.target.data());
         const source = event.target.source().data();
         const target = event.target.target().data();
-        const { id, idPrivacy, affinity } = event.target.data();
-        setRelation({ source, target, id, idPrivacy, affinity });
+        const { id, idPrivacy, affinity, idRelation } = event.target.data();
+        setRelation({ source, target, id, idPrivacy, idRelation, affinity });
       });
     },
     [setRelation, eh]

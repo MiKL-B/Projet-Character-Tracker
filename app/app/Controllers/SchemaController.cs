@@ -76,6 +76,7 @@ namespace app.Controllers
 
             return createSchemaByUser;
         }
+
         [HttpDelete("{id:long}")]
         public async Task<IActionResult> DeleteSchema(long id)
         {

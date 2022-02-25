@@ -29,7 +29,7 @@ public class RelationController : ControllerBase
         return relation;
     }
 
-
+    //GET BY RELATION
     [HttpGet("byrelation/{id:long}")]
     public List<Relation> GetRelationBySchema(long id)
     {
@@ -37,6 +37,64 @@ public class RelationController : ControllerBase
         var relationBySchema = _context.Relations.FromSqlRaw(query).ToList<Relation>();
 
         return relationBySchema;
+    }
+    //CREATE
+    [HttpPost]
+    public async Task<ActionResult<Relation>> Create(Relation relation)
+    {
+
+        _context.Relations.Add(relation);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction("getRelationBySchema", new { id = relation.Id }, relation);
+    }
+
+
+
+    // UPDATE relation
+    [HttpPut("{id:long}")]
+    public async Task<IActionResult> UpdateRelation(long id, Relation relation)
+    {
+        if (id != relation.Id) return BadRequest();
+
+        _context.Entry(relation).State = EntityState.Modified;
+
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!RelationExists(id)) return NotFound();
+            throw;
+        }
+
+        return NoContent();
+    }
+    //DELETE
+    [HttpDelete("{id:long}")]
+    public async Task<IActionResult> DeleteRelation(long id)
+    {
+        try
+        {
+            var relation = await _context.Relations.FindAsync(id);
+            if (relation == null)
+            {
+                return NotFound();
+            }
+            _context.Relations.RemoveRange(relation);
+
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+        catch
+        {
+            throw;
+        }
+    }
+    private bool RelationExists(long id)
+    {
+        return _context.Relations.Any(e => e.Id == id);
     }
 
 }

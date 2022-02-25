@@ -72,13 +72,14 @@ export class ShowSchema extends Component {
       .then((rel) =>
         rel.map(({ id, ...rest }) => {
           return {
-            data: { ...rest },
+            data: { ...rest, idRelation: id },
           };
         })
       )
       .catch((e) => console.error(e));
     this.setState({ edges: listRelation });
   }
+
   async componentDidMount() {
     await this.getPersonage();
     await this.getRelation();
@@ -111,6 +112,7 @@ export class ShowSchema extends Component {
     idPrivacy = 1,
     affinity = 5,
     newer = false,
+    idRelation,
   }) {
     this.rel.current.disableDrawMode();
     await this.setState(({ newRelation }) => {
@@ -125,6 +127,7 @@ export class ShowSchema extends Component {
           schemaId: source["schemaId"],
           affinity,
           idPrivacy,
+          idRelation,
           newer,
           id,
         },
@@ -135,12 +138,38 @@ export class ShowSchema extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { newRelation, edges } = this.state;
+    const { id, ...rest } = newRelation;
     if (!newRelation.id) return;
-    if (newRelation.newer) this.rel.current.remove(newRelation.id);
-    this.setState({
-      edges: [...edges, { data: newRelation }],
-      newRelation: initialState,
-    });
+    if (newRelation.newer) {
+      this.rel.current.remove(newRelation.id);
+      fetch("api/relation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ idEvent: 1, ...rest }),
+      }).then(() => {
+        this.setState({
+          edges: [...edges, { data: newRelation }],
+          newRelation: initialState,
+        });
+      });
+    } else {
+      //update
+      fetch(`api/relation/${newRelation["idRelation"]}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...rest,
+          id: newRelation["idRelation"],
+          idEvent: 1,
+        }),
+      }).then((res) => {
+        console.log(res);
+        this.setState({
+          edges: [...edges, { data: newRelation }],
+          newRelation: initialState,
+        });
+      });
+    }
   }
 
   handleReset(event) {
@@ -156,10 +185,22 @@ export class ShowSchema extends Component {
   handleDelete(event) {
     event.preventDefault();
     const { edges, newRelation } = this.state;
-    this.setState({
-      edges: edges.filter(({ data }) => data["id"] !== newRelation["id"]),
-      newRelation: initialState,
-    });
+    fetch(`/api/relation/${newRelation["idRelation"]}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: newRelation["idRelation"] }),
+    })
+      .then((res) => {
+        this.setState({
+          edges: edges.filter(({ data }) => data["id"] !== newRelation["id"]),
+          newRelation: initialState,
+        });
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
   }
 
   render() {
