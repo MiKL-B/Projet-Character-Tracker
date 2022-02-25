@@ -12,6 +12,7 @@ class Schema extends Component {
     this.state = { schema: [], isOpen: false, personages: [] };
     this.handleCallback = this.handleCallback.bind(this);
     this.handleModal = this.handleModal.bind(this);
+    this.handleDeletePerso = this.handleDeletePerso.bind(this);
   }
 
   async getSchema() {
@@ -28,6 +29,25 @@ class Schema extends Component {
     this.setState({ personages: listPersonage });
   }
 
+  handleDeletePerso(persoId) {
+    fetch(`/api/personage/${persoId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: persoId,
+    })
+      .then((res) => {
+        this.setState({
+          personages: this.state.personages.filter((perso) => {
+            return perso.id !== persoId;
+          }),
+        });
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+  }
   async componentDidMount() {
     await this.getPersoBySchema();
     await this.getSchema();
@@ -72,6 +92,17 @@ class Schema extends Component {
                   <p className="">gender: {n.gender}</p>
                   <p className="">birthdate: {n.birthdate}</p>
                   <p className="">deathdate: {n.deathdate}</p>
+                  {/*  */}
+                  <button
+                    onClick={(id) => {
+                      if (window.confirm("do you want to delete this perso")) {
+                        this.handleDeletePerso(n.id);
+                      }
+                    }}
+                    className="btn btn-danger"
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             ))}

@@ -74,19 +74,28 @@ namespace app.Controllers
             return CreatedAtAction("getPersoBySchema", new { id = personage.Id }, personage);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeletePersonage(Personage personag)
+        [HttpDelete("{id:long}")]
+        public async Task<IActionResult> DeletePersonage(long id)
         {
-            var personage = await _context.Personages.FindAsync(personag.Id);
-            if (personage == null)
+
+            try
             {
-                return NotFound();
+                var personage = await _context.Personages.FindAsync(id);
+                if (personage == null)
+                {
+                    return NotFound();
+                }
+
+                _context.Personages.Remove(personage);
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            catch
+            {
+                throw;
             }
 
-            _context.Personages.Remove(personage);
-            await _context.SaveChangesAsync();
-
-            return Ok();
         }
         private bool PersonageExists(long id)
         {
