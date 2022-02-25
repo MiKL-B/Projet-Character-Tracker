@@ -14,14 +14,12 @@ const initialState = {
 class ShowSchema extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       nodes: [],
       edges: [],
       newRelation: initialState,
       draw: false,
-      id: null,
-      status: null,
+      schema: {},
     };
     this.rel = React.createRef();
     this.drawning = this.drawning.bind(this);
@@ -66,6 +64,10 @@ class ShowSchema extends Component {
   async componentDidMount() {
     await this.getPersonage();
     await this.getRelation();
+    await fetch(`api/schema/${this.props.params.id}`)
+      .then((res) => res.json())
+      .then((schema) => this.setState({ schema: schema }))
+      .catch((e) => console.error(e));
   }
 
   drawning = () => {
@@ -194,7 +196,7 @@ class ShowSchema extends Component {
     return (
       <div className="row container-fluid wrapper">
         <div className="col-md-2 border-end">
-          <h2>SCHEMA NAME</h2>
+          <h2>{this.state.schema.name}</h2>
           <a
             className={"modal-title text-decoration-none"}
             data-bs-toggle="collapse"
@@ -203,10 +205,7 @@ class ShowSchema extends Component {
             Description
           </a>
           <p className={"collapse"} id={"descCollapse"}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci,
-            animi aut ducimus eius eligendi exercitationem fugit in natus
-            perferendis praesentium quis quos ratione reprehenderit repudiandae
-            tenetur! Laboriosam repellat unde ut!
+            {this.state.schema.desc}
           </p>
           <hr />
           <p>Double click on edge to edit a relation</p>

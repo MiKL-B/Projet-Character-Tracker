@@ -5,23 +5,9 @@
     <projectFile profileName="IIS Express">app/app.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/ClientApp/src/Auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ClientApp/src/helpers.js" afterDir="false" />
+    <list default="true" id="217d9ee3-a495-49da-a0eb-e20b223d7bb7" name="Changes" comment="Refacto Auth">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/NavMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/NavMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/components/Schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/components/Schema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/Admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/Admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/MyGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/MyGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/MySchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/MySchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SettingsUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SettingsUser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/ShowSearch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientApp/src/pages/SignUp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +191,7 @@
       <workItem from="1645600464391" duration="19289000" />
       <workItem from="1645686513066" duration="139000" />
       <workItem from="1645686710347" duration="17257000" />
-      <workItem from="1645773033962" duration="7419000" />
+      <workItem from="1645773033962" duration="8945000" />
     </task>
     <task id="LOCAL-00001" summary="[Test] add new route pizza">
       <created>1643637083134</created>
@@ -375,7 +361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645606822750</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Refacto Auth">
+      <created>1645781287847</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1645781287847</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,7 +443,8 @@
     <MESSAGE value="CRUD Relation DOM only" />
     <MESSAGE value="Improve relation legend" />
     <MESSAGE value="update relation" />
-    <option name="LAST_COMMIT_MESSAGE" value="update relation" />
+    <MESSAGE value="Refacto Auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refacto Auth" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
